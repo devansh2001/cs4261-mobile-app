@@ -14,6 +14,7 @@ import {
 } from "native-base";
 import NativeBaseIcon from "./components/NativeBaseIcon";
 import LoginView from "./components/loginScreenComponents/LoginView";
+import SignUpView from "./components/loginScreenComponents/SignUp";
 
 // Define the config
 const config = {
@@ -31,7 +32,7 @@ export default function App() {
         px={4}
         flex={1}
       >
-        <LoginView/>
+        <SignUpView/>
         {/* <VStack space={5} alignItems="center">
           <NativeBaseIcon />
           <Heading size="lg">Welcome to NativeBase</Heading>

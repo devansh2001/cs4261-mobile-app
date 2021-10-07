@@ -23,12 +23,10 @@ const LoginView = () => {
     const [password, setPassword] = React.useState('');
 
     const handleEmailChange = (e) => {
-        console.log(e.target.value)
         setEmail(e.target.value)
     }
     
     const handlePasswordChange = (e) => {
-        console.log(e.target.value)
         setPassword(e.target.value)
     }
 
