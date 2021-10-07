@@ -6,6 +6,7 @@ import {
   Link,
   HStack,
   Center,
+  Button,
   Input,
   Heading,
   Switch,
@@ -32,7 +33,7 @@ const LoginView = () => {
     }
 
     return (
-        // <Center flex={1} px='3'>
+        <Center flex={1} px='3'>
             <ScrollView>
                 <VStack mt="50">
                     <Heading>Login</Heading>
@@ -47,9 +48,17 @@ const LoginView = () => {
                         <Text>Password</Text>
                         <Input onChange={handlePasswordChange} type='password' variant='rounded' placeholder='P@$$w0rd' />
                     </VStack>
-                </VStack>
+                    <Button>
+                        Log Me In!
+                    </Button>
+
+                    <VStack>
+                        <Text>Don't have an account?</Text>
+                        <Button>Sign Up instead</Button>
+                    </VStack>
+                </VStack>                
             </ScrollView>
-        // </Center>
+        </Center>
     )
 }
 

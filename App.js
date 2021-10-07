@@ -32,7 +32,7 @@ export default function App() {
         px={4}
         flex={1}
       >
-        <SignUpView/>
+        <LoginView/>
         {/* <VStack space={5} alignItems="center">
           <NativeBaseIcon />
           <Heading size="lg">Welcome to NativeBase</Heading>
