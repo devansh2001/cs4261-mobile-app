@@ -14,7 +14,10 @@ import {
   extendTheme,
   VStack,
   Code,
+  ScrollView,
+  Button
 } from "native-base";
+
 
 const SignUpView = () => {
     const [fName, setFName] = useState('');
@@ -55,8 +58,9 @@ const SignUpView = () => {
 
     return (
         <Center flex={1} px='3'>
-            <Heading>Sign Up</Heading>
-            <VStack>
+            <ScrollView margin="10">
+            <Heading >Sign Up</Heading>
+            <VStack space="10" margin="10">
                 <VStack>
                     <Text>First Name</Text>
                     <Input onChange={handleFirstNameChange} variant='rounded' placeholder='George' />
@@ -81,7 +85,16 @@ const SignUpView = () => {
                     <Text>Password</Text>
                     <Input onChange={handlePasswordChange} type='password' variant='rounded' placeholder='P@$$w0rd' />
                 </VStack>
+                <Button>
+                    Sign Me Up!
+                </Button>
+
+                <VStack>
+                    <Text>Already have an account?</Text>
+                    <Button>Log In instead</Button>
+                </VStack>
             </VStack>
+            </ScrollView>
         </Center>
     )
 }
