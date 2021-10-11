@@ -15,6 +15,7 @@ import {
 import NativeBaseIcon from "./components/NativeBaseIcon";
 import LoginView from "./components/loginScreenComponents/LoginView";
 import SignUpView from "./components/loginScreenComponents/SignUp";
+import BusyBeeHeaderComponent from "./components/busybeeHeader/BusyBeeHeaderComponent";
 
 // Define the config
 const config = {
@@ -32,6 +33,7 @@ export default function App() {
         px={4}
         flex={1}
       >
+        <BusyBeeHeaderComponent />
         <LoginView/>
         {/* <VStack space={5} alignItems="center">
           <NativeBaseIcon />
