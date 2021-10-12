@@ -34,7 +34,7 @@ export default function App() {
         flex={1}
       >
         <BusyBeeHeaderComponent />
-        <LoginView/>
+        <SignUpView/>
         {/* <VStack space={5} alignItems="center">
           <NativeBaseIcon />
           <Heading size="lg">Welcome to NativeBase</Heading>
