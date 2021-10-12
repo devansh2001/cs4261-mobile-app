@@ -15,7 +15,8 @@ import {
   VStack,
   Code,
   ScrollView,
-  Button
+  Button,
+  Radio
 } from "native-base";
 
 
@@ -26,7 +27,7 @@ const SignUpView = () => {
     const [password, setPassword] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [venmoID, setVenmoID] = useState('');
-    const [userType, setUserType] = useState('');
+    const [userType, setUserType] = useState('consumer');
 
     const handleFirstNameChange = (e) => {
         setFName(e.target.value);
@@ -64,22 +65,33 @@ const SignUpView = () => {
         headers.append('email', email)
         headers.append('password', password)
         // https://stackoverflow.com/a/52936747
-        headers.append('Access-Control-Allow-Origin', 'https://localhost')
+        headers.append('Access-Control-Allow-Origin', 'http://localhost')
         headers.append('Content-Type', 'application/json')
 
-        await fetch('https://cs4261-users-service.herokuapp.com/authenticate', {
-            method: 'GET',
-            headers: headers
+        const body = {
+            'fname': fName,
+            'lname': lName,
+            'phone_number': phoneNumber,
+            'email': email,
+            'password': password,
+            'venmo_id': venmoID,
+            'user_type': userType,
+            'user_location': '0'
+        }
+
+        await fetch('https://cs4261-users-service.herokuapp.com/create-user', {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(body)
         })
         .then(data => data.json())
-        .then(data => apiResponse = data)
+        .then(data => console.log(data))
         .catch(err => console.log(err))
-
-        if (apiResponse['status'] !== 200) {
-            console.log('Please try again')
-        } else {
-            setUserInfo(apiResponse['user'])
-        }        
+        // if (apiResponse['status'] !== 200) {
+        //     console.log('Please try again')
+        // } else {
+        //     console.log('User created!')
+        // }
     }
 
     return (
@@ -125,6 +137,30 @@ const SignUpView = () => {
                             <Text margin='2'>Password</Text>
                         </Center>
                         <Input onChange={handlePasswordChange} type='password' variant='rounded' placeholder='P@$$w0rd' />
+                    </VStack>
+
+                    <VStack>
+                        <Center>
+                            <Text margin='2'>Account Type</Text>
+                        </Center>
+                        {/* https://docs.nativebase.io/radio */}
+                        <Radio.Group
+                            name="myRadioGroup"
+                            accessibilityLabel="favorite number"
+                            value={userType}
+                            onChange={(nextValue) => {
+                                setUserType(nextValue)
+                            }}
+                        >
+                            <HStack>
+                                <Radio value="consumer" my={1} margin='10px'>
+                                    <Text margin='1'>Consumer</Text>
+                                </Radio>
+                                <Radio value="provider" my={1}>
+                                    <Text margin='1'>Provider</Text>
+                                </Radio>
+                            </HStack>
+                        </Radio.Group>
                     </VStack>
                     
                     <Button onPress={handleSignup} backgroundColor='#fff9a1' shadow='5' _text={{color: 'black'}}>
