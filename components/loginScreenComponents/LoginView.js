@@ -14,11 +14,12 @@ import {
   extendTheme,
   VStack,
   Code,
+  Button,
 } from "native-base";
 
 
 
-const LoginView = () => {
+const LoginView = ({navigation}) => {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
 
@@ -44,6 +45,12 @@ const LoginView = () => {
                     <Text>Password</Text>
                     <Input onChange={handlePasswordChange} type='password' variant='rounded' placeholder='P@$$w0rd' />
                 </VStack>
+                <Button
+                    title="GO"
+                    onPress={() =>
+                        navigation.navigate('Services')
+                    }
+                />
             </VStack>
         </Center>
     )
