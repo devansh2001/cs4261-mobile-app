@@ -10,3 +10,5 @@ expo init my-app --template expo-template-native-base
 # Resources Used
 - https://stackoverflow.com/a/52936747
 - https://docs.nativebase.io/radio
+- https://github.com/aksonov/react-native-router-flux
+- https://reactnative.dev/docs/navigation

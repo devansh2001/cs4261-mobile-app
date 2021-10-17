@@ -10,12 +10,14 @@ import {
   NativeBaseProvider,
   extendTheme,
   VStack,
-  Code,
+  Code
 } from "native-base";
+
 import NativeBaseIcon from "./components/NativeBaseIcon";
 import LoginView from "./components/loginScreenComponents/LoginView";
 import SignUpView from "./components/loginScreenComponents/SignUp";
 import BusyBeeHeaderComponent from "./components/busybeeHeader/BusyBeeHeaderComponent";
+import { Router } from "react-native-router-flux";
 
 // Define the config
 const config = {
@@ -33,8 +35,16 @@ export default function App() {
         px={4}
         flex={1}
       >
-        <BusyBeeHeaderComponent />
-        <SignUpView/>
+        {/* https://github.com/aksonov/react-native-router-flux */}
+        {/* <Router>
+          <BusyBeeHeaderComponent/>
+          <Stack key="root">
+            <Scene key="login" component={LoginView} title="Login" />
+            <Scene key="signup" component={SignUpView} title="SignUp" />
+          </Stack>
+        </Router> */}
+        {/* https://reactnative.dev/docs/navigation */}
+
         {/* <VStack space={5} alignItems="center">
           <NativeBaseIcon />
           <Heading size="lg">Welcome to NativeBase</Heading>
