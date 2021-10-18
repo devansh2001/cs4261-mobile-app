@@ -1,7 +1,7 @@
 // Used this documentation: https://docs.nativebase.io/input, https://docs.nativebase.io/image,
 // https://docs.nativebase.io/box
 
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef } from "react";
 import {
   Text,
   Link,
@@ -29,6 +29,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 
 const ProvidersView = ({navigation, route}) => {
+
 const data = [
 //replace this with data from database
     {
@@ -56,27 +57,6 @@ const data = [
         minimum_price: "$20",
     },
 ]
-
-/*const [isLoading, setLoading] = useState(true);
-const [data, setData] = useState([]);
-
-const getProviders = async () => {
-    try {
-        const response = await fetch('https://cs4261-users-service.herokuapp.com/get-availability');
-        const json = await response.json();
-        setData(json.service_id);
-    } catch (error) {
-        console.error(error);
-    } finally {
-        setLoading(false);
-    }
-    console.log("going");
-}
-
-useEffect(() => {
-    getProviders();
-}, []);
-*/
 
 
     return (

@@ -18,152 +18,65 @@ import {
   Image,
   Container,
   Box,
+  FlatList,
+  Divider,
   Button,
 } from "native-base";
 import BottomBar from "./sharedComponents/BottomBar";
 import TopBar from "./sharedComponents/TopBar";
+import { Ionicons } from '@expo/vector-icons';
 
-import { MaterialIcons } from '@expo/vector-icons';
 
 
 const ServicesView = ({navigation, route}) => {
+
+const data = [
+//replace this with data from database
+    {
+        service_id: "57",
+        service_name: "Dog Walking",
+        service_description: "Walk dogs"
+    },
+    {
+        service_id: "58",
+        service_name: "Cat sitting",
+        service_description: "Give cats food and water twice a day"
+    },
+    {
+        service_id: "59",
+        service_name: "Dog Sitting",
+        service_description: "Walk dogs, feed them, and let them outside"
+    },
+]
+
 
     return (
         <VStack h="100%" w="100%">
             <Center h="100%" w="100%">
                 <TopBar/>
-                <Box h="90%" w="100%">
-                    <Center>
-                        <Heading>Services</Heading>
-                    </Center>
-                    <HStack h="20%" space={2} px={2} py={1}>
-                        <Button
-                            backgroundColor="#FFF9A1"
-                            rounded="lg"
-                            borderColor="#c4c4c4"
-                            borderWidth="1"
-                            shadow="2"
-                            w="49%"
-                            h="100%"
-                            onPress={() =>
-                                navigation.navigate('Providers')
-                            }
-                        >
-                            <Center>
-                                <Heading>Cleaning</Heading>
-                                <MaterialIcons name="clean-hands" size={50} color="black" />
-                            </Center>
-                        </Button>
-                        <Button
-                            backgroundColor="#FFF9A1"
-                            rounded="lg"
-                            borderColor="#c4c4c4"
-                            borderWidth="1"
-                            shadow="2"
-                            w="49%"
-                            h="100%"
-                            onPress={() =>
-                                navigation.navigate('Providers')
-                            }
-                        >
-                            <Center>
-                                <Heading>Pet</Heading>
-                                <MaterialIcons name="pets" size={50} color="black" />
-                            </Center>
-                        </Button>
-                    </HStack>
-                    <HStack h="20%" space={2} px={2} py={1}>
-                        <Button
-                            backgroundColor="#FFF9A1"
-                            rounded="lg"
-                            borderColor="#c4c4c4"
-                            borderWidth="1"
-                            shadow="2"
-                            w="49%"
-                            h="100%"
-                            onPress={() =>
-                                navigation.navigate('Providers')
-                            }
-                        >
-                            <Center>
-                                <Heading>Plumbing</Heading>
-                                <MaterialIcons name="plumbing" size={50} color="black" />
-                            </Center>
-                        </Button>
-                        <Button
-                            backgroundColor="#FFF9A1"
-                            rounded="lg"
-                            borderColor="#c4c4c4"
-                            borderWidth="1"
-                            shadow="2"
-                            w="49%"
-                            h="100%"
-                            onPress={() =>
-                                navigation.navigate('Providers')
-                            }
-                        >
-                            <Center>
-                                <Heading>Electrical</Heading>
-                                <MaterialIcons name="electrical-services" size={50} color="black" />
-                            </Center>
-                        </Button>
-                    </HStack>
-                    <HStack h="20%" space={2} px={2} py={1}>
-                        <Button
-                            backgroundColor="#FFF9A1"
-                            rounded="lg"
-                            borderColor="#c4c4c4"
-                            borderWidth="1"
-                            shadow="2"
-                            w="49%"
-                            h="100%"
-                            onPress={() =>
-                                navigation.navigate('Providers')
-                            }
-                        >
-                            <Center>
-                                <Heading>Assembly</Heading>
-                                <MaterialIcons name="build" size={50} color="black" />
-                            </Center>
-                        </Button>
-                        <Button
-                            backgroundColor="#FFF9A1"
-                            rounded="lg"
-                            borderColor="#c4c4c4"
-                            borderWidth="1"
-                            shadow="2"
-                            w="49%"
-                            h="100%"
-                            onPress={() =>
-                                navigation.navigate('Providers')
-                            }
-                        >
-                            <Center>
-                                <Heading>Technology</Heading>
-                                <MaterialIcons name="computer" size={50} color="black" />
-                            </Center>
-                        </Button>
-                    </HStack>
-                    <HStack h="20%" space={2} px={2} py={1}>
-                        <Button
-                            backgroundColor="#FFF9A1"
-                            rounded="lg"
-                            borderColor="#c4c4c4"
-                            borderWidth="1"
-                            shadow="2"
-                            w="100%"
-                            h="100%"
-                            onPress={() =>
-                                navigation.navigate('Providers')
-                            }
-                        >
-                            <Center>
-                                <Heading>Other</Heading>
-                                <MaterialIcons name="home-repair-service" size={50} color="black" />
-                            </Center>
-                        </Button>
-                    </HStack>
-                </Box>
+                <Center h="90%" w="100%" py={2}>
+                    <Heading>Services</Heading>
+                    <FlatList
+                        w="100%"
+                        space={1}
+                        data={data}
+                        renderItem={({ item }) => (
+                            <Button
+                                w="100%"
+                                borderWidth="1"
+                                borderColor="#c4c4c4"
+                                bg="white"
+                                rounded="xs"
+                                onPress={() =>
+                                    navigation.navigate('Providers')
+                                }
+                            >
+                                <Text>{item.service_name}</Text>
+                            </Button>
+                        )}
+                        keyExtractor={(item) => item.service_id}
+                    />
+                </Center>
                 <BottomBar/>
             </Center>
         </VStack>

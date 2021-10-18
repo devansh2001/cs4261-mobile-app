@@ -20,6 +20,7 @@ import {
   Box,
   FlatList,
   Divider,
+  Button,
 } from "native-base";
 import BottomBar from "./sharedComponents/BottomBar";
 import TopBar from "./sharedComponents/TopBar";
@@ -67,6 +68,21 @@ let avg_rating = sum/data.length;
                         <Text fontSize="lg">{avg_rating}</Text>
                         <Feather name="star" size={24} color="black" />
                         <Text fontSize="lg">    {data[0].provider_fname} {data[0].provider_lname}</Text>
+                        <Button
+                            backgroundColor="#FFF9A1"
+                            rounded="lg"
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="2"
+
+                            onPress={() =>
+                                navigation.navigate("ServiceRequest")
+                            }
+                        >
+                            <Center>
+                                <Text>Request</Text>
+                            </Center>
+                        </Button>
                     </HStack>
                     <Text fontSize="xl">Reviews</Text>
                     <FlatList

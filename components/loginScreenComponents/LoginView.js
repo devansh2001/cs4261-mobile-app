@@ -48,7 +48,7 @@ const LoginView = ({navigation}) => {
                 <Button
                     title="GO"
                     onPress={() =>
-                        navigation.navigate('Services')
+                        navigation.navigate('Categories')
                     }
                 />
             </VStack>

@@ -18,6 +18,7 @@ import {
   Image,
   Container,
   Box,
+  Button,
 } from "native-base";
 import { SimpleLineIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -26,23 +27,50 @@ import { Ionicons } from '@expo/vector-icons';
 
 
 
-const BottomBar = () => {
-
+const BottomBar = ({navigation}) => {
     return (
         <Box backgroundColor="#FFF9A1" w="100%" h="5%">
             <HStack w="100%">
-                <Center w="25%">
+                <Button
+                    w="25%"
+                    h="100%"
+                    bg="#FFF9A1"
+                    onPress={() =>
+                        navigation.navigate("Providers")
+                    }
+                >
                     <SimpleLineIcons name="home" size={24} color="black" />
-                </Center>
-                <Center w="25%">
+                </Button>
+                <Button
+                    w="25%"
+                    h="100%"
+                    bg="#FFF9A1"
+                    onPress={() =>
+                        navigation.navigate("Messages")
+                    }
+                >
                     <Feather name="message-circle" size={24} color="black" />
-                </Center>
-                <Center w="25%">
+                </Button>
+                <Button
+                    w="25%"
+                    h="100%"
+                    bg="#FFF9A1"
+                    onPress={() =>
+                        navigation.navigate("Calendar")
+                    }
+                >
                     <MaterialCommunityIcons name="calendar-month-outline" size={24} color="black" />
-                </Center>
-                <Center w="25%">
+                </Button>
+                <Button
+                    w="25%"
+                    h="100%"
+                    bg="#FFF9A1"
+                    onPress={() =>
+                        navigation.navigate("Settings")
+                    }
+                >
                     <Ionicons name="ios-settings-outline" size={24} color="black" />
-                </Center>
+                </Button>
             </HStack>
         </Box>
     )

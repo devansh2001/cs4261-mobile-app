@@ -22,7 +22,7 @@ import ServicesView from "./components/ServicesView";
 import ProvidersView from "./components/ProvidersView";
 import ServiceRequestView from "./components/ServiceRequestView";
 import ProviderDetailView from "./components/ProviderDetailView";
-
+import CategoriesView from "./components/ServiceCatView";
 
 // Define the config
 const config = {
@@ -42,6 +42,7 @@ export default function App() {
       <NativeBaseProvider>
         <Stack.Navigator>
           <Stack.Screen name="Login" component={LoginView} />
+          <Stack.Screen name="Categories" component={CategoriesView} />
           <Stack.Screen name="Services" component={ServicesView} />
           <Stack.Screen name="Providers" component={ProvidersView} />
           <Stack.Screen name="ServiceRequest" component={ServiceRequestView} />

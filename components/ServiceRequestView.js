@@ -21,58 +21,34 @@ import {
   FlatList,
 } from "native-base";
 import BottomBar from "./sharedComponents/BottomBar";
+import TopBar from "./sharedComponents/TopBar";
 
 
 const ServiceRequestView = ({navigation, route}) => {
-const data = [
-//replace this with data from database
-    {
-      service_id: "57",
-      service_name: "Dog Walking",
-      service_description: "Walk dogs!",
-      service_category: "Pet",
-    },
-    {
-          service_id: "57",
-          service_name: "Cat sitting",
-          service_description: "Walk dogs!",
-          service_category: "Pet",
-        },
-    ]
-
-
 
     return (
-        <VStack>
-            <Center>
-                <Text>Service Request</Text>
-                <Text>Time Estimate</Text>
-                <Input
-                    mx="3"
-                    placeholder="1 hour"
-                    w={{
-                        base: "70%",
-                        md: "25%",
-                    }}
-                />
-                <Text>Payment Offer</Text>
-                <Input
-                    mx="3"
-                    placeholder="$20"
-                    w={{
-                        base: "70%",
-                        md: "25%",
-                    }}
-                />
-                <Text>Task Details</Text>
-                <Input
-                    mx="3"
-                    placeholder="Walk dogs"
-                    w={{
-                        base: "70%",
-                        md: "25%",
-                    }}
-                />
+        <VStack h="100%" w="100%">
+            <Center h="100%" w="100%">
+                <TopBar/>
+                <VStack h="90%" w="100%" py={2} px={2} space={3}>
+                    <Heading>Service Request</Heading>
+                    <Text>Time Estimate</Text>
+                    <Input
+                        placeholder="1 hour"
+                        w="100%"
+                    />
+                    <Text>Payment Offer</Text>
+                    <Input
+                        placeholder="$20"
+                        w="100%"
+                    />
+                    <Text>Task Details</Text>
+                    <Input
+                        placeholder="Walk dogs"
+                        w="100%"
+                        h="20%" //FIX THIS, TEXT DOES NOT WRAP
+                    />
+                </VStack>
                 <BottomBar/>
             </Center>
         </VStack>
