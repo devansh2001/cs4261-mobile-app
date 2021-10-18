@@ -1,7 +1,7 @@
 // Used this documentation: https://docs.nativebase.io/input, https://docs.nativebase.io/image,
 // https://docs.nativebase.io/box
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import {
   Text,
   Link,
@@ -30,7 +30,7 @@ import { Feather } from '@expo/vector-icons';
 
 
 const ProviderDetailView = ({navigation, route}) => {
-const data = [
+const vdata = [
     {
         review_id: "42",
         review_text: "Great Provider",
@@ -52,29 +52,52 @@ const data = [
         consumer_fname: "FirstName",
     },
 ]
+const { user } = route.params;
+const [data, setData] = useState([]);
+const getData = async () => {
+    let url = 'https://cs4261-review-service.herokuapp.com/get-all-reviews/';
+     try {
+      const response = await fetch(url + user);
+      const json = await response.json();
+      setData(json.user);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+ useEffect(() => {
+     getData();
+ }, []);
+
 let sum = 0;
+let avg_rating = "No ratings";
 data.forEach(function(item, index, array) {
     sum = parseInt(item.review_rating) + sum;
 })
-let avg_rating = sum/data.length;
+if(sum>0){
+    let avg_rating = sum/data.length;
+}
+
+
 
     return (
         <VStack h="100%" w="100%">
             <Center h="100%" w="100%">
                 <TopBar/>
-                <Box backgroundColor="#FFFFFF" h="90%" w="100%">
+                <Box backgroundColor="#FFFFFF" h="95%" w="100%">
                     <Heading>Provider Details</Heading>
-                    <HStack>
+                    <Text fontSize="lg" px={2}>{user}</Text>
+                    <HStack px={2}>
                         <Text fontSize="lg">{avg_rating}</Text>
                         <Feather name="star" size={24} color="black" />
-                        <Text fontSize="lg">    {data[0].provider_fname} {data[0].provider_lname}</Text>
+                    </HStack>
+                    <Center>
                         <Button
                             backgroundColor="#FFF9A1"
+                            w="50%"
                             rounded="lg"
                             borderColor="#c4c4c4"
                             borderWidth="1"
                             shadow="2"
-
                             onPress={() =>
                                 navigation.navigate("ServiceRequest")
                             }
@@ -83,10 +106,11 @@ let avg_rating = sum/data.length;
                                 <Text>Request</Text>
                             </Center>
                         </Button>
-                    </HStack>
-                    <Text fontSize="xl">Reviews</Text>
+                    </Center>
+                    <Text fontSize="xl" px={2}>Reviews</Text>
                     <FlatList
                         w="100%"
+                        px={2}
                         data={data}
                         renderItem={({ item }) => (
                             <Box
@@ -108,7 +132,6 @@ let avg_rating = sum/data.length;
                         keyExtractor={(item) => item.review_id}
                     />
                 </Box>
-                <BottomBar/>
             </Center>
         </VStack>
     )

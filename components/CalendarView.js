@@ -21,43 +21,20 @@ import {
   FlatList,
   Divider,
   Button,
-  ScrollView,
 } from "native-base";
 import BottomBar from "./sharedComponents/BottomBar";
 import TopBar from "./sharedComponents/TopBar";
-import { Ionicons } from '@expo/vector-icons';
 
+const CalendarView = ({navigation, route}) => {
 
-
-const ServicesView = ({navigation, route}) => {
-
-let vdata = [
-//replace this with data from database
-    {
-        service_id: "57",
-        service_name: "Dog Walking",
-        service_description: "Walk dogs"
-    },
-    {
-        service_id: "58",
-        service_name: "Cat sitting",
-        service_description: "Give cats food and water twice a day"
-    },
-    {
-        service_id: "59",
-        service_name: "Dog Sitting",
-        service_description: "Walk dogs, feed them, and let them outside"
-    },
-]
-const { category } = route.params;
-
+const user = '50c77f60-4089-447a-b0e9-6a07c984c6bb';
 const [data, setData] = useState([]);
 const getData = async () => {
-    let url = 'https://cs4261-services-service.herokuapp.com/get-services-by-category/';
+    let url = 'https://cs4261-task-service.herokuapp.com/get-tasks-by-status/';
      try {
-      const response = await fetch(url + category);
+      const response = await fetch(url + user + '/SCHEDULED');
       const json = await response.json();
-      setData(json.services);
+      setData(json.task);
     } catch (error) {
       console.error(error);
     }
@@ -71,7 +48,7 @@ const getData = async () => {
             <Center h="100%" w="100%">
                 <TopBar/>
                 <Center h="95%" w="100%">
-                    <Heading>{category} SERVICES</Heading>
+                    <Heading>Calendar</Heading>
                     <FlatList
                         w="100%"
                         space={1}
@@ -84,10 +61,13 @@ const getData = async () => {
                                 bg="white"
                                 rounded="xs"
                                 onPress={() =>
-                                    navigation.navigate('Providers',{service:item.service_id})
+                                    navigation.navigate('ProviderDetail',{user:item.task_provider})
                                 }
                             >
-                                <Text>{item.service_name}</Text>
+                                <HStack space={3}>
+                                    <Text>{item.task_date_time}</Text>
+                                    <Text>{item.service_name}</Text>
+                                </HStack>
                             </Button>
                         )}
                         keyExtractor={(item) => item.service_id}
@@ -98,4 +78,4 @@ const getData = async () => {
     )
 }
 
-export default ServicesView;
+export default CalendarView;

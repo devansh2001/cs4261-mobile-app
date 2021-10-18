@@ -19,6 +19,7 @@ import {
   Container,
   Box,
   FlatList,
+  Button,
 } from "native-base";
 import BottomBar from "./sharedComponents/BottomBar";
 import TopBar from "./sharedComponents/TopBar";
@@ -30,7 +31,7 @@ const ServiceRequestView = ({navigation, route}) => {
         <VStack h="100%" w="100%">
             <Center h="100%" w="100%">
                 <TopBar/>
-                <VStack h="90%" w="100%" py={2} px={2} space={3}>
+                <VStack h="95%" w="100%" py={2} px={2} space={3}>
                     <Heading>Service Request</Heading>
                     <Text>Time Estimate</Text>
                     <Input
@@ -48,8 +49,20 @@ const ServiceRequestView = ({navigation, route}) => {
                         w="100%"
                         h="20%" //FIX THIS, TEXT DOES NOT WRAP
                     />
+                    <Button
+                        bg="#FFF9A1"
+                        rounded="lg"
+                        borderColor="#c4c4c4"
+                        borderWidth="1"
+                        shadow="2"
+                        onPress={() =>
+                            //idk if this will do anythign
+                            navigation.navigate("Categories")
+                        }
+                    >
+                        <Text>Submit</Text>
+                    </Button>
                 </VStack>
-                <BottomBar/>
             </Center>
         </VStack>
     )

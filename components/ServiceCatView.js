@@ -32,11 +32,11 @@ const Calendar = ({navigation, route}) => {
         <VStack h="100%" w="100%">
             <Center h="100%" w="100%">
                 <TopBar/>
-                <Box h="90%" w="100%">
+                <Box h="95%" w="100%">
                     <Center>
                         <Heading>Services</Heading>
                     </Center>
-                    <HStack h="20%" space="2%" px={2} py={1}>
+                    <HStack h="18%" space="2%" px={2} py={1}>
                         <Button
                             backgroundColor="#FFF9A1"
                             rounded="lg"
@@ -46,7 +46,7 @@ const Calendar = ({navigation, route}) => {
                             w="49%"
                             h="100%"
                             onPress={() =>
-                                navigation.navigate("Services")
+                                navigation.navigate("Services", {category:"CLEANING"})
                             }
                         >
                             <Center>
@@ -63,7 +63,7 @@ const Calendar = ({navigation, route}) => {
                             w="49%"
                             h="100%"
                             onPress={() =>
-                                navigation.navigate("Services")
+                                navigation.navigate("Services", {category:"PET"})
                             }
                         >
                             <Center>
@@ -72,7 +72,7 @@ const Calendar = ({navigation, route}) => {
                             </Center>
                         </Button>
                     </HStack>
-                    <HStack h="20%" space="2%" px={2} py={1}>
+                    <HStack h="18%" space="2%" px={2} py={1}>
                         <Button
                             backgroundColor="#FFF9A1"
                             rounded="lg"
@@ -82,7 +82,7 @@ const Calendar = ({navigation, route}) => {
                             w="49%"
                             h="100%"
                             onPress={() =>
-                                navigation.navigate("Services")
+                                navigation.navigate("Services", {category:"PLUMBING"})
                             }
                         >
                             <Center>
@@ -99,7 +99,7 @@ const Calendar = ({navigation, route}) => {
                             w="49%"
                             h="100%"
                             onPress={() =>
-                                navigation.navigate("Services")
+                                navigation.navigate("Services",{category:"ELECTRICAL"})
                             }
                         >
                             <Center>
@@ -108,7 +108,7 @@ const Calendar = ({navigation, route}) => {
                             </Center>
                         </Button>
                     </HStack>
-                    <HStack h="20%" space="2%" px={2} py={1}>
+                    <HStack h="18%" space="2%" px={2} py={1}>
                         <Button
                             backgroundColor="#FFF9A1"
                             rounded="lg"
@@ -118,7 +118,7 @@ const Calendar = ({navigation, route}) => {
                             w="49%"
                             h="100%"
                             onPress={() =>
-                                navigation.navigate("Services")
+                                navigation.navigate("Services",{category:"BUILD"})
                             }
                         >
                             <Center>
@@ -135,7 +135,7 @@ const Calendar = ({navigation, route}) => {
                             w="49%"
                             h="100%"
                             onPress={() =>
-                                navigation.navigate("Services")
+                                navigation.navigate("Services",{category:"COMPUTER"})
                             }
                         >
                             <Center>
@@ -144,7 +144,43 @@ const Calendar = ({navigation, route}) => {
                             </Center>
                         </Button>
                     </HStack>
-                    <HStack h="20%" space="2%" px={2} py={1}>
+                    <HStack h="18%" space="2%" px={2} py={1}>
+                        <Button
+                            backgroundColor="#FFF9A1"
+                            rounded="lg"
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="2"
+                            w="49%"
+                            h="100%"
+                            onPress={() =>
+                                navigation.navigate("Services", {category:"LAWN"})
+                            }
+                        >
+                            <Center>
+                                <Heading>Landscaping</Heading>
+                                <MaterialIcons name="grass" size={50} color="black" />
+                            </Center>
+                        </Button>
+                        <Button
+                            backgroundColor="#FFF9A1"
+                            rounded="lg"
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="2"
+                            w="49%"
+                            h="100%"
+                            onPress={() =>
+                                navigation.navigate("Services",{category:"HOME"})
+                            }
+                        >
+                            <Center>
+                                <Heading>Home</Heading>
+                                <MaterialIcons name="home-work" size={50} color="black" />
+                            </Center>
+                        </Button>
+                    </HStack>
+                    <HStack h="18%" space="2%" px={2} py={1}>
                         <Button
                             backgroundColor="#FFF9A1"
                             rounded="lg"
@@ -154,7 +190,7 @@ const Calendar = ({navigation, route}) => {
                             w="100%"
                             h="100%"
                             onPress={() =>
-                                navigation.navigate("Services")
+                                navigation.navigate("Services",{category:"OTHER"})
                             }
                         >
                             <Center>
@@ -164,7 +200,6 @@ const Calendar = ({navigation, route}) => {
                         </Button>
                     </HStack>
                 </Box>
-                <BottomBar/>
             </Center>
         </VStack>
     )

@@ -1,7 +1,7 @@
 // Used this documentation: https://docs.nativebase.io/input, https://docs.nativebase.io/image,
 // https://docs.nativebase.io/box
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import {
   Text,
   Link,
@@ -30,7 +30,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 const ProvidersView = ({navigation, route}) => {
 
-const data = [
+const vdata = [
 //replace this with data from database
     {
         service_id: "57",
@@ -57,14 +57,28 @@ const data = [
         minimum_price: "$20",
     },
 ]
-
+const { service } = route.params;
+const [data, setData] = useState([]);
+const getData = async () => {
+    let url = 'https://cs4261-availability-service.herokuapp.com/get-availability/';
+     try {
+      const response = await fetch(url + service);
+      const json = await response.json();
+      setData(json.providers);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+ useEffect(() => {
+     getData();
+ }, []);
 
     return (
         <VStack h="100%" w="100%">
             <Center h="100%" w="100%">
                 <TopBar/>
-                <Center h="90%" w="100%" py={2}>
-                    <Heading>Services</Heading>
+                <Center h="95%" w="100%" py={2}>
+                    <Heading>Providers</Heading>
                     <FlatList
                         w="100%"
                         space={1}
@@ -77,14 +91,14 @@ const data = [
                             bg="white"
                             rounded="xs"
                             onPress={() =>
-                                navigation.navigate('ProviderDetail')
+                                navigation.navigate('ProviderDetail',{user:item.user_id})
                             }
                             >
                                 <HStack w="100%">
                                     <Ionicons name="person-circle-outline" size={40} color="black" />
                                 <VStack>
-                                    <Text>{item.service_name}</Text>
-                                    <Text>{item.fname} {item.lname}</Text>
+                                    <Text>{service}</Text>
+                                    <Text>{item.user_id}</Text>
                                 </VStack>
                                 </HStack>
                             </Button>
@@ -92,7 +106,6 @@ const data = [
                         keyExtractor={(item) => item.service_id}
                     />
                 </Center>
-                <BottomBar/>
             </Center>
         </VStack>
     )
