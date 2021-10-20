@@ -64,7 +64,7 @@ const getData = async () => {
      try {
       const response = await fetch(url + service);
       const json = await response.json();
-      setData(json.providers);
+      setData(json.availability);
     } catch (error) {
       console.error(error);
     }
@@ -91,13 +91,12 @@ const getData = async () => {
                             bg="white"
                             rounded="xs"
                             onPress={() =>
-                                navigation.navigate('ProviderDetail',{user:item.user_id})
+                                navigation.navigate('ProviderDetail',{user:item.user_id,service:service})
                             }
                             >
                                 <HStack w="100%">
                                     <Ionicons name="person-circle-outline" size={40} color="black" />
                                 <VStack>
-                                    <Text>{service}</Text>
                                     <Text>{item.user_id}</Text>
                                 </VStack>
                                 </HStack>

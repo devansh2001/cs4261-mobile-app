@@ -52,14 +52,14 @@ const vdata = [
         consumer_fname: "FirstName",
     },
 ]
-const { user } = route.params;
+const { user,service } = route.params;
 const [data, setData] = useState([]);
 const getData = async () => {
-    let url = 'https://cs4261-review-service.herokuapp.com/get-all-reviews/';
+    let url = 'https://cs4261-reviews-service.herokuapp.com/get-all-reviews/';
      try {
-      const response = await fetch(url + user);
+      const response = await fetch(url + "1");
       const json = await response.json();
-      setData(json.user);
+      setData(json.reviews);
     } catch (error) {
       console.error(error);
     }
@@ -74,7 +74,7 @@ data.forEach(function(item, index, array) {
     sum = parseInt(item.review_rating) + sum;
 })
 if(sum>0){
-    let avg_rating = sum/data.length;
+    avg_rating = sum/data.length;
 }
 
 
@@ -99,7 +99,7 @@ if(sum>0){
                             borderWidth="1"
                             shadow="2"
                             onPress={() =>
-                                navigation.navigate("ServiceRequest")
+                                navigation.navigate("ServiceRequest",{provider:user,service_id:service})
                             }
                         >
                             <Center>

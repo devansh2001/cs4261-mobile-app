@@ -63,8 +63,8 @@ const getData = async () => {
                         >
                             <HStack space={3} px={1}>
                                 <Text>${item.task_price}</Text>
-                                <Text> to {item.service_id}</Text>
-                                <Text>{item.task_status}</Text>
+                                <Text>{item.service_name}</Text>
+                                <Text>Status: {item.task_status}</Text>
                             </HStack>
                         </Box>
                     )}

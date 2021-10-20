@@ -92,6 +92,21 @@ const getData = async () => {
                         )}
                         keyExtractor={(item) => item.service_id}
                     />
+                    <Button
+                        backgroundColor="#FFF9A1"
+                        w="50%"
+                        rounded="lg"
+                        borderColor="#c4c4c4"
+                        borderWidth="1"
+                        shadow="2"
+                        onPress={() =>
+                            navigation.navigate("ServiceRequest")
+                        }
+                    >
+                        <Center>
+                            <Text>New Service</Text>
+                        </Center>
+                    </Button>
                 </Center>
             </Center>
         </VStack>
