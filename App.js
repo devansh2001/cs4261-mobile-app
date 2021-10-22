@@ -1,3 +1,5 @@
+//https://reactnative.dev/docs/navigation, https://reactnavigation.org/docs/tab-based-navigation
+
 import React from "react";
 import {
   Text,
@@ -12,12 +14,22 @@ import {
   VStack,
   Code
 } from "native-base";
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import MainStack from "./components/MainStack"
+import SettingsStack from "./components/SettingsStack"
+import CalendarStack from "./components/CalendarStack"
+
+import { SimpleLineIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+
 
 import NativeBaseIcon from "./components/NativeBaseIcon";
 import LoginView from "./components/loginScreenComponents/LoginView";
 import SignUpView from "./components/loginScreenComponents/SignUp";
 import BusyBeeHeaderComponent from "./components/busybeeHeader/BusyBeeHeaderComponent";
-import { Router } from "react-native-router-flux";
 
 // Define the config
 const config = {
@@ -25,41 +37,38 @@ const config = {
   initialColorMode: "dark",
 };
 
+const Tab = createBottomTabNavigator();
+
+
+
 // extend the theme
 export const theme = extendTheme({ config });
 
 export default function App() {
   return (
-    <NativeBaseProvider>
-      <Center
-        px={4}
-        flex={1}
-      >
-        {/* https://github.com/aksonov/react-native-router-flux */}
-        {/* <Router>
-          <BusyBeeHeaderComponent/>
-          <Stack key="root">
-            <Scene key="login" component={LoginView} title="Login" />
-            <Scene key="signup" component={SignUpView} title="SignUp" />
-          </Stack>
-        </Router> */}
-        {/* https://reactnative.dev/docs/navigation */}
+    <NavigationContainer>
+      <NativeBaseProvider>
+        <Tab.Navigator
+          screenOptions={({ route }) => ({
+            tabBarIcon: ({ focused, color, size }) => {
+              if (route.name === 'Home') {
+                return <SimpleLineIcons name="home" size={size} color={color} />
+              } else if (route.name === 'Calendar') {
+                return <MaterialCommunityIcons name="calendar-month-outline" size={size} color={color} />
+              } else if (route.name === 'Settings') {
+                return <Ionicons name="ios-settings-outline" size={size} color={color} />
+              }
 
-        {/* <VStack space={5} alignItems="center">
-          <NativeBaseIcon />
-          <Heading size="lg">Welcome to NativeBase</Heading>
-          <HStack space={2} alignItems="center">
-            <Text>Edit</Text>
-            <Code>App.js</Code>
-            <Text>and save to reload.</Text>
-          </HStack>
-          <Link href="https://docs.nativebase.io" isExternal>
-            <Text color="primary.500" underline fontSize={"xl"}>
-              Learn NativeBase
-            </Text>
-          </Link>
-        </VStack> */}
-      </Center>
-    </NativeBaseProvider>
+            },
+            tabBarActiveTintColor: 'blue',
+            tabBarInactiveTintColor: 'gray',
+          })}
+        >
+          <Tab.Screen name="Home" component={MainStack} />
+          <Tab.Screen name="Calendar" component={CalendarStack} />
+          <Tab.Screen name="Settings" component={SettingsStack} />
+        </Tab.Navigator>
+      </NativeBaseProvider>
+    </NavigationContainer>
   );
 }

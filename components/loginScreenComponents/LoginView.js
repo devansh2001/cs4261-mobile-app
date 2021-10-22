@@ -20,7 +20,7 @@ import { ScrollView } from "react-native";
 
 
 
-const LoginView = () => {
+const LoginView = ({navigation}) => {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [userInfo, setUserInfo] = React.useState('');
