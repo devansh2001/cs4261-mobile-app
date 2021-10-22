@@ -12,12 +12,10 @@ import {
   NativeBaseProvider,
   extendTheme,
   VStack,
-  Code,
+  Code
 } from "native-base";
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import NativeBaseIcon from "./components/NativeBaseIcon";
 import MainStack from "./components/MainStack"
 import SettingsStack from "./components/SettingsStack"
 import CalendarStack from "./components/CalendarStack"
@@ -27,6 +25,11 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
+
+import NativeBaseIcon from "./components/NativeBaseIcon";
+import LoginView from "./components/loginScreenComponents/LoginView";
+import SignUpView from "./components/loginScreenComponents/SignUp";
+import BusyBeeHeaderComponent from "./components/busybeeHeader/BusyBeeHeaderComponent";
 
 // Define the config
 const config = {
