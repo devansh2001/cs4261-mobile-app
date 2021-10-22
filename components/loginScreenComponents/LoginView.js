@@ -56,6 +56,7 @@ const LoginView = ({navigation}) => {
             console.log('Please try again')
         } else {
             setUserInfo(apiResponse['user'])
+            navigation.navigate("TabBar")
         }        
     }
 
@@ -90,7 +91,16 @@ const LoginView = ({navigation}) => {
                     {/* https://docs.nativebase.io/button */}
                     <VStack>
                         <Text>Don't have an account?</Text>
-                        <Button backgroundColor='#fff9a1' shadow='5' _text={{color: 'black'}}>Sign Up instead</Button>
+                        <Button
+                        backgroundColor='#fff9a1'
+                        shadow='5'
+                        _text={{color: 'black'}}
+                        onPress={() =>
+                            navigation.navigate("SignUp")
+                        }
+                    >
+                        Sign Up instead
+                    </Button>
                     </VStack>
                 </VStack>
             </ScrollView>

@@ -20,7 +20,7 @@ import {
 } from "native-base";
 
 
-const SignUpView = () => {
+const SignUpView = ({navigation}) => {
     const [fName, setFName] = useState('');
     const [lName, setLName] = useState('');
     const [email, setEmail] = useState('');
@@ -87,6 +87,7 @@ const SignUpView = () => {
         .then(data => data.json())
         .then(data => console.log(data))
         .catch(err => console.log(err))
+        navigation.navigate("TabBar")
         // if (apiResponse['status'] !== 200) {
         //     console.log('Please try again')
         // } else {
@@ -169,7 +170,16 @@ const SignUpView = () => {
 
                     <VStack>
                         <Text>Already have an account?</Text>
-                        <Button backgroundColor='#fff9a1' shadow='5' _text={{color: 'black'}}>Log In instead</Button>
+                        <Button
+                            backgroundColor='#fff9a1'
+                            shadow='5'
+                            _text={{color: 'black'}}
+                            onPress={() =>
+                                navigation.navigate("Login")
+                            }
+                        >
+                            Log In instead
+                        </Button>
                     </VStack>
                 </VStack>
             </ScrollView>
