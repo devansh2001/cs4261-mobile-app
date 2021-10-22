@@ -15,7 +15,6 @@ import {
   extendTheme,
   VStack,
   Code,
-  Button,
 } from "native-base";
 import { ScrollView } from "react-native";
 
