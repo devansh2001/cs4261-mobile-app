@@ -62,8 +62,6 @@ const getData = async () => {
                                 borderColor="#c4c4c4"
                                 bg="white"
                                 rounded="xs"
-                                onPress={() =>
-                                }
                             >
                                 <HStack space={3}>
                                     <Text>{item.task_date_time}</Text>
