@@ -44,7 +44,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <NativeBaseProvider>
-        <Stack.Navigator>
+        <Stack.Navigator
+            screenOptions={{
+                headerShown: false
+            }}
+        >
           {/* https://reactnavigation.org/docs/screen-options/ */}
             <Stack.Screen name="Login" component={LoginView} params={{userId: userId, setUserId: setUserId}} /> 
             {/* initialParams={{ userId: userId, changeUser: (id) => setUserId(id) }} */}

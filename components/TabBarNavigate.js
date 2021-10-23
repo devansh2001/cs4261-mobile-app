@@ -55,6 +55,7 @@ export default function TabBarNavigate(props) {
         },
         tabBarActiveTintColor: 'blue',
         tabBarInactiveTintColor: 'gray',
+        headerShown: false
       })}
     >
       <Tab.Screen name="Home" component={MainStack} initialParams={{ userId: props.route.params.userId }} />

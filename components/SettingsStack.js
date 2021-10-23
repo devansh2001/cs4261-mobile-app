@@ -34,7 +34,11 @@ export const theme = extendTheme({ config });
 
 export default function SettingsStack(props) {
   return (
-<Stack.Navigator>
+<Stack.Navigator
+    screenOptions={{
+        headerShown: false
+    }}
+>
   <Stack.Screen name="Settings" component={SettingsView} initialParams={{userId: props.route.params.userId}} />
   <Stack.Screen name="PaymentHistory" component={PaymentHistoryView} initialParams={{userId: props.route.params.userId}} />
 </Stack.Navigator>

@@ -38,7 +38,11 @@ export const theme = extendTheme({ config });
 
 export default function MainStack(props) {
   return (
-<Stack.Navigator>
+<Stack.Navigator
+    screenOptions={{
+        headerShown: false
+    }}
+>
   <Stack.Screen name="Categories" component={CategoriesView} initialParams={{ userId: props.route.params.userId }} />
   <Stack.Screen name="Services" component={ServicesView} initialParams={{ userId: props.route.params.userId }} />
   <Stack.Screen name="Providers" component={ProvidersView} initialParams={{ userId: props.route.params.userId }} />
