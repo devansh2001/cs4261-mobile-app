@@ -12,3 +12,5 @@ expo init my-app --template expo-template-native-base
 - https://docs.nativebase.io/radio
 - https://github.com/aksonov/react-native-router-flux
 - https://reactnative.dev/docs/navigation
+- https://reactnative.dev/docs/alert
+- https://aboutreact.com/react-native-alert/

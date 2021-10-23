@@ -16,7 +16,7 @@ import {
   VStack,
   Code,
 } from "native-base";
-import { ScrollView } from "react-native";
+import { Alert, ScrollView } from "react-native";
 
 
 
@@ -54,6 +54,11 @@ const LoginView = ({navigation}) => {
 
         if (apiResponse['status'] !== 200) {
             console.log('Please try again')
+            // https://reactnative.dev/docs/alert
+            // https://aboutreact.com/react-native-alert/
+            alert(
+                'Please try to login again with a valid email ID and password!'
+            )
         } else {
             setUserInfo(apiResponse['user'])
             navigation.navigate("TabBar")
