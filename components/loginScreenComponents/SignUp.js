@@ -30,27 +30,27 @@ const SignUpView = ({navigation}) => {
     const [userType, setUserType] = useState('consumer');
 
     const handleFirstNameChange = (e) => {
-        setFName(e.target.value);
+        setFName(e);
     }
 
     const handleLastNameChange = (e) => {
-        setLName(e.target.value);
+        setLName(e);
     }
 
     const handleEmailChange = (e) => {
-        setEmail(e.target.value);
+        setEmail(e);
     }
 
     const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
+        setPassword(e);
     }
 
     const handlePhoneNumberChange = (e) => {
-        setPhoneNumber(e.target.value);
+        setPhoneNumber(e);
     }
 
     const handleVenmoIDChange = (e) => {
-        setVenmoID(e.target.value);
+        setVenmoID(e);
     }
 
     const handleUserTypeChange = (e) => {
@@ -107,37 +107,37 @@ const SignUpView = ({navigation}) => {
                         <Center>
                             <Text margin='2'>First Name</Text>
                         </Center>
-                        <Input onChange={handleFirstNameChange} variant='rounded' placeholder='George' />
+                        <Input onChangeText={handleFirstNameChange} variant='rounded' placeholder='George' />
                     </VStack>
                     <VStack>
                         <Center>
                             <Text margin='2'>Last Name</Text>
                         </Center>
-                        <Input onChange={handleLastNameChange} variant='rounded' placeholder='Burdell' />
+                        <Input onChangeText={handleLastNameChange} variant='rounded' placeholder='Burdell' />
                     </VStack>
                     <VStack>
                         <Center>
                             <Text margin='2'>Phone Number</Text>
                         </Center>
-                        <Input onChange={handlePhoneNumberChange} variant='rounded' placeholder='123456789' />
+                        <Input onChangeText={handlePhoneNumberChange} variant='rounded' placeholder='123456789' />
                     </VStack>
                     <VStack>
                         <Center>
                             <Text margin='2'>Venmo ID</Text>
                         </Center>
-                        <Input onChange={handleVenmoIDChange} variant='rounded' placeholder='@venmo' />
+                        <Input onChangeText={handleVenmoIDChange} variant='rounded' placeholder='@venmo' />
                     </VStack>
                     <VStack>
                         <Center>
                             <Text margin='2'>Email ID</Text>
                         </Center>
-                        <Input onChange={handleEmailChange} variant='rounded' placeholder='example@email.com' />
+                        <Input onChangeText={handleEmailChange} variant='rounded' placeholder='example@email.com' />
                     </VStack>
                     <VStack>
                         <Center>
                             <Text margin='2'>Password</Text>
                         </Center>
-                        <Input onChange={handlePasswordChange} type='password' variant='rounded' placeholder='P@$$w0rd' />
+                        <Input onChangeText={handlePasswordChange} type='password' variant='rounded' placeholder='P@$$w0rd' />
                     </VStack>
 
                     <VStack>
