@@ -23,6 +23,7 @@ import {
 } from "native-base";
 import BottomBar from "./sharedComponents/BottomBar";
 import TopBar from "./sharedComponents/TopBar";
+import { ScrollView } from "react-native";
 
 
 
@@ -70,6 +71,7 @@ const newTask = async () => {
   }
 
     return (
+        <ScrollView>
         <VStack h="100%" w="100%">
             <Center h="100%" w="100%">
                 <TopBar/>
@@ -99,6 +101,7 @@ const newTask = async () => {
                         w="100%"
                         h="20%" //FIX THIS, TEXT DOES NOT WRAP
                     />
+                    <Container py={10}>
                     <Button
                         bg="#FFF9A1"
                         rounded="lg"
@@ -111,9 +114,12 @@ const newTask = async () => {
                     >
                         <Text>Submit</Text>
                     </Button>
+                    </Container>
                 </VStack>
             </Center>
+            
         </VStack>
+        </ScrollView>
     )
 }
 
