@@ -29,17 +29,19 @@ const LoginView = (props) => {
     const [userInfo, setUserInfo] = React.useState('');
 
     const handleEmailChange = (e) => {
-        setEmail(e.target.value)
+        // console.log(e)
+        setEmail(e)
     }
     
     const handlePasswordChange = (e) => {
-        setPassword(e.target.value)
+        setPassword(e)
     }
 
 
     const handleLogin = async () => {
         let apiResponse = null;
-        
+        console.log(email)
+        console.log(password)
         const headers = new Headers();
         headers.append('email', email)
         headers.append('password', password)
@@ -56,6 +58,7 @@ const LoginView = (props) => {
         .catch(err => console.log(err))
 
         if (apiResponse['status'] !== 200) {
+            console.log(apiResponse)
             console.log('Please try again')
             // https://reactnative.dev/docs/alert
             // https://aboutreact.com/react-native-alert/
@@ -63,6 +66,7 @@ const LoginView = (props) => {
                 'Please try to login again with a valid email ID and password!'
             )
         } else {
+            console.log(apiResponse)
             setUserInfo(apiResponse['user'])
             // props.route.params.setUserId(apiResponse['user']['user_id'])
             navigation.navigate("TabBar", {userId: apiResponse['user']['user_id']})
@@ -84,13 +88,13 @@ const LoginView = (props) => {
                         <Center>
                             <Text margin='5'>Email ID</Text>
                         </Center>
-                        <Input onChange={handleEmailChange} variant='rounded' placeholder='example@email.com' />
+                        <Input onChangeText={handleEmailChange} variant='rounded' placeholder='example@email.com' />
                     </VStack>
                     <VStack>
                         <Center>
                             <Text margin='5'>Password</Text>
                         </Center>
-                        <Input onChange={handlePasswordChange} type='password' variant='rounded' placeholder='P@$$w0rd' />
+                        <Input onChangeText={handlePasswordChange} type='password' variant='rounded' placeholder='P@$$w0rd' />
                     </VStack>
                     {/* https://docs.nativebase.io/button */}
                     <Button backgroundColor='#fff9a1' shadow='5' _text={{color: 'black'}} onPress={handleLogin}>
