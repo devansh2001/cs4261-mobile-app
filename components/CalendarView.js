@@ -63,7 +63,6 @@ const getData = async () => {
                                 bg="white"
                                 rounded="xs"
                                 onPress={() =>
-                                    navigation.navigate('ProviderDetail',{user:item.task_provider})
                                 }
                             >
                                 <HStack space={3}>
