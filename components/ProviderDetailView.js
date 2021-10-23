@@ -70,11 +70,11 @@ const getData = async () => {
 
 let sum = 0;
 let avg_rating = "No ratings";
-data.forEach(function(item, index, array) {
+vdata.forEach(function(item, index, array) {
     sum = parseInt(item.review_rating) + sum;
 })
 if(sum>0){
-    avg_rating = sum/data.length;
+    avg_rating = sum/vdata.length;
 }
 
 
