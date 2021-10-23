@@ -97,7 +97,7 @@ const getData = async () => {
                                 <HStack w="100%">
                                     <Ionicons name="person-circle-outline" size={40} color="black" />
                                 <VStack>
-                                    <Text>{item.user_id}</Text>
+                                    <Text>{item.fname} {item.lname}</Text>
                                 </VStack>
                                 </HStack>
                             </Button>
