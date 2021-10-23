@@ -47,6 +47,10 @@ const { provider,service_id } = route.params;
 const user = '50c77f60-4089-447a-b0e9-6a07c984c6bb';
 
 const newTask = async () => {
+    const headers = new Headers();
+    // https://stackoverflow.com/a/52936747
+    headers.append('Access-Control-Allow-Origin', 'http://localhost')
+    headers.append('Content-Type', 'application/json')
     const body = {
         'service_id': service_id,
         'task_date_time': task_date,
@@ -56,10 +60,14 @@ const newTask = async () => {
         'task_status': 'SCHEDULED'
     }
     let url = 'https://cs4261-task-service.herokuapp.com/create-task';
-      const response = await fetch(url, {
+    await fetch(url, {
         method: 'POST',
+        headers: headers,
         body: JSON.stringify(body)
-      });
+    })
+    .then(data => data.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
   }
 
     return (
