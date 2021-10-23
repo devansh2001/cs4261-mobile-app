@@ -57,7 +57,7 @@ const vdata = [
         minimum_price: "$20",
     },
 ]
-const { service } = route.params;
+const { service, user_id } = route.params;
 const [data, setData] = useState([]);
 const getData = async () => {
     let url = 'https://cs4261-availability-service.herokuapp.com/get-availability/';
@@ -91,13 +91,13 @@ const getData = async () => {
                             bg="white"
                             rounded="xs"
                             onPress={() =>
-                                navigation.navigate('ProviderDetail',{user:item.user_id,service:service})
+                                navigation.navigate('ProviderDetail',{provider:item.user_id,service:service,user:user_id})
                             }
                             >
                                 <HStack w="100%">
                                     <Ionicons name="person-circle-outline" size={40} color="black" />
                                 <VStack>
-                                    <Text>{item.user_id}</Text>
+                                    <Text>{item.fname} {item.lname}</Text>
                                 </VStack>
                                 </HStack>
                             </Button>

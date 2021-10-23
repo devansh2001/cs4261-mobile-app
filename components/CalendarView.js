@@ -24,10 +24,12 @@ import {
 } from "native-base";
 import BottomBar from "./sharedComponents/BottomBar";
 import TopBar from "./sharedComponents/TopBar";
+import { useNavigation } from "@react-navigation/native";
 
-const CalendarView = ({navigation, route}) => {
-
-const user = '50c77f60-4089-447a-b0e9-6a07c984c6bb';
+const CalendarView = (props, navigation) => {
+const user = props.route.params.userId;
+console.log("User id in calendar")
+console.log(user)
 const [data, setData] = useState([]);
 const getData = async () => {
     let url = 'https://cs4261-task-service.herokuapp.com/get-tasks-by-status/';

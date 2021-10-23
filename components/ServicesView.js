@@ -49,7 +49,7 @@ let vdata = [
         service_description: "Walk dogs, feed them, and let them outside"
     },
 ]
-const { category } = route.params;
+const { category, userId } = route.params;
 
 const [data, setData] = useState([]);
 const getData = async () => {
@@ -84,7 +84,7 @@ const getData = async () => {
                                 bg="white"
                                 rounded="xs"
                                 onPress={() =>
-                                    navigation.navigate('Providers',{service:item.service_id})
+                                    navigation.navigate('Providers',{service:item.service_id,user_id:userId})
                                 }
                             >
                                 <Text>{item.service_name}</Text>

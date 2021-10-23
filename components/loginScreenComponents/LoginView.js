@@ -16,11 +16,14 @@ import {
   VStack,
   Code,
 } from "native-base";
-import { ScrollView } from "react-native";
+import { Alert, ScrollView } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 
 
-const LoginView = ({navigation}) => {
+const LoginView = (props) => {
+    // https://reactnavigation.org/docs/use-navigation/
+    const navigation = useNavigation();
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [userInfo, setUserInfo] = React.useState('');
@@ -54,9 +57,16 @@ const LoginView = ({navigation}) => {
 
         if (apiResponse['status'] !== 200) {
             console.log('Please try again')
+            // https://reactnative.dev/docs/alert
+            // https://aboutreact.com/react-native-alert/
+            alert(
+                'Please try to login again with a valid email ID and password!'
+            )
         } else {
             setUserInfo(apiResponse['user'])
-        }        
+            // props.route.params.setUserId(apiResponse['user']['user_id'])
+            navigation.navigate("TabBar", {userId: apiResponse['user']['user_id']})
+        }
     }
 
     return (
@@ -90,7 +100,16 @@ const LoginView = ({navigation}) => {
                     {/* https://docs.nativebase.io/button */}
                     <VStack>
                         <Text>Don't have an account?</Text>
-                        <Button backgroundColor='#fff9a1' shadow='5' _text={{color: 'black'}}>Sign Up instead</Button>
+                        <Button
+                        backgroundColor='#fff9a1'
+                        shadow='5'
+                        _text={{color: 'black'}}
+                        onPress={() =>
+                            navigation.navigate("SignUp")
+                        }
+                    >
+                        Sign Up instead
+                    </Button>
                     </VStack>
                 </VStack>
             </ScrollView>

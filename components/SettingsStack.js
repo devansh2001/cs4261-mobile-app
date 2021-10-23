@@ -32,11 +32,11 @@ const Stack = createNativeStackNavigator();
 // extend the theme
 export const theme = extendTheme({ config });
 
-export default function SettingsStack() {
+export default function SettingsStack(props) {
   return (
 <Stack.Navigator>
-  <Stack.Screen name="Settings" component={SettingsView} />
-  <Stack.Screen name="PaymentHistory" component={PaymentHistoryView} />
+  <Stack.Screen name="Settings" component={SettingsView} initialParams={{userId: props.route.params.userId}} />
+  <Stack.Screen name="PaymentHistory" component={PaymentHistoryView} initialParams={{userId: props.route.params.userId}} />
 </Stack.Navigator>
   );
 }
