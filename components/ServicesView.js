@@ -49,7 +49,7 @@ let vdata = [
         service_description: "Walk dogs, feed them, and let them outside"
     },
 ]
-const { category } = route.params;
+const { category, userId } = route.params;
 
 const [data, setData] = useState([]);
 const getData = async () => {

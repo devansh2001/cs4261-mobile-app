@@ -24,10 +24,12 @@ import BottomBar from "./sharedComponents/BottomBar";
 import TopBar from "./sharedComponents/TopBar";
 
 import { MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from "@react-navigation/native";
 
 
-const Calendar = ({navigation, route}) => {
+const Calendar = (props) => {
 
+    const navigation = useNavigation()
     return (
         <VStack h="100%" w="100%">
             <Center h="100%" w="100%">
@@ -46,7 +48,7 @@ const Calendar = ({navigation, route}) => {
                             w="49%"
                             h="100%"
                             onPress={() =>
-                                navigation.navigate("Services", {category:"CLEANING"})
+                                navigation.navigate("Services", {category:"CLEANING", userId: props.route.params.userId})
                             }
                         >
                             <Center>
