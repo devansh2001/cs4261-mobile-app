@@ -36,14 +36,14 @@ const Stack = createNativeStackNavigator();
 // extend the theme
 export const theme = extendTheme({ config });
 
-export default function MainStack() {
+export default function MainStack(props) {
   return (
 <Stack.Navigator>
-  <Stack.Screen name="Categories" component={CategoriesView} />
-  <Stack.Screen name="Services" component={ServicesView} />
-  <Stack.Screen name="Providers" component={ProvidersView} />
-  <Stack.Screen name="ServiceRequest" component={ServiceRequestView} />
-  <Stack.Screen name="ProviderDetail" component={ProviderDetailView} />
+  <Stack.Screen name="Categories" component={CategoriesView} initialParams={{ userId: props.route.params.userId }} />
+  <Stack.Screen name="Services" component={ServicesView} initialParams={{ userId: props.route.params.userId }} />
+  <Stack.Screen name="Providers" component={ProvidersView} initialParams={{ userId: props.route.params.userId }} />
+  <Stack.Screen name="ServiceRequest" component={ServiceRequestView} initialParams={{ userId: props.route.params.userId }} />
+  <Stack.Screen name="ProviderDetail" component={ProviderDetailView} initialParams={{ userId: props.route.params.userId }} />
 </Stack.Navigator>
   );
 }

@@ -38,14 +38,20 @@ const Stack = createNativeStackNavigator();
 // extend the theme
 export const theme = extendTheme({ config });
 
+
+
 export default function App() {
+  const [userId, setUserId] = React.useState('');  
+
   return (
     <NavigationContainer>
       <NativeBaseProvider>
         <Stack.Navigator>
-            <Stack.Screen name="Login" component={LoginView} />
-            <Stack.Screen name="SignUp" component={SignUpView} />
-            <Stack.Screen name="TabBar" component={TabBarView} />
+          {/* https://reactnavigation.org/docs/screen-options/ */}
+            <Stack.Screen name="Login" component={LoginView} params={{userId: userId, setUserId: setUserId}} /> 
+            {/* initialParams={{ userId: userId, changeUser: (id) => setUserId(id) }} */}
+            <Stack.Screen name="SignUp" component={SignUpView} initialParams={{userId: userId, setUserId: (id) => setUserId(id)}} />
+            <Stack.Screen name="TabBar" component={TabBarView} initialParams={{ userId: userId }} />
         </Stack.Navigator>
       </NativeBaseProvider>
     </NavigationContainer>

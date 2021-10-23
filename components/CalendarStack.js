@@ -32,11 +32,12 @@ const Stack = createNativeStackNavigator();
 // extend the theme
 export const theme = extendTheme({ config });
 
-export default function CalendarStack() {
+export default function CalendarStack(props) {
+  console.log(props)
   return (
 <Stack.Navigator>
-  <Stack.Screen name="Calendar" component={CalendarView} />
-  <Stack.Screen name="ProviderDetail" component={ProviderDetailView} />
+  <Stack.Screen name="Calendar" component={CalendarView} initialParams={{userId: props.route.params.userId}} />
+  <Stack.Screen name="ProviderDetail" component={ProviderDetailView} initialParams={{userId: props.route.params.userId}} />
 </Stack.Navigator>
   );
 }

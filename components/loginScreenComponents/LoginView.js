@@ -17,10 +17,13 @@ import {
   Code,
 } from "native-base";
 import { Alert, ScrollView } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 
 
-const LoginView = ({navigation}) => {
+const LoginView = (props) => {
+    // https://reactnavigation.org/docs/use-navigation/
+    const navigation = useNavigation();
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [userInfo, setUserInfo] = React.useState('');
@@ -61,8 +64,9 @@ const LoginView = ({navigation}) => {
             )
         } else {
             setUserInfo(apiResponse['user'])
-            navigation.navigate("TabBar")
-        }        
+            // props.route.params.setUserId(apiResponse['user']['user_id'])
+            navigation.navigate("TabBar", {userId: apiResponse['user']['user_id']})
+        }
     }
 
     return (

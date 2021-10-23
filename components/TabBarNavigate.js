@@ -38,7 +38,8 @@ const Tab = createBottomTabNavigator();
 // extend the theme
 export const theme = extendTheme({ config });
 
-export default function TabBarNavigate() {
+export default function TabBarNavigate(props) {
+  console.log(props)
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -56,9 +57,9 @@ export default function TabBarNavigate() {
         tabBarInactiveTintColor: 'gray',
       })}
     >
-      <Tab.Screen name="Home" component={MainStack} />
-      <Tab.Screen name="Calendar" component={CalendarStack} />
-      <Tab.Screen name="Settings" component={SettingsStack} />
+      <Tab.Screen name="Home" component={MainStack} initialParams={{ userId: props.route.params.userId }} />
+      <Tab.Screen name="Calendar" component={CalendarStack} initialParams={{ userId: props.route.params.userId }} />
+      <Tab.Screen name="Settings" component={SettingsStack} initialParams={{ userId: props.route.params.userId }} />
     </Tab.Navigator>
   );
 }

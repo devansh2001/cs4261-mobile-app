@@ -14,3 +14,5 @@ expo init my-app --template expo-template-native-base
 - https://reactnative.dev/docs/navigation
 - https://reactnative.dev/docs/alert
 - https://aboutreact.com/react-native-alert/
+- https://reactnavigation.org/docs/screen-options/
+- https://reactnavigation.org/docs/use-navigation/
