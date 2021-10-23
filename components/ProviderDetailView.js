@@ -88,7 +88,6 @@ if(sum>0){
                 <TopBar/>
                 <Box backgroundColor="#FFFFFF" h="95%" w="100%">
                     <Heading>Provider Details</Heading>
-                    <Text fontSize="lg" px={2}>{user}</Text>
                     <HStack px={2}>
                         <Text fontSize="lg">{avg_rating}</Text>
                         <Feather name="star" size={24} color="black" />

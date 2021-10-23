@@ -34,13 +34,13 @@ const [task_date, setTaskDate]= useState('');
 const [task_price, setTaskPrice]  = useState('');
 
 const handleServiceName = (e) => {
-    setServiceName(e.target.value)
+    setServiceName(e)
 }
 const handleTaskDate = (e) => {
-    setTaskDate(e.target.value)
+    setTaskDate(e)
 }
 const handleTaskPrice = (e) => {
-    setTaskPrice(e.target.value)
+    setTaskPrice(e)
 }
 
 const { provider,service_id, user } = route.params;
@@ -77,19 +77,19 @@ const newTask = async () => {
                     <Heading>Service Request</Heading>
                     <Text>Service Name</Text>
                     <Input
-                        onChange={handleServiceName}
+                        onChangeText={handleServiceName}
                         placeholder="Task Name"
                         w="100%"
                     />
                     <Text>Date</Text>
                     <Input
-                        onChange={handleTaskDate}
+                        onChangeText={handleTaskDate}
                         placeholder="1/1/2021"
                         w="100%"
                     />
                     <Text>Payment Offer</Text>
                     <Input
-                        onChange={handleTaskPrice}
+                        onChangeText={handleTaskPrice}
                         placeholder="$20"
                         w="100%"
                     />
