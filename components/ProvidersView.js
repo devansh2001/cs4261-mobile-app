@@ -82,7 +82,7 @@ const getData = async () => {
                     <FlatList
                         w="100%"
                         space={1}
-                        data={data}
+                        data={vdata}
                         renderItem={({ item }) => (
                             <Button
                             w="100%"
