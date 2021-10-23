@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b34b2138-1703-47c2-86de-f9cd3e130819" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/ProviderDetailView.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ProvidersView.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ServiceRequestView.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ServicesView.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/sharedComponents/BottomBar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/sharedComponents/TopBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/loginScreenComponents/LoginView.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/loginScreenComponents/LoginView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

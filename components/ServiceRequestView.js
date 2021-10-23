@@ -43,8 +43,7 @@ const handleTaskPrice = (e) => {
     setTaskPrice(e.target.value)
 }
 
-const { provider,service_id } = route.params;
-const user = '50c77f60-4089-447a-b0e9-6a07c984c6bb';
+const { provider,service_id, user } = route.params;
 
 const newTask = async () => {
     const body = {
@@ -52,7 +51,7 @@ const newTask = async () => {
         'task_date_time': task_date,
         'task_price': task_price,
         'task_consumer': user,
-        'task_provider': user,
+        'task_provider': provider,
         'task_status': 'SCHEDULED'
     }
     let url = 'https://cs4261-task-service.herokuapp.com/create-task';

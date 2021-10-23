@@ -65,7 +65,7 @@ const Calendar = (props) => {
                             w="49%"
                             h="100%"
                             onPress={() =>
-                                navigation.navigate("Services", {category:"PET"})
+                                navigation.navigate("Services", {category:"PET", userId: props.route.params.userId})
                             }
                         >
                             <Center>
@@ -84,7 +84,7 @@ const Calendar = (props) => {
                             w="49%"
                             h="100%"
                             onPress={() =>
-                                navigation.navigate("Services", {category:"PLUMBING"})
+                                navigation.navigate("Services", {category:"PLUMBING", userId: props.route.params.userId})
                             }
                         >
                             <Center>
@@ -101,7 +101,7 @@ const Calendar = (props) => {
                             w="49%"
                             h="100%"
                             onPress={() =>
-                                navigation.navigate("Services",{category:"ELECTRICAL"})
+                                navigation.navigate("Services",{category:"ELECTRICAL", userId: props.route.params.userId})
                             }
                         >
                             <Center>
@@ -120,7 +120,7 @@ const Calendar = (props) => {
                             w="49%"
                             h="100%"
                             onPress={() =>
-                                navigation.navigate("Services",{category:"BUILD"})
+                                navigation.navigate("Services",{category:"BUILD", userId: props.route.params.userId})
                             }
                         >
                             <Center>
@@ -137,7 +137,7 @@ const Calendar = (props) => {
                             w="49%"
                             h="100%"
                             onPress={() =>
-                                navigation.navigate("Services",{category:"COMPUTER"})
+                                navigation.navigate("Services",{category:"COMPUTER", userId: props.route.params.userId})
                             }
                         >
                             <Center>
@@ -156,7 +156,7 @@ const Calendar = (props) => {
                             w="49%"
                             h="100%"
                             onPress={() =>
-                                navigation.navigate("Services", {category:"LAWN"})
+                                navigation.navigate("Services", {category:"LAWN", userId: props.route.params.userId})
                             }
                         >
                             <Center>
@@ -173,7 +173,7 @@ const Calendar = (props) => {
                             w="49%"
                             h="100%"
                             onPress={() =>
-                                navigation.navigate("Services",{category:"HOME"})
+                                navigation.navigate("Services",{category:"HOME", userId: props.route.params.userId})
                             }
                         >
                             <Center>
@@ -192,7 +192,7 @@ const Calendar = (props) => {
                             w="100%"
                             h="100%"
                             onPress={() =>
-                                navigation.navigate("Services",{category:"OTHER"})
+                                navigation.navigate("Services",{category:"OTHER", userId: props.route.params.userId})
                             }
                         >
                             <Center>
