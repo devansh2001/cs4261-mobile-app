@@ -38,8 +38,6 @@ const Stack = createNativeStackNavigator();
 // extend the theme
 export const theme = extendTheme({ config });
 
-
-
 export default function App() {
   const [userId, setUserId] = React.useState('');  
 
