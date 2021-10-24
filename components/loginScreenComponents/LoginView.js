@@ -88,6 +88,7 @@ const LoginView = (props) => {
                         <Center>
                             <Text margin='5'>Email ID</Text>
                         </Center>
+                        {/* https://stackoverflow.com/a/64023369 */}
                         <Input onChangeText={handleEmailChange} variant='rounded' placeholder='example@email.com' />
                     </VStack>
                     <VStack>
