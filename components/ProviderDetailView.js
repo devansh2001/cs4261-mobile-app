@@ -1,5 +1,5 @@
 // Used this documentation: https://docs.nativebase.io/input, https://docs.nativebase.io/image,
-// https://docs.nativebase.io/box
+// https://docs.nativebase.io/box, https://docs.nativebase.io/flat-list
 
 import React, { useRef, useEffect, useState } from "react";
 import {

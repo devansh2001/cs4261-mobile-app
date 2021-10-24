@@ -1,5 +1,5 @@
 //https://reactnative.dev/docs/navigation, https://reactnavigation.org/docs/tab-based-navigation
-
+//https://reactnavigation.org/docs/hiding-tabbar-in-screens
 import React from "react";
 import {
   Text,

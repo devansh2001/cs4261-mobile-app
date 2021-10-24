@@ -24,11 +24,12 @@ import {
 } from "native-base";
 import BottomBar from "./sharedComponents/BottomBar";
 import TopBar from "./sharedComponents/TopBar";
+import { useNavigation } from "@react-navigation/native";
 
 
 
-
-const SettingsView = ({navigation, route}) => {
+const SettingsView = (props) => {
+const navigation = useNavigation()
     return (
         <VStack h="100%" w="100%">
             <Center h="100%" w="100%">
@@ -44,7 +45,7 @@ const SettingsView = ({navigation, route}) => {
                             borderWidth="1"
                             shadow="2"
                             onPress={() =>
-                                navigation.navigate("PaymentHistory")
+                                navigation.navigate("PaymentHistory",{user_id:props.route.params.userId})
                             }
                         >
                             <Center>

@@ -1,5 +1,6 @@
 //https://reactnative.dev/docs/navigation
-
+//https://reactnavigation.org/docs/hiding-tabbar-in-screens
+//https://reactnavigation.org/docs/nesting-navigators/
 import React from "react";
 import {
   Text,

@@ -28,15 +28,15 @@ import TopBar from "./sharedComponents/TopBar";
 
 
 const PaymentHistoryView = ({navigation, route}) => {
+const { user_id } = route.params;
 
-
-const user = '50c77f60-4089-447a-b0e9-6a07c984c6bb';
 const [data, setData] = useState([]);
 const getData = async () => {
     let url = 'https://cs4261-task-service.herokuapp.com/get-tasks-by-status/';
      try {
-      const response = await fetch(url + user + '/COMPLETED');
+      const response = await fetch(url + user_id + '/COMPLETED');
       const json = await response.json();
+      console.log(json)
       setData(json.task);
     } catch (error) {
       console.error(error);

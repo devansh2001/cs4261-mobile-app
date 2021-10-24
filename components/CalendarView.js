@@ -36,6 +36,7 @@ const getData = async () => {
      try {
       const response = await fetch(url + user + '/SCHEDULED');
       const json = await response.json();
+      console.log(json)
       setData(json.task);
     } catch (error) {
       console.error(error);
