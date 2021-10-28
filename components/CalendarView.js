@@ -26,7 +26,8 @@ import BottomBar from "./sharedComponents/BottomBar";
 import TopBar from "./sharedComponents/TopBar";
 import { useNavigation } from "@react-navigation/native";
 
-const CalendarView = (props, navigation) => {
+const CalendarView = (props) => {
+const navigation = useNavigation()
 const user = props.route.params.userId;
 console.log("User id in calendar")
 console.log(user)
@@ -63,6 +64,9 @@ const getData = async () => {
                                 borderColor="#c4c4c4"
                                 bg="white"
                                 rounded="xs"
+                                onPress={() =>
+                                    navigation.navigate("CalendarDetail",{item: item})
+                                }
                             >
                                 <HStack space={3}>
                                     <Text>{item.task_date_time}</Text>

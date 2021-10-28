@@ -18,7 +18,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import NativeBaseIcon from "./NativeBaseIcon";
 import CalendarView from "./CalendarView"
-import ProviderDetailView from "./ProviderDetailView"
+import CalendarDetailView from "./CalendarDetailView"
 
 // Define the config
 const config = {
@@ -41,7 +41,7 @@ export default function CalendarStack(props) {
     }}
 >
   <Stack.Screen name="Calendar" component={CalendarView} initialParams={{userId: props.route.params.userId}} />
-  <Stack.Screen name="ProviderDetail" component={ProviderDetailView} initialParams={{userId: props.route.params.userId}} />
+  <Stack.Screen name="CalendarDetail" component={CalendarDetailView} initialParams={{userId: props.route.params.userId}} />
 </Stack.Navigator>
   );
 }
