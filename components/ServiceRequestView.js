@@ -92,24 +92,30 @@ const newTask = async () => {
                     <Heading>Service Request</Heading>
                     <Text>Service Name</Text>
                     <Input
+                        type="text"
                         onChangeText={handleServiceName}
                         placeholder="Task Name"
                         w="100%"
                     />
                     <Text>Date</Text>
                     <Input
+                        type="date"
                         onChangeText={handleTaskDate}
-                        placeholder="1/1/2021"
+                        placeholder="2021-10-25"
                         w="100%"
                     />
                     <Text>Payment Offer</Text>
                     <Input
+                        type="text"
+                        pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$"
+                        data-type="currency"
                         onChangeText={handleTaskPrice}
-                        placeholder="$20"
+                        placeholder="$20.00"
                         w="100%"
                     />
                     <Text>Task Details</Text>
                     <Input
+                        type="text"
                         placeholder="Walk dogs"
                         w="100%"
                         h="20%" //FIX THIS, TEXT DOES NOT WRAP
