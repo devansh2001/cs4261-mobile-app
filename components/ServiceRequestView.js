@@ -47,6 +47,7 @@ const handleTaskPrice = (e) => {
 const { provider,service_id, user } = route.params;
 
 const newTask = async () => {
+    let apiResponse = null;
     const headers = new Headers();
     // https://stackoverflow.com/a/52936747
     headers.append('Access-Control-Allow-Origin', 'http://localhost')
@@ -66,8 +67,20 @@ const newTask = async () => {
         body: JSON.stringify(body)
     })
     .then(data => data.json())
-    .then(data => console.log(data))
+    .then(data => apiResponse = data)
     .catch(err => console.log(err))
+
+    if (apiResponse['status'] !== 201 || apiResponse['task_id'] == null) {
+        console.log(apiResponse)
+        console.log('Please try again')
+        // https://reactnative.dev/docs/alert
+        // https://aboutreact.com/react-native-alert/
+        alert('Task Request Failed!')
+    } else {
+        console.log(apiResponse)
+        alert('Task Request Successful!')
+        navigation.navigate("Calendar")
+    }
   }
 
     return (
