@@ -30,34 +30,13 @@ import { Feather } from '@expo/vector-icons';
 
 
 const ProviderDetailView = ({navigation, route}) => {
-const vdata = [
-    {
-        review_id: "42",
-        review_text: "Great Provider",
-        review_rating: "5",
-        provider_id: "57",
-        provider_fname: "FirstName",
-        provider_lname: "LastName",
-        consumer_id: "23",
-        consumer_fname: "FirstName",
-    },
-    {
-        review_id: "43",
-        review_text: "Great Job!",
-        review_rating: "4",
-        provider_id: "57",
-        provider_fname: "FirstName",
-        provider_lname: "LastName",
-        consumer_id: "24",
-        consumer_fname: "FirstName",
-    },
-]
+
 const { provider,service,user } = route.params;
 const [data, setData] = useState([]);
 const getData = async () => {
     let url = 'https://cs4261-reviews-service.herokuapp.com/get-all-reviews/';
      try {
-      const response = await fetch(url + provider);
+      const response = await fetch(url + provider.user_id);
       const json = await response.json();
       setData(json.reviews);
     } catch (error) {
@@ -79,20 +58,44 @@ if(sum>0){
     avg_rating = sum/data.length;
 }
 }
-
-
+let days = []
+if(provider.is_monday){
+    days.push("Monday")
+}
+if(provider.is_tuesday){
+    days.push("Tuesday")
+}
+if(provider.is_wednesday){
+    days.push("Wednesday")
+}
+if(provider.is_thursday){
+    days.push("Thursday")
+}
+if(provider.is_friday){
+    days.push("Friday")
+}
+if(provider.is_saturday){
+    days.push("Saturday")
+}
+if(provider.is_sunday){
+    days.push("Sunday")
+}
+const daysString = days.join(', ')
 
     return (
         <VStack h="100%" w="100%">
             <Center h="100%" w="100%">
                 <TopBar/>
                 <Box backgroundColor="#FFFFFF" h="95%" w="100%">
-                    <Heading>Provider Details</Heading>
+                    <Heading px={2}>Provider Details</Heading>
+                    <Text px={2}>{provider.fname} {provider.lname}</Text>
                     <HStack px={2}>
                         <Text fontSize="lg">{avg_rating}</Text>
                         <Feather name="star" size={24} color="black" />
                     </HStack>
+                    <Text px={2}>Available: {daysString}</Text>
                     <Center>
+
                         <Button
                             backgroundColor="#FFF9A1"
                             w="50%"
@@ -101,7 +104,7 @@ if(sum>0){
                             borderWidth="1"
                             shadow="2"
                             onPress={() =>
-                                navigation.navigate("ServiceRequest",{provider:provider,service_id:service,user:user})
+                                navigation.navigate("ServiceRequest",{provider:provider.user_id,service_id:service,user:user})
                             }
                         >
                             <Center>
@@ -142,7 +145,7 @@ if(sum>0){
                         borderWidth="1"
                         shadow="2"
                         onPress={() =>
-                            navigation.navigate("NewReview",{provider:provider,service_id:service,user:user})
+                            navigation.navigate("NewReview",{provider:provider.user_id,service_id:service,user:user})
                         }
                     >
                         <Text>Write Review</Text>
