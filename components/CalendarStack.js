@@ -19,6 +19,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import NativeBaseIcon from "./NativeBaseIcon";
 import CalendarView from "./CalendarView"
 import CalendarDetailView from "./CalendarDetailView"
+import RequestStatusView from "./RequestStatusView"
+
 
 // Define the config
 const config = {
@@ -40,8 +42,10 @@ export default function CalendarStack(props) {
         headerShown: false
     }}
 >
-  <Stack.Screen name="Calendar" component={CalendarView} initialParams={{userId: props.route.params.userId}} />
+  <Stack.Screen name="CalendarView" component={CalendarView} initialParams={{userId: props.route.params.userId}} />
   <Stack.Screen name="CalendarDetail" component={CalendarDetailView} initialParams={{userId: props.route.params.userId}} />
+  <Stack.Screen name="RequestStatus" component={RequestStatusView} initialParams={{userId: props.route.params.userId}} />
+
 </Stack.Navigator>
   );
 }

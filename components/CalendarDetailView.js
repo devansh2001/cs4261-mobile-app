@@ -56,6 +56,7 @@ const getData = async () => {
                     <Center>
                     <Heading>Appointment Details</Heading>
                     <Text>Service: {item.service_name}</Text>
+                    <Text>Status: {item.task_status}</Text>
                     <Text>Scheduled on: {item.task_date_time}</Text>
                     <Text>Provider: {data.fname} {data.lname}</Text>
                     <Text>Contact Info: {data.phone_number}</Text>
