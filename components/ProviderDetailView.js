@@ -76,7 +76,7 @@ data.forEach(function(item, index, array) {
     sum = parseInt(item.review_rating) + sum;
 })
 if(sum>0){
-    avg_rating = sum/vdata.length;
+    avg_rating = sum/data.length;
 }
 }
 
@@ -133,6 +133,21 @@ if(sum>0){
                         )}
                         keyExtractor={(item) => item.review_id}
                     />
+                    <Center>
+                    <Button
+                        backgroundColor="#FFF9A1"
+                        w="50%"
+                        rounded="lg"
+                        borderColor="#c4c4c4"
+                        borderWidth="1"
+                        shadow="2"
+                        onPress={() =>
+                            navigation.navigate("NewReview",{provider:provider,service_id:service,user:user})
+                        }
+                    >
+                        <Text>Write Review</Text>
+                    </Button>
+                    </Center>
                 </Box>
             </Center>
         </VStack>

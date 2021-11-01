@@ -26,7 +26,7 @@ import BottomBar from "./sharedComponents/BottomBar";
 import TopBar from "./sharedComponents/TopBar";
 import { useNavigation } from "@react-navigation/native";
 
-const CalendarView = (props) => {
+const CalendarDetailView = (props) => {
 
 const navigation = useNavigation()
 const user = props.route.params.userId;
@@ -68,4 +68,4 @@ const getData = async () => {
     )
 }
 
-export default CalendarView;
+export default CalendarDetailView;

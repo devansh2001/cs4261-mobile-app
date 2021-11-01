@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b34b2138-1703-47c2-86de-f9cd3e130819" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/RequestStatusView.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/NewReviewView.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/CalendarDetailView.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CalendarDetailView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CalendarStack.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CalendarStack.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CalendarView.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CalendarView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/SettingsStack.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/SettingsStack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/MainStack.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MainStack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ProviderDetailView.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ProviderDetailView.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
