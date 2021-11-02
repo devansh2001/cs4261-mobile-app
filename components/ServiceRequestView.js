@@ -2,6 +2,7 @@
 // https://docs.nativebase.io/box
 
 import React, { useRef, useState } from "react";
+import validator from 'validator'
 import {
   Text,
   Link,
@@ -33,12 +34,18 @@ const ServiceRequestView = ({navigation, route}) => {
 const [service_name, setServiceName] = useState('');
 const [task_date, setTaskDate]= useState('');
 const [task_price, setTaskPrice]  = useState('');
+const [errorMessage, setErrorMessage] = useState('')
 
 const handleServiceName = (e) => {
     setServiceName(e)
 }
 const handleTaskDate = (e) => {
-    setTaskDate(e)
+    if (validator.isDate(e)) {
+        setTaskDate(e)
+        setErrorMessage('')
+    } else {
+        setErrorMessage('Invalid Date!')
+    }
 }
 const handleTaskPrice = (e) => {
     setTaskPrice(e)
@@ -104,6 +111,11 @@ const newTask = async () => {
                         placeholder="2021-10-25"
                         w="100%"
                     />
+                    <Box _text={{
+                        bold: true
+                    }}>
+                        {errorMessage}
+                    </Box>
                     <Text>Payment Offer</Text>
                     <Input
                         type="text"
