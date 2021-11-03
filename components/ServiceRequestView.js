@@ -2,6 +2,7 @@
 // https://docs.nativebase.io/box
 
 import React, { useRef, useState } from "react";
+import validator from 'validator'
 import {
   Text,
   Link,
@@ -33,41 +34,72 @@ const ServiceRequestView = ({navigation, route}) => {
 const [service_name, setServiceName] = useState('');
 const [task_date, setTaskDate]= useState('');
 const [task_price, setTaskPrice]  = useState('');
+const [errorMessageDate, setErrorMessageDate] = useState('')
+const [errorMessagePrice, setErrorMessagePrice] = useState('')
 
 const handleServiceName = (e) => {
     setServiceName(e)
 }
 const handleTaskDate = (e) => {
-    setTaskDate(e)
+    if (validator.isDate(e)) {
+        setTaskDate(e)
+        setErrorMessageDate('')
+    } else {
+        setErrorMessageDate('Invalid Date!')
+    }
 }
 const handleTaskPrice = (e) => {
-    setTaskPrice(e)
+    if (validator.isCurrency(e, {require_symbol: false, allow_negatives: false, digits_after_decimal: [2]})) {
+        setTaskPrice(e)
+        setErrorMessagePrice('')
+    } else {
+        setErrorMessagePrice('Invalid Price!')
+    }
 }
 
 const { provider,service_id, user } = route.params;
 
 const newTask = async () => {
-    const headers = new Headers();
-    // https://stackoverflow.com/a/52936747
-    headers.append('Access-Control-Allow-Origin', 'http://localhost')
-    headers.append('Content-Type', 'application/json')
-    const body = {
-        'service_id': service_id,
-        'task_date_time': task_date,
-        'task_price': task_price,
-        'task_consumer': user,
-        'task_provider': provider,
-        'task_status': 'SCHEDULED'
+    if (!validator.isDate(task_date)) {
+        alert('Invalid Date!')
+    } else if (!validator.isCurrency(task_price, {require_symbol: false, allow_negatives: false, digits_after_decimal: [2]})) {
+        alert('Invalid Price!')
+    } else {
+        let apiResponse = null;
+        const headers = new Headers();
+        // https://stackoverflow.com/a/52936747
+        headers.append('Access-Control-Allow-Origin', 'http://localhost')
+        headers.append('Content-Type', 'application/json')
+        const body = {
+            'service_id': service_id,
+            'task_date_time': task_date,
+            'task_price': task_price,
+            'task_consumer': user,
+            'task_provider': provider,
+            'task_status': 'SCHEDULED'
+        }
+        let url = 'https://cs4261-task-service.herokuapp.com/create-task';
+        await fetch(url, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(body)
+        })
+        .then(data => data.json())
+        .then(data => apiResponse = data)
+        .catch(err => console.log(err))
+
+        if (apiResponse['status'] !== 201 || apiResponse['task_id'] == null) {
+            console.log(apiResponse)
+            console.log('Please try again')
+            // https://reactnative.dev/docs/alert
+            // https://aboutreact.com/react-native-alert/
+            alert('Task Request Failed!')
+        } else {
+            console.log(apiResponse)
+            alert('Task Request Successful!')
+            navigation.navigate("Calendar")
+        }
     }
-    let url = 'https://cs4261-task-service.herokuapp.com/create-task';
-    await fetch(url, {
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify(body)
-    })
-    .then(data => data.json())
-    .then(data => console.log(data))
-    .catch(err => console.log(err))
   }
 
     return (
@@ -79,24 +111,38 @@ const newTask = async () => {
                     <Heading>Service Request</Heading>
                     <Text>Service Name</Text>
                     <Input
+                        type="text"
                         onChangeText={handleServiceName}
                         placeholder="Task Name"
                         w="100%"
                     />
                     <Text>Date</Text>
                     <Input
+                        type="date"
                         onChangeText={handleTaskDate}
-                        placeholder="1/1/2021"
+                        placeholder="2021-10-25"
                         w="100%"
                     />
+                    <Box _text={{
+                        bold: true
+                    }}>
+                        {errorMessageDate}
+                    </Box>
                     <Text>Payment Offer</Text>
                     <Input
+                        type="text"
                         onChangeText={handleTaskPrice}
-                        placeholder="$20"
+                        placeholder="$20.00"
                         w="100%"
                     />
+                    <Box _text={{
+                        bold: true
+                    }}>
+                        {errorMessagePrice}
+                    </Box>
                     <Text>Task Details</Text>
                     <Input
+                        type="text"
                         placeholder="Walk dogs"
                         w="100%"
                         h="20%" //FIX THIS, TEXT DOES NOT WRAP
