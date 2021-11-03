@@ -19,6 +19,8 @@ import {
   Radio
 } from "native-base";
 
+import * as EmailValidator from 'email-validator';
+
 
 const SignUpView = ({navigation}) => {
     const [fName, setFName] = useState('');
@@ -27,6 +29,7 @@ const SignUpView = ({navigation}) => {
     const [password, setPassword] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [venmoID, setVenmoID] = useState('');
+    const [invalidEmailAlert, setInvalidEmailAlert] = useState(false);
     const [profilePicture, setProfilePicture] = useState('');
     const [userType, setUserType] = useState('consumer');
 
@@ -38,8 +41,19 @@ const SignUpView = ({navigation}) => {
         setLName(e);
     }
 
+    const isEmailValid = (email) => {
+        // https://www.npmjs.com/package/email-validator
+        return EmailValidator.validate(email);
+    }
+
     const handleEmailChange = (e) => {
-        setEmail(e);
+        if (isEmailValid(e)) {
+            setInvalidEmailAlert();
+            setInvalidEmailAlert('');
+            setEmail(e);
+        } else {
+            setInvalidEmailAlert('Invalid email ID!');
+        }
     }
 
     const handlePasswordChange = (e) => {
@@ -138,6 +152,9 @@ const SignUpView = ({navigation}) => {
                             <Text margin='2'>Email ID</Text>
                         </Center>
                         <Input onChangeText={handleEmailChange} variant='rounded' placeholder='example@email.com' />
+                        <Center>
+                            <Text margin='2' bold={true} color="#FF0000" >{invalidEmailAlert}</Text>
+                        </Center>
                     </VStack>
                     <VStack>
                         <Center>
