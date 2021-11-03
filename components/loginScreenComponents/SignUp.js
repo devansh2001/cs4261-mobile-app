@@ -77,8 +77,8 @@ const SignUpView = ({navigation}) => {
 
     const isBodyValid = () => {
         return (
-            fname != ''
-            && lname != ''
+            fName != ''
+            && lName != ''
             && email != ''
             && password != ''
             && phoneNumber != ''
@@ -97,13 +97,13 @@ const SignUpView = ({navigation}) => {
         headers.append('Access-Control-Allow-Origin', 'http://localhost')
         headers.append('Content-Type', 'application/json')
 
-        if (isBodyValid()) {
+        if (!isBodyValid()) {
             // https://reactnative.dev/docs/alert
             // https://aboutreact.com/react-native-alert/
             alert('Please input values all required fields!')
             return;
         }
-        
+
         const body = {
             'fname': fName,
             'lname': lName,
