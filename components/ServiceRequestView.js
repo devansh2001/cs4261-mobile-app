@@ -2,7 +2,7 @@
 // https://docs.nativebase.io/box
 
 import React, { useRef, useState } from "react";
-import validator from 'validator'
+import validator from "validator"
 import {
   Text,
   Link,
