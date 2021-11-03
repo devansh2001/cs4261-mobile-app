@@ -25,6 +25,7 @@ import ServiceRequestView from "./ServiceRequestView";
 import ProviderDetailView from "./ProviderDetailView";
 import CategoriesView from "./ServiceCatView";
 import NewReviewView from "./NewReviewView"
+import ServiceCreateNew from "./ServiceCreateNew";
 
 // Define the config
 const config = {
@@ -51,6 +52,7 @@ export default function MainStack(props) {
   <Stack.Screen name="ServiceRequest" component={ServiceRequestView} initialParams={{ userId: props.route.params.userId }} />
   <Stack.Screen name="ProviderDetail" component={ProviderDetailView} initialParams={{ userId: props.route.params.userId }} />
   <Stack.Screen name="NewReview" component={NewReviewView} initialParams={{ userId: props.route.params.userId }} />
+  <Stack.Screen name="ServiceCreateNew" component={ServiceCreateNew} initialParams={{ userId: props.route.params.userId }} />
 </Stack.Navigator>
   );
 }
