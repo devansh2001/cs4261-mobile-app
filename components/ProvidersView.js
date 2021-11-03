@@ -91,7 +91,7 @@ const getData = async () => {
                             bg="white"
                             rounded="xs"
                             onPress={() =>
-                                navigation.navigate('ProviderDetail',{provider:item.user_id,service:service,user:user_id})
+                                navigation.navigate('ProviderDetail',{provider:item,service:service,user:user_id})
                             }
                             >
                                 <HStack w="100%">

@@ -35,7 +35,7 @@ const [data, setData] = useState([]);
 const getData = async () => {
     let url = 'https://cs4261-task-service.herokuapp.com/get-tasks-by-status/';
      try {
-      const response = await fetch(url + user + '/SCHEDULED');
+      const response = await fetch(url + user + '/REQUESTED');
       const json = await response.json();
       console.log(json)
       setData(json.task);
@@ -54,7 +54,7 @@ const getData = async () => {
             <Center h="100%" w="100%">
                 <TopBar/>
                 <Center h="95%" w="100%">
-                    <Heading>Calendar</Heading>
+                    <Heading>Requested Tasks Status</Heading>
                     <FlatList
                         w="100%"
                         space={1}
@@ -73,23 +73,12 @@ const getData = async () => {
                                 <HStack space={3}>
                                     <Text>{item.task_date_time}</Text>
                                     <Text>{item.service_name}</Text>
+                                    <Text>{item.task_status}</Text>
                                 </HStack>
                             </Button>
                         )}
                         keyExtractor={(item) => item.service_id}
                     />
-                    <Button
-                        w="50%"
-                        borderWidth="1"
-                        borderColor="#c4c4c4"
-                        bg="#FFF9A1"
-                        rounded="xs"
-                        onPress={() =>
-                            navigation.navigate("RequestStatus")
-                        }
-                    >
-                        <Text>Requested Tasks Status</Text>
-                    </Button>
                 </Center>
             </Center>
         </VStack>

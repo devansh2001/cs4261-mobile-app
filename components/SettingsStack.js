@@ -39,7 +39,7 @@ export default function SettingsStack(props) {
         headerShown: false
     }}
 >
-  <Stack.Screen name="Settings" component={SettingsView} initialParams={{userId: props.route.params.userId}} />
+  <Stack.Screen name="SettingsView" component={SettingsView} initialParams={{userId: props.route.params.userId}} />
   <Stack.Screen name="PaymentHistory" component={PaymentHistoryView} initialParams={{userId: props.route.params.userId}} />
 </Stack.Navigator>
   );
