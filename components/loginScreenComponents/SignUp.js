@@ -19,6 +19,8 @@ import {
   Radio
 } from "native-base";
 
+import * as EmailValidator from 'email-validator';
+
 
 const SignUpView = ({navigation}) => {
     const [fName, setFName] = useState('');
@@ -27,6 +29,8 @@ const SignUpView = ({navigation}) => {
     const [password, setPassword] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [venmoID, setVenmoID] = useState('');
+    const [invalidEmailAlert, setInvalidEmailAlert] = useState(false);
+    const [profilePicture, setProfilePicture] = useState('');
     const [userType, setUserType] = useState('consumer');
 
     const handleFirstNameChange = (e) => {
@@ -37,8 +41,19 @@ const SignUpView = ({navigation}) => {
         setLName(e);
     }
 
+    const isEmailValid = (email) => {
+        // https://www.npmjs.com/package/email-validator
+        return EmailValidator.validate(email);
+    }
+
     const handleEmailChange = (e) => {
-        setEmail(e);
+        if (isEmailValid(e)) {
+            setInvalidEmailAlert();
+            setInvalidEmailAlert('');
+            setEmail(e);
+        } else {
+            setInvalidEmailAlert('Invalid email ID!');
+        }
     }
 
     const handlePasswordChange = (e) => {
@@ -51,6 +66,10 @@ const SignUpView = ({navigation}) => {
 
     const handleVenmoIDChange = (e) => {
         setVenmoID(e);
+    }
+
+    const handleProfilePictureChange = (e) => {
+        setProfilePicture(e);
     }
 
     const handleUserTypeChange = (e) => {
@@ -76,6 +95,7 @@ const SignUpView = ({navigation}) => {
             'password': password,
             'venmo_id': venmoID,
             'user_type': userType,
+            'profile_picture': profilePicture,
             'user_location': '0'
         }
 
@@ -132,6 +152,9 @@ const SignUpView = ({navigation}) => {
                             <Text margin='2'>Email ID</Text>
                         </Center>
                         <Input onChangeText={handleEmailChange} variant='rounded' placeholder='example@email.com' />
+                        <Center>
+                            <Text margin='2' bold={true} color="#FF0000" >{invalidEmailAlert}</Text>
+                        </Center>
                     </VStack>
                     <VStack>
                         <Center>
@@ -162,6 +185,13 @@ const SignUpView = ({navigation}) => {
                                 </Radio>
                             </HStack>
                         </Radio.Group>
+                    </VStack>
+
+                    <VStack>
+                        <Center>
+                            <Text margin='2'>Profile Picture</Text>
+                        </Center>
+                        <Input onChangeText={handleProfilePictureChange} variant='rounded' placeholder='https://link-to-profile-picture.com/image.png' />
                     </VStack>
                     
                     <Button onPress={handleSignup} backgroundColor='#fff9a1' shadow='5' _text={{color: 'black'}}>

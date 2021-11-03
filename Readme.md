@@ -17,3 +17,5 @@ expo init my-app --template expo-template-native-base
 - https://reactnavigation.org/docs/screen-options/
 - https://reactnavigation.org/docs/use-navigation/
 - https://stackoverflow.com/a/64023369
+- https://docs.nativebase.io/image
+- https://www.npmjs.com/package/email-validator

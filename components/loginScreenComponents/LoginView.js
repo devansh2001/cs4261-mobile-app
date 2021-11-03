@@ -19,23 +19,35 @@ import {
 import { Alert, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-
+import * as EmailValidator from 'email-validator';
 
 const LoginView = (props) => {
     // https://reactnavigation.org/docs/use-navigation/
     const navigation = useNavigation();
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const [invalidEmailAlert, setInvalidEmailAlert] = React.useState(false);
     const [userInfo, setUserInfo] = React.useState('');
+    
+    const isEmailValid = (email) => {
+        // https://www.npmjs.com/package/email-validator
+        return EmailValidator.validate(email);
+    }
 
     const handleEmailChange = (e) => {
-        // console.log(e)
-        setEmail(e)
+        if (isEmailValid(e)) {
+            setInvalidEmailAlert();
+            setInvalidEmailAlert('');
+            setEmail(e);
+        } else {
+            setInvalidEmailAlert('Invalid email ID!');
+        }
     }
     
     const handlePasswordChange = (e) => {
         setPassword(e)
     }
+
 
 
     const handleLogin = async () => {
@@ -63,7 +75,7 @@ const LoginView = (props) => {
             // https://reactnative.dev/docs/alert
             // https://aboutreact.com/react-native-alert/
             alert(
-                'Please try to login again with a valid email ID and password!'
+                'Please try to login again with a valid email ID and password combination!'
             )
         } else {
             console.log(apiResponse)
@@ -90,6 +102,9 @@ const LoginView = (props) => {
                         </Center>
                         {/* https://stackoverflow.com/a/64023369 */}
                         <Input onChangeText={handleEmailChange} variant='rounded' placeholder='example@email.com' />
+                        <Center>
+                            <Text margin='2' bold={true} color="#FF0000" >{invalidEmailAlert}</Text>
+                        </Center>
                     </VStack>
                     <VStack>
                         <Center>
