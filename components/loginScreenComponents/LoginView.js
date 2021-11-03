@@ -36,7 +36,6 @@ const LoginView = (props) => {
 
     const handleEmailChange = (e) => {
         if (isEmailValid(e)) {
-            setInvalidEmailAlert();
             setInvalidEmailAlert('');
             setEmail(e);
         } else {
