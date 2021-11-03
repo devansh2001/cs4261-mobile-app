@@ -48,7 +48,6 @@ const SignUpView = ({navigation}) => {
 
     const handleEmailChange = (e) => {
         if (isEmailValid(e)) {
-            setInvalidEmailAlert();
             setInvalidEmailAlert('');
             setEmail(e);
         } else {
@@ -76,6 +75,17 @@ const SignUpView = ({navigation}) => {
         setUserType(e.target.value);
     }
 
+    const isBodyValid = () => {
+        return (
+            fname != ''
+            && lname != ''
+            && email != ''
+            && password != ''
+            && phoneNumber != ''
+            && venmoID != ''
+            && userType != ''
+        );
+    }
 
     const handleSignup = async () => {
         let apiResponse = null;
@@ -87,6 +97,13 @@ const SignUpView = ({navigation}) => {
         headers.append('Access-Control-Allow-Origin', 'http://localhost')
         headers.append('Content-Type', 'application/json')
 
+        if (isBodyValid()) {
+            // https://reactnative.dev/docs/alert
+            // https://aboutreact.com/react-native-alert/
+            alert('Please input values all required fields!')
+            return;
+        }
+        
         const body = {
             'fname': fName,
             'lname': lName,
