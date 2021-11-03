@@ -27,6 +27,7 @@ const SignUpView = ({navigation}) => {
     const [password, setPassword] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [venmoID, setVenmoID] = useState('');
+    const [profilePicture, setProfilePicture] = useState('');
     const [userType, setUserType] = useState('consumer');
 
     const handleFirstNameChange = (e) => {
@@ -53,6 +54,10 @@ const SignUpView = ({navigation}) => {
         setVenmoID(e);
     }
 
+    const handleProfilePictureChange = (e) => {
+        setProfilePicture(e);
+    }
+
     const handleUserTypeChange = (e) => {
         setUserType(e.target.value);
     }
@@ -76,6 +81,7 @@ const SignUpView = ({navigation}) => {
             'password': password,
             'venmo_id': venmoID,
             'user_type': userType,
+            'profile_picture': profilePicture,
             'user_location': '0'
         }
 
@@ -162,6 +168,13 @@ const SignUpView = ({navigation}) => {
                                 </Radio>
                             </HStack>
                         </Radio.Group>
+                    </VStack>
+
+                    <VStack>
+                        <Center>
+                            <Text margin='2'>Profile Picture</Text>
+                        </Center>
+                        <Input onChangeText={handleProfilePictureChange} variant='rounded' placeholder='https://link-to-profile-picture.com/image.png' />
                     </VStack>
                     
                     <Button onPress={handleSignup} backgroundColor='#fff9a1' shadow='5' _text={{color: 'black'}}>
