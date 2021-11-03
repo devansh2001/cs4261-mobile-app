@@ -9,6 +9,8 @@ import {
   Center,
   Input,
   Heading,
+  Select,
+  CheckIcon,
   Switch,
   useColorMode,
   NativeBaseProvider,
@@ -35,7 +37,7 @@ const handleServiceName = (e) => {
     setServiceName(e)
 }
 const handleServiceCategory = (e) => {
-    setServiceCategory(e.toUpperCase())
+    setServiceCategory(e)
 }
 const handleServiceDescription = (e) => {
     setServiceDescription(e)
@@ -46,12 +48,13 @@ const {user_id} = route.params;
 const newService = async () => {
     let apiResponse = null;
     const headers = new Headers();
+    var service_cat =  service_category == "" ? "OTHER" : service_category
     // https://stackoverflow.com/a/52936747
     headers.append('Access-Control-Allow-Origin', 'http://localhost')
     headers.append('Content-Type', 'application/json')
     const body = {
         'service_name': service_name,
-        'service_category': service_category,
+        'service_category': service_cat,
         'service_description': service_description
     }
     let url = 'https://cs4261-services-service.herokuapp.com/create-services';
@@ -92,12 +95,27 @@ const newService = async () => {
                         w="100%"
                     />
                     <Text>Service Category</Text>
-                    <Input
-                        type="text"
-                        onChangeText={handleServiceCategory}
-                        placeholder="PLUMBING"
-                        w="100%"
-                    />
+                    <Select
+                        selectedValue={service_category}
+                        accessibilityLabel="Choose Service"
+                        placeholder="Choose Service"
+                        _selectedItem={{
+                            bg: "teal.600",
+                            endIcon: <CheckIcon size="5" />,
+                        }}
+                        mt={1}
+                        onValueChange={handleServiceCategory}
+                    >
+                        <Select.Item label="Cleaning" value="CLEANING" />
+                        <Select.Item label="Pet" value="PET" />
+                        <Select.Item label="Plumbing" value="PLUMBING" />
+                        <Select.Item label="Electrical" value="ELECTRICAL" />
+                        <Select.Item label="Assembly" value="BUILD" />
+                        <Select.Item label="Technology" value="COMPUTER" />
+                        <Select.Item label="Landscaping" value="LAWN" />
+                        <Select.Item label="Home" value="HOME" />
+                        <Select.Item label="Other" value="OTHER" />
+                    </Select>
                     <Text>Service Description</Text>
                     <Input
                         type="text"
