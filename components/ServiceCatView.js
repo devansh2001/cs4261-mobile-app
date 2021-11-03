@@ -189,7 +189,7 @@ const Calendar = (props) => {
                             borderColor="#c4c4c4"
                             borderWidth="1"
                             shadow="2"
-                            w="100%"
+                            w="49%"
                             h="100%"
                             onPress={() =>
                                 navigation.navigate("Services",{category:"OTHER", userId: props.route.params.userId})
@@ -198,6 +198,23 @@ const Calendar = (props) => {
                             <Center>
                                 <Heading>Other</Heading>
                                 <MaterialIcons name="home-repair-service" size={50} color="black" />
+                            </Center>
+                        </Button>
+                        <Button
+                            backgroundColor="#FFF9A1"
+                            rounded="lg"
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="2"
+                            w="49%"
+                            h="100%"
+                            onPress={() =>
+                                navigation.navigate("ServiceCreateNew", {userId: props.route.params.userId})
+                            }
+                        >
+                            <Center>
+                                <Heading>Create New Service</Heading>
+                                <MaterialIcons name="add" size={50} color="black" />
                             </Center>
                         </Button>
                     </HStack>
