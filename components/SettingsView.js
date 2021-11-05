@@ -67,6 +67,21 @@ const navigation = useNavigation()
                                 <Text>Log Out</Text>
                             </Center>
                         </Button>
+                        <Button
+                            backgroundColor="#FFF9A1"
+                            w="90%"
+                            rounded="lg"
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="2"
+                            onPress={() =>
+                                navigation.navigate("Availability",{user_id:props.route.params.userId})
+                            }
+                        >
+                            <Center>
+                                <Text>Availability</Text>
+                            </Center>
+                        </Button>
                     </Center>
                 </Box>
             </Center>
