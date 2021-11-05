@@ -94,13 +94,9 @@ const getData = async () => {
                                 navigation.navigate('ProviderDetail',{provider:item,service:service,user:user_id})
                             }
                             >
-                                <HStack w="100%">
-                                    {/* <Ionicons name="person-circle-outline" size={40} color="black" /> */}
-                                    {/* https://docs.nativebase.io/image */}
-                                    <Image source={() => item.profile_picture ? item.profile_picture : null} size={40} borderRadius={20} />
-                                <VStack>
+                                <HStack w="100%" space={3}>
+                                    <Image source={() => item.profile_picture ? item.profile_picture : null} size={10} borderRadius={20} />
                                     <Text>{item.fname} {item.lname}</Text>
-                                </VStack>
                                 </HStack>
                             </Button>
                         )}
