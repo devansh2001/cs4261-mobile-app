@@ -59,12 +59,12 @@ const navigation = useNavigation()
                             borderColor="#c4c4c4"
                             borderWidth="1"
                             shadow="2"
-                            //onPress={() =>
-                            //log out
-                            //}
+                            onPress={() =>
+                                navigation.navigate("Availability",{user_id:props.route.params.userId})
+                            }
                         >
                             <Center>
-                                <Text>Log Out</Text>
+                                <Text>Availability</Text>
                             </Center>
                         </Button>
                         <Button
@@ -74,12 +74,12 @@ const navigation = useNavigation()
                             borderColor="#c4c4c4"
                             borderWidth="1"
                             shadow="2"
-                            onPress={() =>
-                                navigation.navigate("Availability",{user_id:props.route.params.userId})
-                            }
+                            //onPress={() =>
+                            //log out
+                            //}
                         >
                             <Center>
-                                <Text>Availability</Text>
+                                <Text>Log Out</Text>
                             </Center>
                         </Button>
                     </Center>

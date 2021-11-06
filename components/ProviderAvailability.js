@@ -126,14 +126,14 @@ const ProviderAvailability = ({navigation, route}) => {
                         <Input
                             type="text"
                             onChangeText={handleServiceID}
-                            placeholder="Service Name"
+                            placeholder="Service ID"
                             w="100%"
                         />
                         <Text>Minimum Price</Text>
                         <Input
                             type="number"
                             onChangeText={handleMinPrice}
-                            placeholder="Fixing broken pipes"
+                            placeholder="0"
                             w="100%"
                         />
                         <Heading>Enter Availability For Each Day</Heading>
@@ -141,49 +141,49 @@ const ProviderAvailability = ({navigation, route}) => {
                         <Input
                             type="text"
                             onChangeText={handleMonday}
-                            placeholder="Service Name"
+                            placeholder="1-2"
                             w="100%"
                         />
                         <Text>Tuesday</Text>
                         <Input
                             type="text"
                             onChangeText={handleTuesday}
-                            placeholder="Service Name"
+                            placeholder="1-2"
                             w="100%"
                         />
                         <Text>Wednesday</Text>
                         <Input
                             type="text"
                             onChangeText={handleWednesday}
-                            placeholder="Service Name"
+                            placeholder="1-2"
                             w="100%"
                         />
                         <Text>Thursday</Text>
                         <Input
                             type="text"
                             onChangeText={handleThursday}
-                            placeholder="Service Name"
+                            placeholder="1-2"
                             w="100%"
                         />
                         <Text>Friday</Text>
                         <Input
                             type="text"
                             onChangeText={handleFriday}
-                            placeholder="Service Name"
+                            placeholder="1-2"
                             w="100%"
                         />
                         <Text>Saturday</Text>
                         <Input
                             type="text"
                             onChangeText={handleSaturday}
-                            placeholder="Service Name"
+                            placeholder="1-2"
                             w="100%"
                         />
                         <Text>Sunday</Text>
                         <Input
                             type="text"
                             onChangeText={handleSunday}
-                            placeholder="Service Name"
+                            placeholder="1-2"
                             w="100%"
                         />
                         <Container py={10}>
