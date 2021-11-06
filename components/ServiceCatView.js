@@ -213,7 +213,8 @@ const Calendar = (props) => {
                             }
                         >
                             <Center>
-                                <Heading>Create New Service</Heading>
+                                <Heading>Create New</Heading>
+                                <Heading>Service</Heading>
                                 <MaterialIcons name="add" size={50} color="black" />
                             </Center>
                         </Button>

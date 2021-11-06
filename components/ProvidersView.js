@@ -97,10 +97,9 @@ const getData = async () => {
                                 <HStack w="100%">
                                     {/* <Ionicons name="person-circle-outline" size={40} color="black" /> */}
                                     {/* https://docs.nativebase.io/image */}
-                                    <Image source={{uri: item.profile_picture}} size={40} borderRadius={20} />
+                                    <Image source={{uri: item.profile_picture}} size={10} borderRadius={20} />
                                 <VStack>
                                     <Text>{item.fname} {item.lname}</Text>
-                                </VStack>
                                 </HStack>
                             </Button>
                         )}

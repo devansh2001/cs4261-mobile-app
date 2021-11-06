@@ -57,7 +57,7 @@ const handleTaskPrice = (e) => {
     }
 }
 
-const { provider,service_id, user } = route.params;
+const { provider,service_id,user,available } = route.params;
 
 const newTask = async () => {
     if (!validator.isDate(task_date)) {
