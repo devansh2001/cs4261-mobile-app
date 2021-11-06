@@ -100,6 +100,7 @@ const getData = async () => {
                                     <Image source={{uri: item.profile_picture}} size={10} borderRadius={20} />
                                 <VStack>
                                     <Text>{item.fname} {item.lname}</Text>
+                                </VStack>
                                 </HStack>
                             </Button>
                         )}
