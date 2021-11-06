@@ -20,7 +20,7 @@ import {
     Box,
     FlatList,
     Divider,
-    Button,
+    Button, Card,
 } from "native-base";
 import BottomBar from "./sharedComponents/BottomBar";
 import TopBar from "./sharedComponents/TopBar";
@@ -89,25 +89,26 @@ const ProviderRequests = ({navigation, route}) => {
                         space={1}
                         data={requestedData}
                         renderItem={({ item }) => (
-                            <div>
+                            <Card>
                                 <HStack space={3}>
-                                    <Text>{item.task_date_time}</Text>
-                                    <Text>{item.service_name}</Text>
-                                    <Text>{item.task_status}</Text>
+                                    <HStack space={3}>
+                                        <Text>{item.task_date_time}</Text>
+                                        <Text>{item.service_name}</Text>
+                                        <Text>{item.task_status}</Text>
+                                    </HStack>
+                                    <Button
+                                        borderWidth="1"
+                                        borderColor="#c4c4c4"
+                                        bg="white"
+                                        rounded="xs"
+                                        onPress={() =>
+                                            changeTaskStatus(item, 'SCHEDULED')
+                                        }
+                                    >
+                                        Accept
+                                    </Button>
                                 </HStack>
-                                <Button
-                                    w="100%"
-                                    borderWidth="1"
-                                    borderColor="#c4c4c4"
-                                    bg="white"
-                                    rounded="xs"
-                                    onPress={() =>
-                                        changeTaskStatus(item, 'SCHEDULED')
-                                    }
-                                >
-                                    Accept
-                                </Button>
-                            </div>
+                            </Card>
                         )}
                         keyExtractor={(item) => item.service_id}
                     />
@@ -117,25 +118,26 @@ const ProviderRequests = ({navigation, route}) => {
                         space={1}
                         data={scheduledData}
                         renderItem={({ item }) => (
-                            <div>
+                            <Card>
                                 <HStack space={3}>
-                                    <Text>{item.task_date_time}</Text>
-                                    <Text>{item.service_name}</Text>
-                                    <Text>{item.task_status}</Text>
+                                    <HStack space={3}>
+                                        <Text>{item.task_date_time}</Text>
+                                        <Text>{item.service_name}</Text>
+                                        <Text>{item.task_status}</Text>
+                                    </HStack>
+                                    <Button
+                                        borderWidth="1"
+                                        borderColor="#c4c4c4"
+                                        bg="white"
+                                        rounded="xs"
+                                        onPress={() =>
+                                            changeTaskStatus(item, 'COMPLETED')
+                                        }
+                                    >
+                                        Completed
+                                    </Button>
                                 </HStack>
-                                <Button
-                                    w="100%"
-                                    borderWidth="1"
-                                    borderColor="#c4c4c4"
-                                    bg="white"
-                                    rounded="xs"
-                                    onPress={() =>
-                                        changeTaskStatus(item, 'COMPLETED')
-                                    }
-                                >
-                                    Completed
-                                </Button>
-                            </div>
+                            </Card>
                         )}
                         keyExtractor={(item) => item.service_id}
                     />
