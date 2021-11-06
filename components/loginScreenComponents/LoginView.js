@@ -69,7 +69,7 @@ const LoginView = (props) => {
         .catch(err => console.log(err))
 
         if (apiResponse['status'] !== 200) {
-            console.log(apiResponse)
+            // console.log(apiResponse)
             console.log('Please try again')
             // https://reactnative.dev/docs/alert
             // https://aboutreact.com/react-native-alert/
@@ -77,7 +77,7 @@ const LoginView = (props) => {
                 'Please try to login again with a valid email ID and password combination!'
             )
         } else {
-            console.log(apiResponse)
+            // console.log(apiResponse)
             setUserInfo(apiResponse['user'])
             // props.route.params.setUserId(apiResponse['user']['user_id'])
             navigation.navigate("TabBar", {userId: apiResponse['user']['user_id']})

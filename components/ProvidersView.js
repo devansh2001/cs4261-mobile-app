@@ -94,8 +94,11 @@ const getData = async () => {
                                 navigation.navigate('ProviderDetail',{provider:item,service:service,user:user_id})
                             }
                             >
-                                <HStack w="100%" space={3}>
-                                    <Image source={() => item.profile_picture ? item.profile_picture : null} size={10} borderRadius={20} />
+                                <HStack w="100%">
+                                    {/* <Ionicons name="person-circle-outline" size={40} color="black" /> */}
+                                    {/* https://docs.nativebase.io/image */}
+                                    <Image source={{uri: item.profile_picture}} size={10} borderRadius={20} />
+                                <VStack>
                                     <Text>{item.fname} {item.lname}</Text>
                                 </HStack>
                             </Button>
