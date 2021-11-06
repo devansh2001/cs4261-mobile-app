@@ -76,7 +76,7 @@ const newTask = async () => {
             'task_price': task_price,
             'task_consumer': user,
             'task_provider': provider,
-            'task_status': 'SCHEDULED'
+            'task_status': 'REQUESTED'
         }
         let url = 'https://cs4261-task-service.herokuapp.com/create-task';
         await fetch(url, {

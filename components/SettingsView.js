@@ -59,6 +59,21 @@ const navigation = useNavigation()
                             borderColor="#c4c4c4"
                             borderWidth="1"
                             shadow="2"
+                            onPress={() =>
+                                navigation.navigate("RequestsView",{user_id:props.route.params.userId})
+                            }
+                        >
+                            <Center>
+                                <Text>Provider Requests</Text>
+                            </Center>
+                        </Button>
+                        <Button
+                            backgroundColor="#FFF9A1"
+                            w="90%"
+                            rounded="lg"
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="2"
                             //onPress={() =>
                             //log out
                             //}
