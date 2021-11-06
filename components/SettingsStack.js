@@ -20,6 +20,7 @@ import NativeBaseIcon from "./NativeBaseIcon";
 import SettingsView from "./SettingsView"
 import PaymentHistoryView from "./PaymentHistoryView"
 import ProviderAvailability from "./ProviderAvailability";
+import ProviderRequests from "./ProviderRequests";
 
 // Define the config
 const config = {
@@ -41,6 +42,7 @@ export default function SettingsStack(props) {
     }}
 >
   <Stack.Screen name="SettingsView" component={SettingsView} initialParams={{userId: props.route.params.userId}} />
+  <Stack.Screen name="RequestsView" component={ProviderRequests} initialParams={{userId: props.route.params.userId}} />
   <Stack.Screen name="PaymentHistory" component={PaymentHistoryView} initialParams={{userId: props.route.params.userId}} />
   <Stack.Screen name="Availability" component={ProviderAvailability} initialParams={{userId: props.route.params.userId}} />
 </Stack.Navigator>

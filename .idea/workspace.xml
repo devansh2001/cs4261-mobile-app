@@ -3,22 +3,48 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="b34b2138-1703-47c2-86de-f9cd3e130819" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/components/ProviderRequests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ProvidersView.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ProvidersView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ServiceCatView.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ServiceCatView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ServiceRequestView.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ServiceRequestView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/SettingsStack.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/SettingsStack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/SettingsView.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/SettingsView.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\julia\.android\avd\Pixel_2_API_30.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -103,7 +129,10 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b34b2138-1703-47c2-86de-f9cd3e130819" name="Default Changelist" comment="" />
@@ -128,5 +157,25 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Adding veiw from provider to input availability.&#10;TODO: change service id to service name" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding veiw from provider to input availability.&#10;TODO: change service id to service name" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="3961" y="255" width="1437" height="718" key="dock-window-1" timestamp="1636144289938">
+      <screen x="3840" y="0" width="1920" height="1040" />
+    </state>
+    <state x="3961" y="255" width="1437" height="718" key="dock-window-1/0.0.1920.1040/-3840.0.1707.920/3840.0.1920.1040/-7680.0.1280.680@0.0.1920.1040" timestamp="1636144289938" />
+    <state x="671" y="236" width="577" height="566" key="find.popup" timestamp="1636132071204">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="671" y="236" width="577" height="566" key="find.popup/0.0.1920.1040/-3840.0.1707.920/3840.0.1920.1040/-7680.0.1280.680@0.0.1920.1040" timestamp="1636132071204" />
+    <state x="726" y="151" key="git4idea.branch.GitSmartOperationDialog" timestamp="1636213623205">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="726" y="151" key="git4idea.branch.GitSmartOperationDialog/-3840.0.1707.924/3840.0.1920.1040/-7680.0.1280.680/0.0.1920.1040@0.0.1920.1040" timestamp="1636213623205" />
+    <state x="623" y="226" width="672" height="678" key="search.everywhere.popup" timestamp="1636133299013">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="226" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-3840.0.1707.920/3840.0.1920.1040/-7680.0.1280.680@0.0.1920.1040" timestamp="1636133299013" />
   </component>
 </project>
