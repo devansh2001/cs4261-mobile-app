@@ -33,6 +33,7 @@ const ProviderDetailView = ({navigation, route}) => {
 
 const { provider,service,user } = route.params;
 const [data, setData] = useState([]);
+console.log(provider.user_id)
 const getData = async () => {
     let url = 'https://cs4261-reviews-service.herokuapp.com/get-all-reviews/';
      try {
@@ -58,30 +59,14 @@ if(sum>0){
     avg_rating = sum/data.length;
 }
 }
+let str = provider.availability
+str = str.replace(/'/g, '"')
+let avail = JSON.parse(str)
 let days = []
-if(provider.is_monday){
-    days.push("Monday")
+for(var i in avail){
+    days.push(i)
 }
-if(provider.is_tuesday){
-    days.push("Tuesday")
-}
-if(provider.is_wednesday){
-    days.push("Wednesday")
-}
-if(provider.is_thursday){
-    days.push("Thursday")
-}
-if(provider.is_friday){
-    days.push("Friday")
-}
-if(provider.is_saturday){
-    days.push("Saturday")
-}
-if(provider.is_sunday){
-    days.push("Sunday")
-}
-const daysString = days.join(', ')
-
+days = days.join(', ')
     return (
         <VStack h="100%" w="100%">
             <Center h="100%" w="100%">
@@ -93,7 +78,7 @@ const daysString = days.join(', ')
                         <Text fontSize="lg">{avg_rating}</Text>
                         <Feather name="star" size={24} color="black" />
                     </HStack>
-                    <Text px={2}>Available: {daysString}</Text>
+                    <Text px={2}>Available: {days}</Text>
                     <Center>
 
                         <Button
@@ -104,7 +89,7 @@ const daysString = days.join(', ')
                             borderWidth="1"
                             shadow="2"
                             onPress={() =>
-                                navigation.navigate("ServiceRequest",{provider:provider.user_id,service_id:service,user:user})
+                                navigation.navigate("ServiceRequest",{provider:provider.user_id,service_id:service,user:user,available:avail})
                             }
                         >
                             <Center>
