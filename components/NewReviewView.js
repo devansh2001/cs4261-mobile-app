@@ -61,6 +61,8 @@ const newReview = async () => {
     })
     .then(data => data.json())
     .then(data => console.log(data))
+    .then(() => alert('Review submitted successfully'))
+    .then(() => navigation.navigate('Providers'))
     .catch(err => console.log(err))
   }
 
