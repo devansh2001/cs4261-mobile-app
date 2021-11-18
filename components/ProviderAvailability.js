@@ -2,7 +2,7 @@
 // Used this documentation: https://docs.nativebase.io/input, https://docs.nativebase.io/image,
 // https://docs.nativebase.io/box
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import validator from "validator"
 import {
     Text,
@@ -39,6 +39,8 @@ const ProviderAvailability = ({navigation, route}) => {
     const [friday, setFriday] = useState([])
     const [saturday, setSaturday] = useState([])
     const [sunday, setSunday] = useState([])
+    const [service_name_list, setServiceNameList] = useState([])
+    const [service_id_list, setServiceIDList] = useState([])
     const [errorMessageMinPrice, setErrorMessageMinPrice] = useState('')
 
     const handleServiceID = (e) => {
@@ -95,12 +97,21 @@ const ProviderAvailability = ({navigation, route}) => {
             console.log('Please try again')
             // https://reactnative.dev/docs/alert
             // https://aboutreact.com/react-native-alert/
-            alert('Service Fetch Failed!')
         } else {
             console.log(all_services)
-            alert('Service Fetch Successful!')
+            let service_name_list = []
+            let service_id_list = []
+            for (var i in all_services["services"]) {
+                service_name_list.push(all_services["services"][i]["service_name"])
+                service_id_list.push(all_services["services"][i]["service_id"])
+            }
+            setServiceNameList(service_name_list)
+            setServiceIDList(service_id_list)
         }
     }
+    useEffect(() => {
+     getAllServices();
+    }, []);
 
     const newAvailability = async () => {
         let apiResponse = null;
@@ -166,15 +177,11 @@ const ProviderAvailability = ({navigation, route}) => {
                             mt={1}
                             onValueChange={handleServiceID}
                         >
-                            <Select.Item label="Cleaning" value="CLEANING" />
-                            <Select.Item label="Pet" value="PET" />
-                            <Select.Item label="Plumbing" value="PLUMBING" />
-                            <Select.Item label="Electrical" value="ELECTRICAL" />
-                            <Select.Item label="Assembly" value="BUILD" />
-                            <Select.Item label="Technology" value="COMPUTER" />
-                            <Select.Item label="Landscaping" value="LAWN" />
-                            <Select.Item label="Home" value="HOME" />
-                            <Select.Item label="Other" value="OTHER" />
+                            <Select.Item label={service_name_list[0]} value={service_id_list[0]} />
+                            <Select.Item label={service_name_list[1]} value={service_id_list[1]} />
+                            <Select.Item label={service_name_list[2]} value={service_id_list[2]} />
+                            <Select.Item label={service_name_list[3]} value={service_id_list[3]} />
+                            <Select.Item label={service_name_list[4]} value={service_id_list[4]} />
                         </Select>
                         <Text>Minimum Price</Text>
                         <Input
@@ -246,7 +253,7 @@ const ProviderAvailability = ({navigation, route}) => {
                                 borderWidth="1"
                                 shadow="2"
                                 onPress={
-                                    getAllServices
+                                    newAvailability
                                 }
                             >
                                 <Text>Submit</Text>
