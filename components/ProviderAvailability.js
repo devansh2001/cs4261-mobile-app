@@ -3,6 +3,7 @@
 // https://docs.nativebase.io/box
 
 import React, { useRef, useState } from "react";
+import validator from "validator"
 import {
     Text,
     Link,
@@ -38,12 +39,18 @@ const ProviderAvailability = ({navigation, route}) => {
     const [friday, setFriday] = useState([])
     const [saturday, setSaturday] = useState([])
     const [sunday, setSunday] = useState([])
+    const [errorMessageMinPrice, setErrorMessageMinPrice] = useState('')
 
     const handleServiceID = (e) => {
         setServiceID(e)
     }
     const handleMinPrice = (e) => {
-        setMinPrice(e)
+        if (validator.isCurrency(e, {require_symbol: false, allow_negatives: false, digits_after_decimal: [2]})) {
+            setMinPrice(e)
+            setErrorMessageMinPrice('')
+        } else {
+            setErrorMessageMinPrice('Invalid Price!')
+        }
     }
     const handleMonday = (e) => {
         setMonday(e)
@@ -67,8 +74,33 @@ const ProviderAvailability = ({navigation, route}) => {
         setSunday(e)
     }
 
-
     const {user_id} = route.params;
+
+    const getAllServices = async () => {
+        let all_services = null;
+        const headers = new Headers();
+        headers.append('Access-Control-Allow-Origin', 'http://localhost')
+        headers.append('Content-Type', 'application/json')
+        let url = 'https://cs4261-services-service.herokuapp.com/get-all-services';
+        await fetch(url, {
+            method: 'GET',
+            headers: headers
+        })
+        .then(data => data.json())
+        .then(data => all_services = data)
+        .catch(err => console.log(err))
+
+        if (all_services == null) {
+            console.log(all_services)
+            console.log('Please try again')
+            // https://reactnative.dev/docs/alert
+            // https://aboutreact.com/react-native-alert/
+            alert('Service Fetch Failed!')
+        } else {
+            console.log(all_services)
+            alert('Service Fetch Successful!')
+        }
+    }
 
     const newAvailability = async () => {
         let apiResponse = null;
@@ -122,13 +154,28 @@ const ProviderAvailability = ({navigation, route}) => {
                     <TopBar/>
                     <VStack h="95%" w="100%" py={2} px={2} space={3}>
                         <Heading>Enter New Availability</Heading>
-                        <Text>Service ID</Text>
-                        <Input
-                            type="text"
-                            onChangeText={handleServiceID}
-                            placeholder="Service ID"
-                            w="100%"
-                        />
+                        <Text>Service Name</Text>
+                        <Select
+                            selectedValue={service_id}
+                            accessibilityLabel="Choose Service"
+                            placeholder="Service Name"
+                            _selectedItem={{
+                                bg: "teal.600",
+                                endIcon: <CheckIcon size="5" />,
+                            }}
+                            mt={1}
+                            onValueChange={handleServiceID}
+                        >
+                            <Select.Item label="Cleaning" value="CLEANING" />
+                            <Select.Item label="Pet" value="PET" />
+                            <Select.Item label="Plumbing" value="PLUMBING" />
+                            <Select.Item label="Electrical" value="ELECTRICAL" />
+                            <Select.Item label="Assembly" value="BUILD" />
+                            <Select.Item label="Technology" value="COMPUTER" />
+                            <Select.Item label="Landscaping" value="LAWN" />
+                            <Select.Item label="Home" value="HOME" />
+                            <Select.Item label="Other" value="OTHER" />
+                        </Select>
                         <Text>Minimum Price</Text>
                         <Input
                             type="number"
@@ -136,6 +183,11 @@ const ProviderAvailability = ({navigation, route}) => {
                             placeholder="0"
                             w="100%"
                         />
+                        <Box _text={{
+                            bold: true
+                        }}>
+                            {errorMessageMinPrice}
+                        </Box>
                         <Heading>Enter Availability For Each Day</Heading>
                         <Text>Monday</Text>
                         <Input
@@ -194,7 +246,7 @@ const ProviderAvailability = ({navigation, route}) => {
                                 borderWidth="1"
                                 shadow="2"
                                 onPress={
-                                    newAvailability
+                                    getAllServices
                                 }
                             >
                                 <Text>Submit</Text>
