@@ -107,6 +107,7 @@ const ProviderAvailability = ({navigation, route}) => {
             }
             setServiceNameList(service_name_list)
             setServiceIDList(service_id_list)
+            //make these into one array that has both fields
         }
     }
     useEffect(() => {
@@ -166,6 +167,7 @@ const ProviderAvailability = ({navigation, route}) => {
                     <VStack h="95%" w="100%" py={2} px={2} space={3}>
                         <Heading>Enter New Availability</Heading>
                         <Text>Service Name</Text>
+
                         <Select
                             selectedValue={service_id}
                             accessibilityLabel="Choose Service"
@@ -177,12 +179,12 @@ const ProviderAvailability = ({navigation, route}) => {
                             mt={1}
                             onValueChange={handleServiceID}
                         >
-                            <Select.Item label={service_name_list[0]} value={service_id_list[0]} />
-                            <Select.Item label={service_name_list[1]} value={service_id_list[1]} />
-                            <Select.Item label={service_name_list[2]} value={service_id_list[2]} />
-                            <Select.Item label={service_name_list[3]} value={service_id_list[3]} />
-                            <Select.Item label={service_name_list[4]} value={service_id_list[4]} />
+                        //change data to the new array that contains both fields
+                            {data.map((item) => (
+                                 <Select.Item label={item.service_name} value={item.service_id} />
+                              ))}
                         </Select>
+
                         <Text>Minimum Price</Text>
                         <Input
                             type="number"
