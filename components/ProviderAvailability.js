@@ -28,6 +28,8 @@ import {
 import BottomBar from "./sharedComponents/BottomBar";
 import TopBar from "./sharedComponents/TopBar";
 import { ScrollView } from "react-native";
+import DateTimePicker from '@react-native-community/datetimepicker';
+
 
 const ProviderAvailability = ({navigation, route}) => {
     const [service_id, setServiceID] = useState('');
@@ -42,6 +44,9 @@ const ProviderAvailability = ({navigation, route}) => {
     const [service_name_list, setServiceNameList] = useState([])
     const [service_id_list, setServiceIDList] = useState([])
     const [errorMessageMinPrice, setErrorMessageMinPrice] = useState('')
+    const [date, setDate] = useState(new Date(1598051730000));
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
 
     const handleServiceID = (e) => {
         setServiceID(e)
@@ -157,6 +162,14 @@ const ProviderAvailability = ({navigation, route}) => {
             navigation.navigate("Categories")
         }
     }
+    const showMode = (currentMode) => {
+        setShow(true);
+        setMode(currentMode);
+      };
+    const showTimepicker = () => {
+        showMode('time');
+      };
+
 
     return (
         <ScrollView>
@@ -184,6 +197,7 @@ const ProviderAvailability = ({navigation, route}) => {
                             <Select.Item label={service_name_list[4]} value={service_id_list[4]} />
                         </Select>
                         <Text>Minimum Price</Text>
+                        <Button onPress={showTimepicker} title="Show time picker!" />
                         <Input
                             type="number"
                             onChangeText={handleMinPrice}
