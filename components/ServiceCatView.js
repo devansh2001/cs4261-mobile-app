@@ -196,7 +196,7 @@ const Calendar = (props) => {
                             }
                         >
                             <Center>
-                                <Heading>Other</Heading>
+                                <Heading>More</Heading>
                                 <MaterialIcons name="home-repair-service" size={50} color="black" />
                             </Center>
                         </Button>
@@ -213,8 +213,7 @@ const Calendar = (props) => {
                             }
                         >
                             <Center>
-                                <Heading>Create New</Heading>
-                                <Heading>Service</Heading>
+                                <Heading>Add New</Heading>
                                 <MaterialIcons name="add" size={50} color="black" />
                             </Center>
                         </Button>

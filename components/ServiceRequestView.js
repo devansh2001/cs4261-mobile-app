@@ -158,7 +158,7 @@ const newTask = async () => {
                             newTask
                         }
                     >
-                        <Text>Submit</Text>
+                        Submit
                     </Button>
                     </Container>
                 </VStack>

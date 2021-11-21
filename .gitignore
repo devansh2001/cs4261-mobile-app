@@ -11,5 +11,5 @@ web-build/
 .vscode
 .DS_Store
 .idea
-
+yarn-lock.json
 package-lock.json
