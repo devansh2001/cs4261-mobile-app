@@ -73,12 +73,18 @@ days = days.join(', ')
                 <TopBar/>
                 <Box backgroundColor="#FFFFFF" h="95%" w="100%">
                     <Heading px={2}>Provider Details</Heading>
-                    <Text px={2}>{provider.fname} {provider.lname}</Text>
                     <HStack px={2}>
-                        <Text fontSize="lg">{avg_rating}</Text>
-                        <Feather name="star" size={24} color="black" />
+                        {/* https://docs.nativebase.io/image */}
+                        <Image source={{uri: provider.profile_picture}} size={20} borderRadius={20} />
+                        <VStack px={2}>
+                            <Text px={2}>{provider.fname} {provider.lname}</Text>
+                            <HStack px={2}>
+                                <Text fontSize="lg">{avg_rating}</Text>
+                                <Feather name="star" size={24} color="black" />
+                            </HStack>
+                            <Text px={2}>Available: {days}</Text>
+                        </VStack>
                     </HStack>
-                    <Text px={2}>Available: {days}</Text>
                     <Center>
 
                         <Button
