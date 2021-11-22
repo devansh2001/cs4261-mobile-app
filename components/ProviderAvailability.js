@@ -28,6 +28,8 @@ import {
 import BottomBar from "./sharedComponents/BottomBar";
 import TopBar from "./sharedComponents/TopBar";
 import { ScrollView } from "react-native";
+import DateTimePicker from '@react-native-community/datetimepicker';
+
 
 const ProviderAvailability = ({navigation, route}) => {
     const [service_id, setServiceID] = useState('');
@@ -41,6 +43,23 @@ const ProviderAvailability = ({navigation, route}) => {
     const [sunday, setSunday] = useState([])
     const [services_list, setServicesList] = useState([])
     const [errorMessageMinPrice, setErrorMessageMinPrice] = useState('')
+    const [date, setDate] = useState(new Date(1598051730000));
+    const [mondayStart, setMondayStart] = useState(new Date(1598051730000));
+    const [mondayEnd, setMondayEnd] = useState(new Date(1598051730000));
+    const [tuesdayStart, setTuesdayStart] = useState(new Date(1598051730000));
+    const [tuesdayEnd, setTuesdayEnd] = useState(new Date(1598051730000));
+    const [wednesdayStart, setWednesdayStart] = useState(new Date(1598051730000));
+    const [wednesdayEnd, setWednesdayEnd] = useState(new Date(1598051730000));
+    const [thursdayStart, setThursdayStart] = useState(new Date(1598051730000));
+    const [thursdayEnd, setThursdayEnd] = useState(new Date(1598051730000));
+    const [fridayStart, setFridayStart] = useState(new Date(1598051730000));
+    const [fridayEnd, setFridayEnd] = useState(new Date(1598051730000));
+    const [saturdayStart, setSaturdayStart] = useState(new Date(1598051730000));
+    const [saturdayEnd, setSaturdayEnd] = useState(new Date(1598051730000));
+    const [sundayStart, setSundayStart] = useState(new Date(1598051730000));
+    const [sundayEnd, setSundayEnd] = useState(new Date(1598051730000));
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
 
     const handleServiceID = (e) => {
         setServiceID(e)
@@ -53,26 +72,89 @@ const ProviderAvailability = ({navigation, route}) => {
             setErrorMessageMinPrice('Invalid Price!')
         }
     }
-    const handleMonday = (e) => {
-        setMonday(e)
+    const handleMonday = (event, mondayStartSelect, mondayEndSelect) => {
+        var end = mondayEndSelect || mondayEnd;
+        setShow(Platform.OS === 'ios');
+        setMondayEnd(end);
+        end = String(end).substring(16,24);
+
+        var start = mondayStartSelect || mondayStart;
+        setShow(Platform.OS === 'ios');
+        setMondayStart(start);
+        start = String(start).substring(16,24);
+        setMonday(start + "-" + end)
     }
-    const handleTuesday = (e) => {
-        setTuesday(e)
+    const handleTuesday = (event, tuesdayStartSelect, tuesdayEndSelect) => {
+      var end = tuesdayEndSelect || tuesdayEnd;
+      setShow(Platform.OS === 'ios');
+      setTuesdayEnd(end);
+      end = String(end).substring(16,24);
+
+      var start = tuesdayStartSelect || tuesdayStart;
+      setShow(Platform.OS === 'ios');
+      setTuesdayStart(start);
+      start = String(start).substring(16,24);
+      setTuesday(start + "-" + end)
     }
-    const handleWednesday = (e) => {
-        setWednesday(e)
+    const handleWednesday = (event, wednesdayStartSelect, wednesdayEndSelect) => {
+       var end = wednesdayEndSelect || wednesdayEnd;
+       setShow(Platform.OS === 'ios');
+       setWednesdayEnd(end);
+       end = String(end).substring(16,24);
+
+       var start = wednesdayStartSelect || wednesdayStart;
+       setShow(Platform.OS === 'ios');
+       setWednesdayStart(start);
+       start = String(start).substring(16,24);
+       setWednesday(start + "-" + end)
     }
-    const handleThursday = (e) => {
-        setThursday(e)
+    const handleThursday = (event, thursdayStartSelect, thursdayEndSelect) => {
+      var end = thursdayEndSelect || thursdayEnd;
+      setShow(Platform.OS === 'ios');
+      setThursdayEnd(end);
+      end = String(end).substring(16,24);
+
+      var start = thursdayStartSelect || thursdayStart;
+      setShow(Platform.OS === 'ios');
+      setThursdayStart(start);
+      start = String(start).substring(16,24);
+      setThursday(start + "-" + end)
     }
-    const handleFriday = (e) => {
-        setFriday(e)
+    const handleFriday = (event, fridayStartSelect, fridayEndSelect) => {
+        var end = fridayEndSelect || fridayEnd;
+        setShow(Platform.OS === 'ios');
+        setFridayEnd(end);
+        end = String(end).substring(16,24);
+
+        var start = fridayStartSelect || fridayStart;
+        setShow(Platform.OS === 'ios');
+        setFridayStart(start);
+        start = String(start).substring(16,24);
+        setFriday(start + "-" + end)
     }
-    const handleSaturday = (e) => {
-        setSaturday(e)
+    const handleSaturday = (event, saturdayStartSelect, saturdayEndSelect) => {
+      var end = saturdayEndSelect || saturdayEnd;
+      setShow(Platform.OS === 'ios');
+      setSaturdayEnd(end);
+      end = String(end).substring(16,24);
+
+      var start = saturdayStartSelect || saturdayStart;
+      setShow(Platform.OS === 'ios');
+      setSaturdayStart(start);
+      start = String(start).substring(16,24);
+      setSaturday(start + "-" + end)
     }
-    const handleSunday = (e) => {
-        setSunday(e)
+    const handleSunday = (event, sundayStartSelect, sundayEndSelect) => {
+        var end = sundayEndSelect || sundayEnd;
+        setShow(Platform.OS === 'ios');
+        setSundayEnd(end);
+        end = String(end).substring(16,24);
+
+        var start = sundayStartSelect || sundayStart;
+        setShow(Platform.OS === 'ios');
+        setSundayStart(start);
+        start = String(start).substring(16,24);
+        setSunday(start + "-" + end)
     }
 
     const {user_id} = route.params;
@@ -153,6 +235,23 @@ const ProviderAvailability = ({navigation, route}) => {
             navigation.navigate("Categories")
         }
     }
+    const showMode = (currentMode) => {
+        setShow(true);
+        setMode(currentMode);
+    };
+    const showDatepicker = () => {
+        showMode('date');
+      };
+    const showTimepicker = () => {
+        showMode('time');
+    };
+    const onChange = (event, selectedDate) => {
+        const currentDate = selectedDate || date;
+        setShow(Platform.OS === 'ios');
+        setDate(currentDate);
+        var currentTime = String(currentDate).substring(16,24)
+    };
+
 
     return (
         <ScrollView>
@@ -193,54 +292,236 @@ const ProviderAvailability = ({navigation, route}) => {
                         </Box>
                         <Heading>Enter Availability For Each Day</Heading>
                         <Text>Monday</Text>
-                        <Input
-                            type="text"
-                            onChangeText={handleMonday}
-                            placeholder="1-2"
-                            w="100%"
-                        />
+                        <Button
+                            w="50%"
+                            onPress={showTimepicker}
+                        >
+                            <Text>Start Time</Text>
+                        </Button>
+                        {show && (
+                            <DateTimePicker
+                              testID="mondayStart"
+                              value={mondayStart}
+                              mode={mode}
+                              is24Hour={true}
+                              display="default"
+                              onChange={handleMonday}
+                            />
+                        )}
+                        <Button
+                            w="50%"
+                            onPress={showTimepicker}
+                        >
+                            <Text>End Time</Text>
+                        </Button>
+                        {show && (
+                            <DateTimePicker
+                              testID="mondayEnd"
+                              value={mondayEnd}
+                              mode={mode}
+                              is24Hour={true}
+                              display="default"
+                              onChange={handleMonday}
+                            />
+                        )}
                         <Text>Tuesday</Text>
-                        <Input
-                            type="text"
-                            onChangeText={handleTuesday}
-                            placeholder="1-2"
-                            w="100%"
-                        />
+                        <Button
+                            w="50%"
+                            onPress={showTimepicker}
+                        >
+                            <Text>Start Time</Text>
+                        </Button>
+                        {show && (
+                            <DateTimePicker
+                              testID="tuesdayStart"
+                              value={tuesdayStart}
+                              mode={mode}
+                              is24Hour={true}
+                              display="default"
+                              onChange={handleTuesday}
+                            />
+                        )}
+                        <Button
+                            w="50%"
+                            onPress={showTimepicker}
+                        >
+                            <Text>End Time</Text>
+                        </Button>
+                        {show && (
+                            <DateTimePicker
+                              testID="tuesdayEnd"
+                              value={tuesdayEnd}
+                              mode={mode}
+                              is24Hour={true}
+                              display="default"
+                              onChange={handleTuesday}
+                            />
+                        )}
                         <Text>Wednesday</Text>
-                        <Input
-                            type="text"
-                            onChangeText={handleWednesday}
-                            placeholder="1-2"
-                            w="100%"
-                        />
+                        <Button
+                            w="50%"
+                            onPress={showTimepicker}
+                        >
+                            <Text>Start Time</Text>
+                        </Button>
+                        {show && (
+                            <DateTimePicker
+                              testID="wednesdayStart"
+                              value={wednesdayStart}
+                              mode={mode}
+                              is24Hour={true}
+                              display="default"
+                              onChange={handleWednesday}
+                            />
+                        )}
+                        <Button
+                            w="50%"
+                            onPress={showTimepicker}
+                        >
+                            <Text>End Time</Text>
+                        </Button>
+                        {show && (
+                            <DateTimePicker
+                              testID="wednesdayEnd"
+                              value={wednesdayEnd}
+                              mode={mode}
+                              is24Hour={true}
+                              display="default"
+                              onChange={handleWednesday}
+                            />
+                        )}
                         <Text>Thursday</Text>
-                        <Input
-                            type="text"
-                            onChangeText={handleThursday}
-                            placeholder="1-2"
-                            w="100%"
-                        />
+                        <Button
+                            w="50%"
+                            onPress={showTimepicker}
+                        >
+                            <Text>Start Time</Text>
+                        </Button>
+                        {show && (
+                            <DateTimePicker
+                              testID="thursdayStart"
+                              value={thursdayStart}
+                              mode={mode}
+                              is24Hour={true}
+                              display="default"
+                              onChange={handleThursday}
+                            />
+                        )}
+                        <Button
+                            w="50%"
+                            onPress={showTimepicker}
+                        >
+                            <Text>End Time</Text>
+                        </Button>
+                        {show && (
+                            <DateTimePicker
+                              testID="thursdayEnd"
+                              value={thursdayEnd}
+                              mode={mode}
+                              is24Hour={true}
+                              display="default"
+                              onChange={handleThursday}
+                            />
+                        )}
                         <Text>Friday</Text>
-                        <Input
-                            type="text"
-                            onChangeText={handleFriday}
-                            placeholder="1-2"
-                            w="100%"
-                        />
+                        <Button
+                            w="50%"
+                            onPress={showTimepicker}
+                        >
+                            <Text>Start Time</Text>
+                        </Button>
+                        {show && (
+                            <DateTimePicker
+                              testID="fridayStart"
+                              value={fridayStart}
+                              mode={mode}
+                              is24Hour={true}
+                              display="default"
+                              onChange={handleFriday}
+                            />
+                        )}
+                        <Button
+                            w="50%"
+                            onPress={showTimepicker}
+                        >
+                            <Text>End Time</Text>
+                        </Button>
+                        {show && (
+                            <DateTimePicker
+                              testID="fridayEnd"
+                              value={fridayEnd}
+                              mode={mode}
+                              is24Hour={true}
+                              display="default"
+                              onChange={handleFriday}
+                            />
+                        )}
                         <Text>Saturday</Text>
-                        <Input
-                            type="text"
-                            onChangeText={handleSaturday}
-                            placeholder="1-2"
-                            w="100%"
-                        />
+                        <Button
+                            w="50%"
+                            onPress={showTimepicker}
+                        >
+                            <Text>Start Time</Text>
+                        </Button>
+                        {show && (
+                            <DateTimePicker
+                              testID="saturdayStart"
+                              value={saturdayStart}
+                              mode={mode}
+                              is24Hour={true}
+                              display="default"
+                              onChange={handleSaturday}
+                            />
+                        )}
+                        <Button
+                            w="50%"
+                            onPress={showTimepicker}
+                        >
+                            <Text>End Time</Text>
+                        </Button>
+                        {show && (
+                            <DateTimePicker
+                              testID="saturdayEnd"
+                              value={saturdayEnd}
+                              mode={mode}
+                              is24Hour={true}
+                              display="default"
+                              onChange={handleSaturday}
+                            />
+                        )}
                         <Text>Sunday</Text>
-                        <Input
-                            type="text"
-                            onChangeText={handleSunday}
-                            placeholder="1-2"
-                            w="100%"
-                        />
+                        <Button
+                            w="50%"
+                            onPress={showTimepicker}
+                        >
+                            <Text>Start Time</Text>
+                        </Button>
+                        {show && (
+                            <DateTimePicker
+                              testID="sundayStart"
+                              value={sundayStart}
+                              mode={mode}
+                              is24Hour={true}
+                              display="default"
+                              onChange={handleSunday}
+                            />
+                        )}
+                        <Button
+                            w="50%"
+                            onPress={showTimepicker}
+                        >
+                            <Text>End Time</Text>
+                        </Button>
+                        {show && (
+                            <DateTimePicker
+                              testID="sundayEnd"
+                              value={sundayEnd}
+                              mode={mode}
+                              is24Hour={true}
+                              display="default"
+                              onChange={handleSunday}
+                            />
+                        )}
                         <Container py={10}>
                             <Button
                                 bg="#FFF9A1"
