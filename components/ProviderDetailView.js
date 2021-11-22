@@ -63,10 +63,11 @@ let str = provider.availability
 str = str.replace(/'/g, '"')
 let avail = JSON.parse(str)
 let days = []
+let times = []
 for(var i in avail){
-    days.push(i)
+    days.push(i + ": " + avail[i])
 }
-days = days.join(', ')
+days = days.join('\n')
     return (
         <VStack h="100%" w="100%">
             <Center h="100%" w="100%">
@@ -82,7 +83,8 @@ days = days.join(', ')
                                 <Text fontSize="lg">{avg_rating}</Text>
                                 <Feather name="star" size={24} color="black" />
                             </HStack>
-                            <Text px={2}>Available: {days}</Text>
+                            <Text px={2}>Available: </Text>
+                            <Text px={2}>{days}</Text>
                         </VStack>
                     </HStack>
                     <Center>

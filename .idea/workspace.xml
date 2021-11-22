@@ -24,7 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b34b2138-1703-47c2-86de-f9cd3e130819" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ProviderAvailability.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ProviderAvailability.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ProviderDetailView.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ProviderDetailView.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
