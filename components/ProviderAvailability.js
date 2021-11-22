@@ -39,8 +39,7 @@ const ProviderAvailability = ({navigation, route}) => {
     const [friday, setFriday] = useState([])
     const [saturday, setSaturday] = useState([])
     const [sunday, setSunday] = useState([])
-    const [service_name_list, setServiceNameList] = useState([])
-    const [service_id_list, setServiceIDList] = useState([])
+    const [services_list, setServicesList] = useState([])
     const [errorMessageMinPrice, setErrorMessageMinPrice] = useState('')
 
     const handleServiceID = (e) => {
@@ -98,15 +97,12 @@ const ProviderAvailability = ({navigation, route}) => {
             // https://reactnative.dev/docs/alert
             // https://aboutreact.com/react-native-alert/
         } else {
-            console.log(all_services)
-            let service_name_list = []
-            let service_id_list = []
+            let services_list = []
             for (var i in all_services["services"]) {
-                service_name_list.push(all_services["services"][i]["service_name"])
-                service_id_list.push(all_services["services"][i]["service_id"])
+                let obj = {service_name: all_services["services"][i]["service_name"], service_id: all_services["services"][i]["service_id"]}
+                services_list.push(obj)
             }
-            setServiceNameList(service_name_list)
-            setServiceIDList(service_id_list)
+            setServicesList(services_list)
         }
     }
     useEffect(() => {
@@ -166,6 +162,7 @@ const ProviderAvailability = ({navigation, route}) => {
                     <VStack h="95%" w="100%" py={2} px={2} space={3}>
                         <Heading>Enter New Availability</Heading>
                         <Text>Service Name</Text>
+
                         <Select
                             selectedValue={service_id}
                             accessibilityLabel="Choose Service"
@@ -177,12 +174,11 @@ const ProviderAvailability = ({navigation, route}) => {
                             mt={1}
                             onValueChange={handleServiceID}
                         >
-                            <Select.Item label={service_name_list[0]} value={service_id_list[0]} />
-                            <Select.Item label={service_name_list[1]} value={service_id_list[1]} />
-                            <Select.Item label={service_name_list[2]} value={service_id_list[2]} />
-                            <Select.Item label={service_name_list[3]} value={service_id_list[3]} />
-                            <Select.Item label={service_name_list[4]} value={service_id_list[4]} />
+                            {services_list.map((item) => (
+                                 <Select.Item label={item.service_name} value={item.service_id} />
+                            ))}
                         </Select>
+
                         <Text>Minimum Price</Text>
                         <Input
                             type="number"
