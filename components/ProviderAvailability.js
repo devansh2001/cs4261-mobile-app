@@ -39,8 +39,7 @@ const ProviderAvailability = ({navigation, route}) => {
     const [friday, setFriday] = useState([])
     const [saturday, setSaturday] = useState([])
     const [sunday, setSunday] = useState([])
-    const [service_name_list, setServiceNameList] = useState([])
-    const [service_id_list, setServiceIDList] = useState([])
+    const [services_list, setServicesList] = useState([])
     const [errorMessageMinPrice, setErrorMessageMinPrice] = useState('')
 
     const handleServiceID = (e) => {
@@ -98,16 +97,12 @@ const ProviderAvailability = ({navigation, route}) => {
             // https://reactnative.dev/docs/alert
             // https://aboutreact.com/react-native-alert/
         } else {
-            console.log(all_services)
-            let service_name_list = []
-            let service_id_list = []
+            let services_list = []
             for (var i in all_services["services"]) {
-                service_name_list.push(all_services["services"][i]["service_name"])
-                service_id_list.push(all_services["services"][i]["service_id"])
+                let obj = {service_name: all_services["services"][i]["service_name"], service_id: all_services["services"][i]["service_id"]}
+                services_list.push(obj)
             }
-            setServiceNameList(service_name_list)
-            setServiceIDList(service_id_list)
-            //make these into one array that has both fields
+            setServicesList(services_list)
         }
     }
     useEffect(() => {
@@ -179,10 +174,9 @@ const ProviderAvailability = ({navigation, route}) => {
                             mt={1}
                             onValueChange={handleServiceID}
                         >
-                        //change data to the new array that contains both fields
-                            {data.map((item) => (
+                            {services_list.map((item) => (
                                  <Select.Item label={item.service_name} value={item.service_id} />
-                              ))}
+                            ))}
                         </Select>
 
                         <Text>Minimum Price</Text>
