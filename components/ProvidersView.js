@@ -65,18 +65,31 @@ const [filter_option, setFilterOption]= useState('');
 
 const handleFilterOption = (e) => {
     setFilterOption(e)
+    getData()
 }
 
 const getData = async () => {
-    let url = 'https://cs4261-availability-service.herokuapp.com/get-availability/';
-     try {
-      const response = await fetch(url + service);
-      const json = await response.json();
-      setData(json.availability);
-    } catch (error) {
-      console.error(error);
+    let url = 'https://cs4261-availability-service.herokuapp.com/get-availability/'
+    if (filter_option === '' || filter_option === 'None') {
+        url = url + service;
+    } else if (filter_option === 'Day') {
+        url = url + service;
+    } else if (filter_option === 'Time') {
+        url = url + service;
+    } else if (filter_option === 'Price') {
+        url = url + service;
+    } else {
+        url = url + service;
     }
-  }
+
+    try {
+        const response = await fetch(url);
+        const json = await response.json();
+        setData(json.availability);
+    } catch (error) {
+        console.error(error);
+    }
+}
  useEffect(() => {
      getData();
  }, []);
