@@ -9,6 +9,7 @@ import {
   Center,
   Input,
   Heading,
+  CheckIcon,
   Switch,
   useColorMode,
   NativeBaseProvider,
@@ -21,6 +22,7 @@ import {
   FlatList,
   Divider,
   Button,
+  Select,
 } from "native-base";
 import BottomBar from "./sharedComponents/BottomBar";
 import TopBar from "./sharedComponents/TopBar";
@@ -59,6 +61,12 @@ const vdata = [
 ]
 const { service, user_id } = route.params;
 const [data, setData] = useState([]);
+const [filter_option, setFilterOption]= useState('');
+
+const handleFilterOption = (e) => {
+    setFilterOption(e)
+}
+
 const getData = async () => {
     let url = 'https://cs4261-availability-service.herokuapp.com/get-availability/';
      try {
@@ -79,6 +87,22 @@ const getData = async () => {
                 <TopBar/>
                 <Center h="95%" w="100%" py={2}>
                     <Heading>Providers</Heading>
+                    <Select
+                        selectedValue={filter_option}
+                        accessibilityLabel="Choose Filter Option"
+                        placeholder="Choose Filter Option"
+                        _selectedItem={{
+                            bg: "teal.600",
+                            endIcon: <CheckIcon size="5" />,
+                        }}
+                        mt={1}
+                        onValueChange={handleFilterOption}
+                    >
+                        <Select.Item label="None" value="None" />
+                        <Select.Item label="Day" value="Day" />
+                        <Select.Item label="Time" value="Time" />
+                        <Select.Item label="Price" value="Price" />
+                    </Select>
                     <FlatList
                         w="100%"
                         space={1}
