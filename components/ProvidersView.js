@@ -69,17 +69,18 @@ const handleFilterOption = (e) => {
 }
 
 const getData = async () => {
-    let url = 'https://cs4261-availability-service.herokuapp.com/get-availability/'
+    // /get-filtered-availability/service_id/price/day/time
+    let url = 'https://cs4261-availability-service.herokuapp.com/get-filtered-availability/' + service
     if (filter_option === '' || filter_option === 'None') {
-        url = url + service;
+        url = url + "%/%/%";
     } else if (filter_option === 'Day') {
-        url = url + service;
+        url = url + "%/True/%";
     } else if (filter_option === 'Time') {
-        url = url + service;
+        url = url + "%/%/True";
     } else if (filter_option === 'Price') {
-        url = url + service;
+        url = url + "True/%/%";
     } else {
-        url = url + service;
+        url = url + "%/%/%";
     }
 
     try {
