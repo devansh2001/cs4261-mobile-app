@@ -73,7 +73,13 @@ const ProviderAvailability = ({navigation, route}) => {
     const [sundayStartStr, setSundayStartStr] = useState('')
     const [sundayEndStr, setSundayEndStr] = useState('')
     const [mode, setMode] = useState('date');
-    const [show, setShow] = useState(false);
+    const [showMon, setShowMon] = useState(false);
+    const [showTues, setShowTues] = useState(false);
+    const [showWed, setShowWed] = useState(false);
+    const [showThurs, setShowThurs] = useState(false);
+    const [showFri, setShowFri] = useState(false);
+    const [showSat, setShowSat] = useState(false);
+    const [showSun, setShowSun] = useState(false);
 
     const handleServiceID = (e) => {
         setServiceID(e)
@@ -88,7 +94,6 @@ const ProviderAvailability = ({navigation, route}) => {
     }
     const handleMondayStart = (event, selectedDate) => {
         const currentDate = selectedDate || mondayStart;
-        setShow(Platform.OS === 'ios');
         setMondayStart(currentDate);
         var currentTime = String(currentDate).substring(16,24);
         setMondayStartStr(currentTime);
@@ -96,7 +101,6 @@ const ProviderAvailability = ({navigation, route}) => {
     }
     const handleMondayEnd = (event, selectedDate) => {
         const currentDate = selectedDate || mondayEnd;
-        setShow(Platform.OS === 'ios');
         setMondayEnd(currentDate);
         var currentTime = String(currentDate).substring(16,24);
         setMondayEndStr(currentTime);
@@ -297,15 +301,54 @@ const ProviderAvailability = ({navigation, route}) => {
             navigation.navigate("Categories")
         }
     }
-    const showMode = (currentMode) => {
-        setShow(true);
+    const showTimepickerMon = () => {
+        showModeMon('time');
+    };
+    const showModeMon = (currentMode) => {
+        setShowMon(true);
         setMode(currentMode);
     };
-    const showDatepicker = () => {
-        showMode('date');
-      };
-    const showTimepicker = () => {
-        showMode('time');
+    const showTimepickerTues = () => {
+        showModeTues('time');
+    };
+    const showModeTues = (currentMode) => {
+        setShowTues(true);
+        setMode(currentMode);
+    };
+    const showTimepickerWed = () => {
+        showModeWed('time');
+    };
+    const showModeWed = (currentMode) => {
+        setShowWed(true);
+        setMode(currentMode);
+    };
+    const showTimepickerThurs = () => {
+        showModeThurs('time');
+    };
+    const showModeThurs = (currentMode) => {
+        setShowThurs(true);
+        setMode(currentMode);
+    };
+    const showTimepickerFri = () => {
+        showModeFri('time');
+    };
+    const showModeFri = (currentMode) => {
+        setShowFri(true);
+        setMode(currentMode);
+    };
+    const showTimepickerSat = () => {
+        showModeSat('time');
+    };
+    const showModeSat = (currentMode) => {
+        setShowSat(true);
+        setMode(currentMode);
+    };
+    const showTimepickerSun = () => {
+        showModeSun('time');
+    };
+    const showModeSun = (currentMode) => {
+        setShowSun(true);
+        setMode(currentMode);
     };
 
 
@@ -351,11 +394,11 @@ const ProviderAvailability = ({navigation, route}) => {
                         <Text>Monday</Text>
                         <Button
                             w="50%"
-                            onPress={showTimepicker}
+                            onPress={showTimepickerMon}
                         >
                             <Text>Start Time</Text>
                         </Button>
-                        {show && (
+                        {showMon && (
                             <DateTimePicker
                               testID="mondayStart"
                               value={mondayStart}
@@ -368,11 +411,11 @@ const ProviderAvailability = ({navigation, route}) => {
                         )}
                         <Button
                             w="50%"
-                            onPress={showTimepicker}
+                            onPress={showTimepickerMon}
                         >
                             <Text>End Time</Text>
                         </Button>
-                        {show && (
+                        {showMon && (
                             <DateTimePicker
                               testID="mondayEnd"
                               value={mondayEnd}
@@ -386,11 +429,11 @@ const ProviderAvailability = ({navigation, route}) => {
                         <Text>Tuesday</Text>
                         <Button
                             w="50%"
-                            onPress={showTimepicker}
+                            onPress={showTimepickerTues}
                         >
                             <Text>Start Time</Text>
                         </Button>
-                        {show && (
+                        {showTues && (
                             <DateTimePicker
                               testID="tuesdayStart"
                               value={tuesdayStart}
@@ -403,11 +446,11 @@ const ProviderAvailability = ({navigation, route}) => {
                         )}
                         <Button
                             w="50%"
-                            onPress={showTimepicker}
+                            onPress={showTimepickerTues}
                         >
                             <Text>End Time</Text>
                         </Button>
-                        {show && (
+                        {showTues && (
                             <DateTimePicker
                               testID="tuesdayEnd"
                               value={tuesdayEnd}
@@ -421,11 +464,11 @@ const ProviderAvailability = ({navigation, route}) => {
                         <Text>Wednesday</Text>
                         <Button
                             w="50%"
-                            onPress={showTimepicker}
+                            onPress={showTimepickerWed}
                         >
                             <Text>Start Time</Text>
                         </Button>
-                        {show && (
+                        {showWed && (
                             <DateTimePicker
                               testID="wednesdayStart"
                               value={wednesdayStart}
@@ -438,11 +481,11 @@ const ProviderAvailability = ({navigation, route}) => {
                         )}
                         <Button
                             w="50%"
-                            onPress={showTimepicker}
+                            onPress={showTimepickerWed}
                         >
                             <Text>End Time</Text>
                         </Button>
-                        {show && (
+                        {showWed && (
                             <DateTimePicker
                               testID="wednesdayEnd"
                               value={wednesdayEnd}
@@ -456,11 +499,11 @@ const ProviderAvailability = ({navigation, route}) => {
                         <Text>Thursday</Text>
                         <Button
                             w="50%"
-                            onPress={showTimepicker}
+                            onPress={showTimepickerThurs}
                         >
                             <Text>Start Time</Text>
                         </Button>
-                        {show && (
+                        {showThurs && (
                             <DateTimePicker
                               testID="thursdayStart"
                               value={thursdayStart}
@@ -473,11 +516,11 @@ const ProviderAvailability = ({navigation, route}) => {
                         )}
                         <Button
                             w="50%"
-                            onPress={showTimepicker}
+                            onPress={showTimepickerThurs}
                         >
                             <Text>End Time</Text>
                         </Button>
-                        {show && (
+                        {showThurs && (
                             <DateTimePicker
                               testID="thursdayEnd"
                               value={thursdayEnd}
@@ -491,11 +534,11 @@ const ProviderAvailability = ({navigation, route}) => {
                         <Text>Friday</Text>
                         <Button
                             w="50%"
-                            onPress={showTimepicker}
+                            onPress={showTimepickerFri}
                         >
                             <Text>Start Time</Text>
                         </Button>
-                        {show && (
+                        {showFri && (
                             <DateTimePicker
                               testID="fridayStart"
                               value={fridayStart}
@@ -508,11 +551,11 @@ const ProviderAvailability = ({navigation, route}) => {
                         )}
                         <Button
                             w="50%"
-                            onPress={showTimepicker}
+                            onPress={showTimepickerFri}
                         >
                             <Text>End Time</Text>
                         </Button>
-                        {show && (
+                        {showFri && (
                             <DateTimePicker
                               testID="fridayEnd"
                               value={fridayEnd}
@@ -526,11 +569,11 @@ const ProviderAvailability = ({navigation, route}) => {
                         <Text>Saturday</Text>
                         <Button
                             w="50%"
-                            onPress={showTimepicker}
+                            onPress={showTimepickerSat}
                         >
                             <Text>Start Time</Text>
                         </Button>
-                        {show && (
+                        {showSat && (
                             <DateTimePicker
                               testID="saturdayStart"
                               value={saturdayStart}
@@ -543,11 +586,11 @@ const ProviderAvailability = ({navigation, route}) => {
                         )}
                         <Button
                             w="50%"
-                            onPress={showTimepicker}
+                            onPress={showTimepickerSat}
                         >
                             <Text>End Time</Text>
                         </Button>
-                        {show && (
+                        {showSat && (
                             <DateTimePicker
                               testID="saturdayEnd"
                               value={saturdayEnd}
@@ -561,11 +604,11 @@ const ProviderAvailability = ({navigation, route}) => {
                         <Text>Sunday</Text>
                         <Button
                             w="50%"
-                            onPress={showTimepicker}
+                            onPress={showTimepickerSun}
                         >
                             <Text>Start Time</Text>
                         </Button>
-                        {show && (
+                        {showSun && (
                             <DateTimePicker
                               testID="sundayStart"
                               value={sundayStart}
@@ -578,11 +621,11 @@ const ProviderAvailability = ({navigation, route}) => {
                         )}
                         <Button
                             w="50%"
-                            onPress={showTimepicker}
+                            onPress={showTimepickerSun}
                         >
                             <Text>End Time</Text>
                         </Button>
-                        {show && (
+                        {showSun && (
                             <DateTimePicker
                               testID="sundayEnd"
                               value={sundayEnd}
