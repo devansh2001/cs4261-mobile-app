@@ -135,121 +135,123 @@ const getData = async () => {
                 <Center h="95%" w="100%" py={2}>
                     <Heading>Providers</Heading>
 
-                    <Select
-                        selectedValue={day_filter_option}
-                        accessibilityLabel="Filter By Day"
-                        placeholder="Filter By Day"
-                        _selectedItem={{
-                            bg: "teal.600",
-                            endIcon: <CheckIcon size="5" />,
-                        }}
-                        mt={1}
-                        onValueChange={handleDayFilterOption}
-                    >
-                        <Select.Item label="Sunday" value="sunday" />
-                        <Select.Item label="Monday" value="monday" />
-                        <Select.Item label="Tuesday" value="tuesday" />
-                        <Select.Item label="Wednesday" value="wednesday" />
-                        <Select.Item label="Thursday" value="thursday" />
-                        <Select.Item label="Friday" value="friday" />
-                        <Select.Item label="Saturday" value="saturday" />
-                        <Select.Item label="None" value="*" />
-                    </Select>
+                    <HStack h="100%" w="100%">
+                        <Select
+                            selectedValue={day_filter_option}
+                            accessibilityLabel="Filter By Day"
+                            placeholder="Filter By Day"
+                            _selectedItem={{
+                                bg: "teal.600",
+                                endIcon: <CheckIcon size="5" />,
+                            }}
+                            mt={1}
+                            onValueChange={handleDayFilterOption}
+                        >
+                            <Select.Item label="Sunday" value="sunday" />
+                            <Select.Item label="Monday" value="monday" />
+                            <Select.Item label="Tuesday" value="tuesday" />
+                            <Select.Item label="Wednesday" value="wednesday" />
+                            <Select.Item label="Thursday" value="thursday" />
+                            <Select.Item label="Friday" value="friday" />
+                            <Select.Item label="Saturday" value="saturday" />
+                            <Select.Item label="None" value="*" />
+                        </Select>
 
-                    <Select
-                        selectedValue={price_filter_option}
-                        accessibilityLabel="Filter By Price"
-                        placeholder="Filter By Price"
-                        _selectedItem={{
-                            bg: "teal.600",
-                            endIcon: <CheckIcon size="5" />,
-                        }}
-                        mt={1}
-                        onValueChange={handlePriceFilterOption}
-                    >
-                        <Select.Item label="< $20" value="20" />
-                        <Select.Item label="< $40" value="40" />
-                        <Select.Item label="< $60" value="60" />
-                        <Select.Item label="< $80" value="80" />
-                        <Select.Item label="< $100" value="100" />
-                        <Select.Item label="None" value="*" />
-                    </Select>
+                        <Select
+                            selectedValue={price_filter_option}
+                            accessibilityLabel="Filter By Price"
+                            placeholder="Filter By Price"
+                            _selectedItem={{
+                                bg: "teal.600",
+                                endIcon: <CheckIcon size="5" />,
+                            }}
+                            mt={1}
+                            onValueChange={handlePriceFilterOption}
+                        >
+                            <Select.Item label="< $20" value="20" />
+                            <Select.Item label="< $40" value="40" />
+                            <Select.Item label="< $60" value="60" />
+                            <Select.Item label="< $80" value="80" />
+                            <Select.Item label="< $100" value="100" />
+                            <Select.Item label="None" value="*" />
+                        </Select>
 
-                    <Select
-                        selectedValue={start_time_filter_option}
-                        accessibilityLabel="Filter By Start Time"
-                        placeholder="Filter By Start Time"
-                        _selectedItem={{
-                            bg: "teal.600",
-                            endIcon: <CheckIcon size="5" />,
-                        }}
-                        mt={1}
-                        onValueChange={handleStartTimeFilterOption}
-                    >
-                        <Select.Item label="12 AM" value="0" />
-                        <Select.Item label="1 AM" value="1" />
-                        <Select.Item label="2 AM" value="2" />
-                        <Select.Item label="3 AM" value="3" />
-                        <Select.Item label="4 AM" value="4" />
-                        <Select.Item label="5 AM" value="5" />
-                        <Select.Item label="6 AM" value="6" />
-                        <Select.Item label="7 AM" value="7" />
-                        <Select.Item label="8 AM" value="8" />
-                        <Select.Item label="9 AM" value="9" />
-                        <Select.Item label="10 AM" value="10" />
-                        <Select.Item label="11 AM" value="11" />
-                        <Select.Item label="12 PM" value="12" />
-                        <Select.Item label="1 PM" value="13" />
-                        <Select.Item label="2 PM" value="14" />
-                        <Select.Item label="3 PM" value="15" />
-                        <Select.Item label="4 PM" value="16" />
-                        <Select.Item label="5 PM" value="17" />
-                        <Select.Item label="6 PM" value="18" />
-                        <Select.Item label="7 PM" value="19" />
-                        <Select.Item label="8 PM" value="20" />
-                        <Select.Item label="9 PM" value="21" />
-                        <Select.Item label="10 PM" value="22" />
-                        <Select.Item label="11 PM" value="23" />
-                        <Select.Item label="None" value="*" />
-                    </Select>
+                        <Select
+                            selectedValue={start_time_filter_option}
+                            accessibilityLabel="Filter By Start Time"
+                            placeholder="Filter By Start Time"
+                            _selectedItem={{
+                                bg: "teal.600",
+                                endIcon: <CheckIcon size="5" />,
+                            }}
+                            mt={1}
+                            onValueChange={handleStartTimeFilterOption}
+                        >
+                            <Select.Item label="12 AM" value="0" />
+                            <Select.Item label="1 AM" value="1" />
+                            <Select.Item label="2 AM" value="2" />
+                            <Select.Item label="3 AM" value="3" />
+                            <Select.Item label="4 AM" value="4" />
+                            <Select.Item label="5 AM" value="5" />
+                            <Select.Item label="6 AM" value="6" />
+                            <Select.Item label="7 AM" value="7" />
+                            <Select.Item label="8 AM" value="8" />
+                            <Select.Item label="9 AM" value="9" />
+                            <Select.Item label="10 AM" value="10" />
+                            <Select.Item label="11 AM" value="11" />
+                            <Select.Item label="12 PM" value="12" />
+                            <Select.Item label="1 PM" value="13" />
+                            <Select.Item label="2 PM" value="14" />
+                            <Select.Item label="3 PM" value="15" />
+                            <Select.Item label="4 PM" value="16" />
+                            <Select.Item label="5 PM" value="17" />
+                            <Select.Item label="6 PM" value="18" />
+                            <Select.Item label="7 PM" value="19" />
+                            <Select.Item label="8 PM" value="20" />
+                            <Select.Item label="9 PM" value="21" />
+                            <Select.Item label="10 PM" value="22" />
+                            <Select.Item label="11 PM" value="23" />
+                            <Select.Item label="None" value="*" />
+                        </Select>
 
-                    <Select
-                        selectedValue={end_time_filter_option}
-                        accessibilityLabel="Filter By End Time"
-                        placeholder="Filter By End Time"
-                        _selectedItem={{
-                            bg: "teal.600",
-                            endIcon: <CheckIcon size="5" />,
-                        }}
-                        mt={1}
-                        onValueChange={handleEndTimeFilterOption}
-                    >
-                        <Select.Item label="12 AM" value="0" />
-                        <Select.Item label="1 AM" value="1" />
-                        <Select.Item label="2 AM" value="2" />
-                        <Select.Item label="3 AM" value="3" />
-                        <Select.Item label="4 AM" value="4" />
-                        <Select.Item label="5 AM" value="5" />
-                        <Select.Item label="6 AM" value="6" />
-                        <Select.Item label="7 AM" value="7" />
-                        <Select.Item label="8 AM" value="8" />
-                        <Select.Item label="9 AM" value="9" />
-                        <Select.Item label="10 AM" value="10" />
-                        <Select.Item label="11 AM" value="11" />
-                        <Select.Item label="12 PM" value="12" />
-                        <Select.Item label="1 PM" value="13" />
-                        <Select.Item label="2 PM" value="14" />
-                        <Select.Item label="3 PM" value="15" />
-                        <Select.Item label="4 PM" value="16" />
-                        <Select.Item label="5 PM" value="17" />
-                        <Select.Item label="6 PM" value="18" />
-                        <Select.Item label="7 PM" value="19" />
-                        <Select.Item label="8 PM" value="20" />
-                        <Select.Item label="9 PM" value="21" />
-                        <Select.Item label="10 PM" value="22" />
-                        <Select.Item label="11 PM" value="23" />
-                        <Select.Item label="None" value="*" />
-                    </Select>
+                        <Select
+                            selectedValue={end_time_filter_option}
+                            accessibilityLabel="Filter By End Time"
+                            placeholder="Filter By End Time"
+                            _selectedItem={{
+                                bg: "teal.600",
+                                endIcon: <CheckIcon size="5" />,
+                            }}
+                            mt={1}
+                            onValueChange={handleEndTimeFilterOption}
+                        >
+                            <Select.Item label="12 AM" value="0" />
+                            <Select.Item label="1 AM" value="1" />
+                            <Select.Item label="2 AM" value="2" />
+                            <Select.Item label="3 AM" value="3" />
+                            <Select.Item label="4 AM" value="4" />
+                            <Select.Item label="5 AM" value="5" />
+                            <Select.Item label="6 AM" value="6" />
+                            <Select.Item label="7 AM" value="7" />
+                            <Select.Item label="8 AM" value="8" />
+                            <Select.Item label="9 AM" value="9" />
+                            <Select.Item label="10 AM" value="10" />
+                            <Select.Item label="11 AM" value="11" />
+                            <Select.Item label="12 PM" value="12" />
+                            <Select.Item label="1 PM" value="13" />
+                            <Select.Item label="2 PM" value="14" />
+                            <Select.Item label="3 PM" value="15" />
+                            <Select.Item label="4 PM" value="16" />
+                            <Select.Item label="5 PM" value="17" />
+                            <Select.Item label="6 PM" value="18" />
+                            <Select.Item label="7 PM" value="19" />
+                            <Select.Item label="8 PM" value="20" />
+                            <Select.Item label="9 PM" value="21" />
+                            <Select.Item label="10 PM" value="22" />
+                            <Select.Item label="11 PM" value="23" />
+                            <Select.Item label="None" value="*" />
+                        </Select>
+                    </HStack>
 
                     <FlatList
                         w="100%"
