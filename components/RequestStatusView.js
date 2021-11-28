@@ -27,6 +27,7 @@ import TopBar from "./sharedComponents/TopBar";
 import { useNavigation } from "@react-navigation/native";
 
 const CalendarView = (props) => {
+    
 const navigation = useNavigation()
 const user = props.route.params.userId;
 console.log("User id in calendar")

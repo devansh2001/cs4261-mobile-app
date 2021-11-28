@@ -84,33 +84,31 @@ const ProviderRequests = ({navigation, route}) => {
     useFocusEffect(
         useCallback(() => {
             const startTime = Date.now();
-            console.log(startTime + " is start time")
     
-          return () => {
+          return async () => {
             const endTime = Date.now();
-            console.log(endTime + " is end time")
 
             const timeTaken = endTime - startTime
             
             // send time taken to server
             const headers = new Headers();
-            headers.append('Access-Control-Allow-Origin', 'http://localhost')
+            headers.append('Access-Control-Allow-Origin', 'https://localhost')
             headers.append('Content-Type', 'application/json')
 
             const body = {
-                'screen': 'ProviderRequests',
+                'screen': 'ProviderRequest',
                 'timeTaken': timeTaken
             };
-
-            fetch('https://cs4261-usage-metrics-service.herokuapp.com/time-on-screen/', {
+            
+            await fetch('https://cs4261-usage-metrics-service.herokuapp.com/time-on-screen', {
                 method: 'POST',
                 headers: headers,
                 body: JSON.stringify(body)
             })
             .then(data => data.json())
             .then(data => console.log(data))
-            .then(err => console.log(err))
-          };
+            .catch(err => console.log(err))
+            };
         }, [])
     );
 

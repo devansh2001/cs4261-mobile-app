@@ -31,6 +31,37 @@ import { Ionicons } from '@expo/vector-icons';
 
 
 const ProvidersView = ({navigation, route}) => {
+    // https://stackoverflow.com/a/70110510
+    useFocusEffect(
+        useCallback(() => {
+            const startTime = Date.now();
+    
+          return async () => {
+            const endTime = Date.now();
+
+            const timeTaken = endTime - startTime
+            
+            // send time taken to server
+            const headers = new Headers();
+            headers.append('Access-Control-Allow-Origin', 'https://localhost')
+            headers.append('Content-Type', 'application/json')
+
+            const body = {
+                'screen': 'ProvidersView',
+                'timeTaken': timeTaken
+            };
+            
+            await fetch('https://cs4261-usage-metrics-service.herokuapp.com/time-on-screen', {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify(body)
+            })
+            .then(data => data.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+            };
+        }, [])
+    );
 
 const { service, user_id } = route.params;
 const [data, setData] = useState([]);
