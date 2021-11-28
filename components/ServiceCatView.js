@@ -1,7 +1,8 @@
 // Used this documentation: https://docs.nativebase.io/input, https://docs.nativebase.io/image,
 // https://docs.nativebase.io/box
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useCallback } from "react";
+import { useFocusEffect } from "@react-navigation/core";
 import {
   Text,
   Link,
@@ -30,6 +31,40 @@ import { useNavigation } from "@react-navigation/native";
 const Calendar = (props) => {
 
     const navigation = useNavigation()
+    
+
+    // https://stackoverflow.com/a/70110510
+    useFocusEffect(
+        useCallback(() => {
+            const startTime = Date.now();
+    
+          return async () => {
+            const endTime = Date.now();
+
+            const timeTaken = endTime - startTime
+            
+            // send time taken to server
+            const headers = new Headers();
+            headers.append('Access-Control-Allow-Origin', 'https://localhost')
+            headers.append('Content-Type', 'application/json')
+
+            const body = {
+                'screen': 'ServiceCatView',
+                'timeTaken': timeTaken
+            };
+            
+            await fetch('https://cs4261-usage-metrics-service.herokuapp.com/time-on-screen', {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify(body)
+            })
+            .then(data => data.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+            };
+        }, [])
+    );
+    
     return (
         <VStack h="100%" w="100%">
             <Center h="100%" w="100%">

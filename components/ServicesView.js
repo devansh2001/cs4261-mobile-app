@@ -30,6 +30,37 @@ import { Ionicons } from '@expo/vector-icons';
 
 
 const ServicesView = ({navigation, route}) => {
+    // https://stackoverflow.com/a/70110510
+    useFocusEffect(
+        useCallback(() => {
+            const startTime = Date.now();
+    
+          return async () => {
+            const endTime = Date.now();
+
+            const timeTaken = endTime - startTime
+            
+            // send time taken to server
+            const headers = new Headers();
+            headers.append('Access-Control-Allow-Origin', 'https://localhost')
+            headers.append('Content-Type', 'application/json')
+
+            const body = {
+                'screen': 'ServicesView',
+                'timeTaken': timeTaken
+            };
+            
+            await fetch('https://cs4261-usage-metrics-service.herokuapp.com/time-on-screen', {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify(body)
+            })
+            .then(data => data.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+            };
+        }, [])
+    );
 
 let vdata = [
 //replace this with data from database
