@@ -92,6 +92,7 @@ const getData = async () => {
                         )}
                         keyExtractor={(item) => item.service_id}
                     />
+                    <Button margin="20px">Request a new service</Button>
                 </Center>
             </Center>
         </VStack>

@@ -200,23 +200,6 @@ const Calendar = (props) => {
                                 <MaterialIcons name="home-repair-service" size={50} color="black" />
                             </Center>
                         </Button>
-                        <Button
-                            backgroundColor="#FFF9A1"
-                            rounded="lg"
-                            borderColor="#c4c4c4"
-                            borderWidth="1"
-                            shadow="2"
-                            w="49%"
-                            h="100%"
-                            onPress={() =>
-                                navigation.navigate("ServiceCreateNew", {userId: props.route.params.userId})
-                            }
-                        >
-                            <Center>
-                                <Heading size="md">Add New</Heading>
-                                <MaterialIcons name="add" size={50} color="black" />
-                            </Center>
-                        </Button>
                     </HStack>
                 </Box>
             </Center>
