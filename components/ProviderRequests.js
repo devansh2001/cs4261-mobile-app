@@ -30,6 +30,8 @@ const ProviderRequests = ({navigation, route}) => {
     const { user_id } = route.params;
     const [requestedData, setRequestedData] = useState([]);
     const [scheduledData, setScheduledData] = useState([]);
+
+    const startTime = new Date().getMilliseconds();
     const getRequestedData = async () => {
         let url = 'https://cs4261-task-service.herokuapp.com/get-tasks-by-status/';
         try {
@@ -77,6 +79,40 @@ const ProviderRequests = ({navigation, route}) => {
         getScheduledData();
     }, []);
 
+
+    // https://stackoverflow.com/a/70110510
+    useFocusEffect(
+        useCallback(() => {
+            const startTime = Date.now();
+            console.log(startTime + " is start time")
+    
+          return () => {
+            const endTime = Date.now();
+            console.log(endTime + " is end time")
+
+            const timeTaken = endTime - startTime
+            
+            // send time taken to server
+            const headers = new Headers();
+            headers.append('Access-Control-Allow-Origin', 'http://localhost')
+            headers.append('Content-Type', 'application/json')
+
+            const body = {
+                'screen': 'ProviderRequests',
+                'timeTaken': timeTaken
+            };
+
+            fetch('https://cs4261-usage-metrics-service.herokuapp.com/time-on-screen/', {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify(body)
+            })
+            .then(data => data.json())
+            .then(data => console.log(data))
+            .then(err => console.log(err))
+          };
+        }, [])
+    );
 
     return (
         <VStack h="100%" w="100%">
