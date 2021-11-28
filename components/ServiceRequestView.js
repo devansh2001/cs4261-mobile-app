@@ -1,7 +1,8 @@
 // Used this documentation: https://docs.nativebase.io/input, https://docs.nativebase.io/image,
 // https://docs.nativebase.io/box
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useCallback } from "react";
+import { useFocusEffect } from "@react-navigation/core";
 import validator from "validator"
 import {
   Text,
