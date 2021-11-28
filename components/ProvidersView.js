@@ -61,10 +61,10 @@ const vdata = [
 ]
 const { service, user_id } = route.params;
 const [data, setData] = useState([]);
-const [day_filter_option, setDayFilterOption]= useState('');
-const [price_filter_option, setPriceFilterOption]= useState('');
-const [start_time_filter_option, setStartTimeFilterOption]= useState('');
-const [end_time_filter_option, setEndTimeFilterOption]= useState('');
+const [day_filter_option, setDayFilterOption] = useState('');
+const [price_filter_option, setPriceFilterOption] = useState('');
+const [start_time_filter_option, setStartTimeFilterOption] = useState('');
+const [end_time_filter_option, setEndTimeFilterOption] = useState('');
 
 const handleDayFilterOption = (e) => {
     setDayFilterOption(e)
