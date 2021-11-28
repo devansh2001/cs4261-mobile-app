@@ -52,7 +52,7 @@ const Calendar = (props) => {
                             }
                         >
                             <Center>
-                                <Heading>Cleaning</Heading>
+                                <Heading size="md">Cleaning</Heading>
                                 <MaterialIcons name="clean-hands" size={50} color="black" />
                             </Center>
                         </Button>
@@ -69,7 +69,7 @@ const Calendar = (props) => {
                             }
                         >
                             <Center>
-                                <Heading>Pet</Heading>
+                                <Heading size="md">Pet</Heading>
                                 <MaterialIcons name="pets" size={50} color="black" />
                             </Center>
                         </Button>
@@ -88,7 +88,7 @@ const Calendar = (props) => {
                             }
                         >
                             <Center>
-                                <Heading>Plumbing</Heading>
+                                <Heading size="md">Plumbing</Heading>
                                 <MaterialIcons name="plumbing" size={50} color="black" />
                             </Center>
                         </Button>
@@ -105,7 +105,7 @@ const Calendar = (props) => {
                             }
                         >
                             <Center>
-                                <Heading>Electrical</Heading>
+                                <Heading size="md">Electrical</Heading>
                                 <MaterialIcons name="electrical-services" size={50} color="black" />
                             </Center>
                         </Button>
@@ -124,7 +124,7 @@ const Calendar = (props) => {
                             }
                         >
                             <Center>
-                                <Heading>Assembly</Heading>
+                                <Heading size="md">Assembly</Heading>
                                 <MaterialIcons name="build" size={50} color="black" />
                             </Center>
                         </Button>
@@ -141,7 +141,7 @@ const Calendar = (props) => {
                             }
                         >
                             <Center>
-                                <Heading>Technology</Heading>
+                                <Heading size="md">Technology</Heading>
                                 <MaterialIcons name="computer" size={50} color="black" />
                             </Center>
                         </Button>
@@ -160,7 +160,7 @@ const Calendar = (props) => {
                             }
                         >
                             <Center>
-                                <Heading>Landscaping</Heading>
+                                <Heading size="md">Landscaping</Heading>
                                 <MaterialIcons name="grass" size={50} color="black" />
                             </Center>
                         </Button>
@@ -177,7 +177,7 @@ const Calendar = (props) => {
                             }
                         >
                             <Center>
-                                <Heading>Home</Heading>
+                                <Heading size="md">Home</Heading>
                                 <MaterialIcons name="home-work" size={50} color="black" />
                             </Center>
                         </Button>
@@ -196,7 +196,7 @@ const Calendar = (props) => {
                             }
                         >
                             <Center>
-                                <Heading>More</Heading>
+                                <Heading size="md">More</Heading>
                                 <MaterialIcons name="home-repair-service" size={50} color="black" />
                             </Center>
                         </Button>
@@ -213,7 +213,7 @@ const Calendar = (props) => {
                             }
                         >
                             <Center>
-                                <Heading>Add New</Heading>
+                                <Heading size="md">Add New</Heading>
                                 <MaterialIcons name="add" size={50} color="black" />
                             </Center>
                         </Button>

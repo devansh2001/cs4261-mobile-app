@@ -110,7 +110,7 @@ const ProviderRequests = ({navigation, route}) => {
                                 </HStack>
                             </Card>
                         )}
-                        keyExtractor={(item) => item.service_id}
+                        keyExtractor={(item) => item.task_id}
                     />
                     <Heading>Scheduled Tasks Status</Heading>
                     <FlatList
@@ -121,8 +121,10 @@ const ProviderRequests = ({navigation, route}) => {
                             <Card>
                                 <HStack space={3}>
                                     <HStack space={3}>
-                                        <Text>{item.task_date_time}</Text>
-                                        <Text>{item.service_name}</Text>
+                                        <VStack>
+                                            <Text>{item.task_date_time}</Text>
+                                            <Text>{item.service_name}</Text>
+                                        </VStack>
                                         <Text>{item.task_status}</Text>
                                     </HStack>
                                     <Button
@@ -130,6 +132,7 @@ const ProviderRequests = ({navigation, route}) => {
                                         borderColor="#c4c4c4"
                                         bg="white"
                                         rounded="xs"
+                                        size="sm"
                                         onPress={() =>
                                             changeTaskStatus(item, 'COMPLETED')
                                         }
@@ -139,7 +142,7 @@ const ProviderRequests = ({navigation, route}) => {
                                 </HStack>
                             </Card>
                         )}
-                        keyExtractor={(item) => item.service_id}
+                        keyExtractor={(item) => item.task_id}
                     />
                 </Center>
             </Center>

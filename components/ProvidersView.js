@@ -32,33 +32,6 @@ import { Ionicons } from '@expo/vector-icons';
 
 const ProvidersView = ({navigation, route}) => {
 
-const vdata = [
-//replace this with data from database
-    {
-        service_id: "57",
-        service_name: "Dog Walking",
-        user_id: "45",
-        fname: "FirstName",
-        lname: "LastName",
-        minimum_price: "$20",
-    },
-    {
-        service_id: "57",
-        service_name: "Dog Walking",
-        user_id: "45",
-        fname: "FirstName",
-        lname: "LastName",
-        minimum_price: "$20",
-    },
-    {
-        service_id: "57",
-        service_name: "Dog Walking",
-        user_id: "45",
-        fname: "FirstName",
-        lname: "LastName",
-        minimum_price: "$20",
-    },
-]
 const { service, user_id } = route.params;
 const [data, setData] = useState([]);
 const [day_filter_option, setDayFilterOption] = useState('');
@@ -119,7 +92,9 @@ const getData = async () => {
     try {
         const response = await fetch(url);
         const json = await response.json();
+        console.log(json)
         setData(json.availability);
+
     } catch (error) {
         console.error(error);
     }
@@ -136,6 +111,7 @@ const getData = async () => {
                     <Heading>Providers</Heading>
 
                     <Select
+                        w="90%"
                         selectedValue={price_filter_option}
                         accessibilityLabel="Filter By Price"
                         placeholder="Filter By Price"
@@ -155,6 +131,7 @@ const getData = async () => {
                     </Select>
 
                     <Select
+                        w="90%"
                         selectedValue={day_filter_option}
                         accessibilityLabel="Filter By Day"
                         placeholder="Filter By Day"
@@ -176,6 +153,7 @@ const getData = async () => {
                     </Select>
 
                     <Select
+                        w="90%"
                         selectedValue={start_time_filter_option}
                         accessibilityLabel="Filter By Start Time"
                         placeholder="Filter By Start Time"
@@ -214,6 +192,7 @@ const getData = async () => {
                     </Select>
 
                     <Select
+                        w="90%"
                         selectedValue={end_time_filter_option}
                         accessibilityLabel="Filter By End Time"
                         placeholder="Filter By End Time"
