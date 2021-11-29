@@ -73,22 +73,18 @@ const [end_time_filter_option, setEndTimeFilterOption] = useState('');
 
 const handleDayFilterOption = (e) => {
     setDayFilterOption(e)
-    getData()
 }
 
 const handlePriceFilterOption = (e) => {
     setPriceFilterOption(e)
-    getData()
 }
 
 const handleStartTimeFilterOption = (e) => {
     setStartTimeFilterOption(e)
-    getData()
 }
 
 const handleEndTimeFilterOption = (e) => {
     setEndTimeFilterOption(e)
-    getData()
 }
 
 const getData = async () => {
@@ -261,6 +257,19 @@ const getData = async () => {
                         <Select.Item label="11 PM" value="23" />
                         <Select.Item label="None" value="*" />
                     </Select>
+
+                    <Container py={10}>
+                        <Button
+                            bg="#FFF9A1"
+                            rounded="lg"
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="2"
+                            onPress={getData}
+                        >
+                            <Text>Apply Filters</Text>
+                        </Button>
+                    </Container>
 
                     <FlatList
                         w="100%"
