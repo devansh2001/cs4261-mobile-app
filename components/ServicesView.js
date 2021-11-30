@@ -124,7 +124,14 @@ const getData = async () => {
                         )}
                         keyExtractor={(item) => item.service_id}
                     />
-                    <Button margin="20px">Request a new service</Button>
+                    <Button
+                        margin="20px"
+                        onPress={() =>
+                            navigation.navigate('ServiceCreateNew',{userId:userId})
+                        }
+                    >
+                        <Text>Add another service</Text>
+                    </Button>
                 </Center>
             </Center>
         </VStack>

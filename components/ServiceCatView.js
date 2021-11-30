@@ -224,14 +224,14 @@ const Calendar = (props) => {
                             borderColor="#c4c4c4"
                             borderWidth="1"
                             shadow="2"
-                            w="49%"
+                            w="99%"
                             h="100%"
                             onPress={() =>
                                 navigation.navigate("Services",{category:"OTHER", userId: props.route.params.userId})
                             }
                         >
                             <Center>
-                                <Heading size="md">More</Heading>
+                                <Heading size="md">Other</Heading>
                                 <MaterialIcons name="home-repair-service" size={50} color="black" />
                             </Center>
                         </Button>

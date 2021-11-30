@@ -270,7 +270,6 @@ const getData = async () => {
                             <Text>Apply Filters</Text>
                         </Button>
                     </Container>
-
                     <FlatList
                         w="100%"
                         space={1}
