@@ -80,32 +80,34 @@ const ProviderAvailability = ({navigation, route}) => {
     const [date, setDate] = useState(new Date(1598051730000));
     const [mondayStart, setMondayStart] = useState(new Date(1598051730000));
     const [mondayEnd, setMondayEnd] = useState(new Date(1598051730000));
-    const [mondayStartStr, setMondayStartStr] = useState('')
-    const [mondayEndStr, setMondayEndStr] = useState('')
+    var mondayStartStr = "19:15:00"
+    var mondayEndStr = "19:15:00"
+    var tuesdayStartStr = "19:15:00"
+    var tuesdayEndStr = "19:15:00"
+    var wednesdayStartStr = "19:15:00"
+    var wednesdayEndStr = "19:15:00"
+    var thursdayStartStr = "19:15:00"
+    var thursdayEndStr = "19:15:00"
+    var fridayStartStr = "19:15:00"
+    var fridayEndStr = "19:15:00"
+    var saturdayStartStr = "19:15:00"
+    var saturdayEndStr = "19:15:00"
+    var sundayStartStr = "19:15:00"
+    var sundayEndStr = "19:15:00"
+
+
     const [tuesdayStart, setTuesdayStart] = useState(new Date(1598051730000));
     const [tuesdayEnd, setTuesdayEnd] = useState(new Date(1598051730000));
-    const [tuesdayStartStr, setTuesdayStartStr] = useState('')
-    const [tuesdayEndStr, setTuesdayEndStr] = useState('')
     const [wednesdayStart, setWednesdayStart] = useState(new Date(1598051730000));
     const [wednesdayEnd, setWednesdayEnd] = useState(new Date(1598051730000));
-    const [wednesdayStartStr, setWednesdayStartStr] = useState('')
-    const [wednesdayEndStr, setWednesdayEndStr] = useState('')
     const [thursdayStart, setThursdayStart] = useState(new Date(1598051730000));
     const [thursdayEnd, setThursdayEnd] = useState(new Date(1598051730000));
-    const [thursdayStartStr, setThursdayStartStr] = useState('')
-    const [thursdayEndStr, setThursdayEndStr] = useState('')
     const [fridayStart, setFridayStart] = useState(new Date(1598051730000));
     const [fridayEnd, setFridayEnd] = useState(new Date(1598051730000));
-    const [fridayStartStr, setFridayStartStr] = useState('')
-    const [fridayEndStr, setFridayEndStr] = useState('')
     const [saturdayStart, setSaturdayStart] = useState(new Date(1598051730000));
     const [saturdayEnd, setSaturdayEnd] = useState(new Date(1598051730000));
-    const [saturdayStartStr, setSaturdayStartStr] = useState('')
-    const [saturdayEndStr, setSaturdayEndStr] = useState('')
     const [sundayStart, setSundayStart] = useState(new Date(1598051730000));
     const [sundayEnd, setSundayEnd] = useState(new Date(1598051730000));
-    const [sundayStartStr, setSundayStartStr] = useState('')
-    const [sundayEndStr, setSundayEndStr] = useState('')
     const [mode, setMode] = useState('date');
     const [showMon, setShowMon] = useState(false);
     const [showTues, setShowTues] = useState(false);
@@ -126,37 +128,36 @@ const ProviderAvailability = ({navigation, route}) => {
             setErrorMessageMinPrice('Invalid Price!')
         }
     }
-    const handleMondayStart = (event, selectedDate) => {
+    const handleMondayStart = async(event, selectedDate) => {
         const currentDate = selectedDate || mondayStart;
-        setMondayStart(currentDate);
+        await setMondayStart(currentDate);
         var currentTime = String(currentDate).substring(16,24);
-        setMondayStartStr(currentTime);
-        handleMonday();
+        mondayStartStr = currentTime;
+        await handleMonday();
     }
-    const handleMondayEnd = (event, selectedDate) => {
+    const handleMondayEnd = async(event, selectedDate) => {
         const currentDate = selectedDate || mondayEnd;
         setMondayEnd(currentDate);
         var currentTime = String(currentDate).substring(16,24);
-        setMondayEndStr(currentTime);
-        handleMonday();
+        mondayEndStr = currentTime;
+        await handleMonday();
     }
-    const handleMonday = () => {
-        setMonday(mondayStartStr + "-" + mondayEndStr)
+    const handleMonday = async() => {
+        console.log("setting monday: " + mondayStartStr + "-" + mondayEndStr)
+        await setMonday(mondayStartStr + "-" + mondayEndStr)
     }
     const handleTuesdayStart = (event, selectedDate) => {
         const currentDate = selectedDate || tuesdayStart;
-        setShow(Platform.OS === 'ios');
         setTuesdayStart(currentDate);
         var currentTime = String(currentDate).substring(16,24);
-        setTuesdayStartStr(currentTime);
+        tuesdayStartStr = currentTime;
         handleTuesday();
     }
     const handleTuesdayEnd = (event, selectedDate) => {
         const currentDate = selectedDate || tuesdayEnd;
-        setShow(Platform.OS === 'ios');
         setTuesdayEnd(currentDate);
         var currentTime = String(currentDate).substring(16,24);
-        setTuesdayEndStr(currentTime);
+        tuesdayEndStr = currentTime;
         handleTuesday();
     }
     const handleTuesday = () => {
@@ -164,18 +165,16 @@ const ProviderAvailability = ({navigation, route}) => {
     }
     const handleWednesdayStart = (event, selectedDate) => {
         const currentDate = selectedDate || wednesdayStart;
-        setShow(Platform.OS === 'ios');
         setWednesdayStart(currentDate);
         var currentTime = String(currentDate).substring(16,24);
-        setWednesdayStartStr(currentTime);
+        wednesdayStartStr = currentTime;
         handleWednesday();
     }
     const handleWednesdayEnd = (event, selectedDate) => {
         const currentDate = selectedDate || wednesdayEnd;
-        setShow(Platform.OS === 'ios');
         setWednesdayEnd(currentDate);
         var currentTime = String(currentDate).substring(16,24);
-        setWednesdayEndStr(currentTime);
+        wednesdayEndStr = currentTime;
         handleWednesday();
     }
     const handleWednesday = () => {
@@ -186,15 +185,14 @@ const ProviderAvailability = ({navigation, route}) => {
         setShow(Platform.OS === 'ios');
         setThursdayStart(currentDate);
         var currentTime = String(currentDate).substring(16,24);
-        setThursdayStartStr(currentTime);
+        thursdayStartStr = currentTime;
         handleThursday();
     }
     const handleThursdayEnd = (event, selectedDate) => {
         const currentDate = selectedDate || thursdayEnd;
-        setShow(Platform.OS === 'ios');
         setThursdayEnd(currentDate);
         var currentTime = String(currentDate).substring(16,24);
-        setThursdayEndStr(currentTime);
+        thursdayEndStr = currentTime;
         handleThursday();
     }
     const handleThursday = () => {
@@ -202,18 +200,16 @@ const ProviderAvailability = ({navigation, route}) => {
     }
     const handleFridayStart = (event, selectedDate) => {
         const currentDate = selectedDate || fridayStart;
-        setShow(Platform.OS === 'ios');
         setFridayStart(currentDate);
         var currentTime = String(currentDate).substring(16,24);
-        setFridayStartStr(currentTime);
+        fridayStartStr = currentTime;
         handleFriday();
     }
     const handleFridayEnd = (event, selectedDate) => {
         const currentDate = selectedDate || fridayEnd;
-        setShow(Platform.OS === 'ios');
         setFridayEnd(currentDate);
         var currentTime = String(currentDate).substring(16,24);
-        setFridayEndStr(currentTime);
+        fridayEndStr = currentTime;
         handleFriday();
     }
     const handleFriday = () => {
@@ -221,18 +217,16 @@ const ProviderAvailability = ({navigation, route}) => {
     }
     const handleSaturdayStart = (event, selectedDate) => {
         const currentDate = selectedDate || saturdayStart;
-        setShow(Platform.OS === 'ios');
         setSaturdayStart(currentDate);
         var currentTime = String(currentDate).substring(16,24);
-        setSaturdayStartStr(currentTime);
+        saturdayStartStr = currentTime;
         handleSaturday();
     }
     const handleSaturdayEnd = (event, selectedDate) => {
         const currentDate = selectedDate || saturdayEnd;
-        setShow(Platform.OS === 'ios');
         setSaturdayEnd(currentDate);
         var currentTime = String(currentDate).substring(16,24);
-        setSaturdayEndStr(currentTime);
+        saturdayEndStr = currentTime;
         handleSaturday();
     }
     const handleSaturday = () => {
@@ -240,18 +234,16 @@ const ProviderAvailability = ({navigation, route}) => {
     }
     const handleSundayStart = (event, selectedDate) => {
         const currentDate = selectedDate || sundayStart;
-        setShow(Platform.OS === 'ios');
         setSundayStart(currentDate);
         var currentTime = String(currentDate).substring(16,24);
-        setSundayStartStr(currentTime);
+        sundayStartStr = currentTime;
         handleSunday();
     }
     const handleSundayEnd = (event, selectedDate) => {
         const currentDate = selectedDate || sundayEnd;
-        setShow(Platform.OS === 'ios');
         setSundayEnd(currentDate);
         var currentTime = String(currentDate).substring(16,24);
-        setSundayEndStr(currentTime);
+        sundayEndStr = currentTime;
         handleSunday();
     }
     const handleSunday = () => {
@@ -440,6 +432,7 @@ const ProviderAvailability = ({navigation, route}) => {
                               mode={mode}
                               is24Hour={true}
                               display="default"
+                              onSelect={handleMondayStart}
                               onChange={handleMondayStart}
                               minuteInterval={15}
                             />
@@ -457,6 +450,7 @@ const ProviderAvailability = ({navigation, route}) => {
                               mode={mode}
                               is24Hour={true}
                               display="default"
+                              onSelect={handleMondayEnd}
                               onChange={handleMondayEnd}
                               minuteInterval={15}
                             />
