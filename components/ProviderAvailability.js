@@ -388,10 +388,11 @@ const ProviderAvailability = ({navigation, route}) => {
 
 
     return (
-        <ScrollView>
+
             <VStack h="100%" w="100%">
                 <Center h="100%" w="100%">
                     <TopBar/>
+                    <ScrollView>
                     <VStack h="95%" w="100%" py={2} px={2} space={3}>
                         <Heading>Enter New Availability</Heading>
                         <Text>Service Name</Text>
@@ -685,9 +686,10 @@ const ProviderAvailability = ({navigation, route}) => {
                             </Button>
                         </Container>
                     </VStack>
+                    </ScrollView>
                 </Center>
             </VStack>
-        </ScrollView>
+
     )
 }
 

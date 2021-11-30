@@ -162,7 +162,7 @@ days = days.join('\n')
                         )}
                         keyExtractor={(item) => item.review_id}
                     />
-                    <Center>
+                    <Center py={5}>
                     <Button
                         backgroundColor="#FFF9A1"
                         w="50%"

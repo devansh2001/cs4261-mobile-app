@@ -23,9 +23,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b34b2138-1703-47c2-86de-f9cd3e130819" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/components/ProvidersView.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ProvidersView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CalendarView.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CalendarView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ProviderAvailability.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ProviderAvailability.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ProviderDetailView.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ProviderDetailView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ProviderRequests.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ProviderRequests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/ServiceCatView.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ServiceCatView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ServicesView.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ServicesView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/sharedComponents/TopBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/sharedComponents/TopBar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,23 +162,5 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Adding veiw from provider to input availability.&#10;TODO: change service id to service name" />
     <option name="LAST_COMMIT_MESSAGE" value="Adding veiw from provider to input availability.&#10;TODO: change service id to service name" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="3961" y="255" width="1437" height="718" key="dock-window-1" timestamp="1636144289938">
-      <screen x="3840" y="0" width="1920" height="1040" />
-    </state>
-    <state x="3961" y="255" width="1437" height="718" key="dock-window-1/0.0.1920.1040/-3840.0.1707.920/3840.0.1920.1040/-7680.0.1280.680@0.0.1920.1040" timestamp="1636144289938" />
-    <state x="671" y="236" width="577" height="566" key="find.popup" timestamp="1636132071204">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="671" y="236" width="577" height="566" key="find.popup/0.0.1920.1040/-3840.0.1707.920/3840.0.1920.1040/-7680.0.1280.680@0.0.1920.1040" timestamp="1636132071204" />
-    <state x="726" y="151" key="git4idea.branch.GitSmartOperationDialog" timestamp="1636213623205">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="726" y="151" key="git4idea.branch.GitSmartOperationDialog/-3840.0.1707.924/3840.0.1920.1040/-7680.0.1280.680/0.0.1920.1040@0.0.1920.1040" timestamp="1636213623205" />
-    <state x="623" y="226" width="672" height="678" key="search.everywhere.popup" timestamp="1636133299013">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="226" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-3840.0.1707.920/3840.0.1920.1040/-7680.0.1280.680@0.0.1920.1040" timestamp="1636133299013" />
   </component>
 </project>

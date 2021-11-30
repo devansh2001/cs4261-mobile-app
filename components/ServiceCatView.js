@@ -224,7 +224,7 @@ const Calendar = (props) => {
                             borderColor="#c4c4c4"
                             borderWidth="1"
                             shadow="2"
-                            w="99%"
+                            w="100%"
                             h="100%"
                             onPress={() =>
                                 navigation.navigate("Services",{category:"OTHER", userId: props.route.params.userId})

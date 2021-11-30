@@ -33,9 +33,9 @@ import { MaterialIcons } from '@expo/vector-icons';
 const TopBar = () => {
 
     return (
-    <Box backgroundColor="#FFF9A1" w="100%" h="5%">
-        <StatusBar backgroundColor="#FFF9A1" barStyle="light-content" />
-        <Center safeAreaTop backgroundColor="#FFF9A1" width={['100%']}>
+    <Box backgroundColor="#FFF9A1" w="100%" h="10%">
+        <StatusBar backgroundColor="#FFF9A1" barStyle="dark-content" />
+        <Center safeAreaTop backgroundColor="#FFF9A1" h="100%" width={['100%']}>
             <Text color="black" fontSize="20" fontWeight='bold'>BusyBee</Text>
         </Center>
     </Box>

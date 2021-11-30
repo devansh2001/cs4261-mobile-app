@@ -127,8 +127,10 @@ const ProviderRequests = ({navigation, route}) => {
                             <Card>
                                 <HStack space={3}>
                                     <HStack space={3}>
-                                        <Text>{item.task_date_time}</Text>
-                                        <Text>{item.service_name}</Text>
+                                        <VStack>
+                                            <Text>{item.task_date_time}</Text>
+                                            <Text>{item.service_name}</Text>
+                                        </VStack>
                                         <Text>{item.task_status}</Text>
                                     </HStack>
                                     <Button

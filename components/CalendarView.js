@@ -89,6 +89,7 @@ const getData = async () => {
                     <Heading>Calendar</Heading>
                     <FlatList
                         w="100%"
+                        h="90%"
                         space={1}
                         data={data}
                         renderItem={({ item }) => (
@@ -108,20 +109,22 @@ const getData = async () => {
                                 </HStack>
                             </Button>
                         )}
-                        keyExtractor={(item) => item.service_id}
+                        keyExtractor={(item) => item.task_id}
                     />
-                    <Button
-                        w="50%"
-                        borderWidth="1"
-                        borderColor="#c4c4c4"
-                        bg="#FFF9A1"
-                        rounded="xs"
-                        onPress={() =>
-                            navigation.navigate("RequestStatus")
-                        }
-                    >
-                        <Text>Requested Tasks Status</Text>
-                    </Button>
+                    <Box py={5}>
+                        <Button
+                            backgroundColor="#FFF9A1"
+                            rounded="lg"
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="2"
+                            onPress={() =>
+                                navigation.navigate("RequestStatus")
+                            }
+                        >
+                            <Text>Requested Tasks Status</Text>
+                        </Button>
+                    </Box>
                 </Center>
             </Center>
         </VStack>
