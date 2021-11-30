@@ -107,10 +107,10 @@ const newReview = async () => {
                 <TopBar/>
                 <VStack h="95%" w="100%" py={2} px={2} space={3}>
                     <Heading>New Review</Heading>
-                    <Text>Rating</Text>
+                    <Text>Star Rating (5 is best)</Text>
                     <Input
                         onChangeText={handleRating}
-                        placeholder="1-5"
+                        placeholder="1 to 5"
                         w="100%"
                     />
                     <Text>Review</Text>
