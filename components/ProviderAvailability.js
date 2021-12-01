@@ -31,6 +31,21 @@ import TopBar from "./sharedComponents/TopBar";
 import { ScrollView } from "react-native";
 import DateTimePicker from '@react-native-community/datetimepicker';
 
+var mondayStartStr = "19:15:00"
+var mondayEndStr = "19:15:00"
+var tuesdayStartStr = "19:15:00"
+var tuesdayEndStr = "19:15:00"
+var wednesdayStartStr = "19:15:00"
+var wednesdayEndStr = "19:15:00"
+var thursdayStartStr = "19:15:00"
+var thursdayEndStr = "19:15:00"
+var fridayStartStr = "19:15:00"
+var fridayEndStr = "19:15:00"
+var saturdayStartStr = "19:15:00"
+var saturdayEndStr = "19:15:00"
+var sundayStartStr = "19:15:00"
+var sundayEndStr = "19:15:00"
+
 
 const ProviderAvailability = ({navigation, route}) => {
 
@@ -80,22 +95,6 @@ const ProviderAvailability = ({navigation, route}) => {
     const [date, setDate] = useState(new Date(1598051730000));
     const [mondayStart, setMondayStart] = useState(new Date(1598051730000));
     const [mondayEnd, setMondayEnd] = useState(new Date(1598051730000));
-    var mondayStartStr = "19:15:00"
-    var mondayEndStr = "19:15:00"
-    var tuesdayStartStr = "19:15:00"
-    var tuesdayEndStr = "19:15:00"
-    var wednesdayStartStr = "19:15:00"
-    var wednesdayEndStr = "19:15:00"
-    var thursdayStartStr = "19:15:00"
-    var thursdayEndStr = "19:15:00"
-    var fridayStartStr = "19:15:00"
-    var fridayEndStr = "19:15:00"
-    var saturdayStartStr = "19:15:00"
-    var saturdayEndStr = "19:15:00"
-    var sundayStartStr = "19:15:00"
-    var sundayEndStr = "19:15:00"
-
-
     const [tuesdayStart, setTuesdayStart] = useState(new Date(1598051730000));
     const [tuesdayEnd, setTuesdayEnd] = useState(new Date(1598051730000));
     const [wednesdayStart, setWednesdayStart] = useState(new Date(1598051730000));
