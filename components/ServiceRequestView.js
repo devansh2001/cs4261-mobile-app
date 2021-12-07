@@ -172,14 +172,14 @@ const newTask = async () => {
                     }}>
                         {errorMessagePrice}
                     </Box>
+                    
                     <Text>Task Details</Text>
                     <Input
                         type="text"
                         placeholder="Walk dogs"
                         w="100%"
-                        h="20%" //FIX THIS, TEXT DOES NOT WRAP
+                        // h="20%" //FIX THIS, TEXT DOES NOT WRAP
                     />
-                    <Container py={10}>
                     <Button
                         bg="#FFF9A1"
                         rounded="lg"
@@ -192,7 +192,9 @@ const newTask = async () => {
                     >
                         Submit
                     </Button>
-                    </Container>
+                    {/* <Container py={10}> */}
+                    
+                    {/* </Container> */}
                 </VStack>
             </Center>
             
