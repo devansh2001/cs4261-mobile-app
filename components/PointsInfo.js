@@ -1,5 +1,20 @@
-import { Container, Text } from 'native-base';
+import { Container, Text, Popover, Button } from 'native-base';
 import React from 'react';
+
+// https://docs.nativebase.io/popover
+const InfoButton = (
+    <Popover
+        trigger={
+            (props) => {
+                return <Button {...props}>?</Button>
+            }
+        }
+    >
+        <Popover.Content>
+            <Popover.Body>You can earn honeypots each time you book or complete a service. Use these points for amazing rewards like discounts, merch, lucky draws, and more!</Popover.Body>
+        </Popover.Content>
+    </Popover>
+)
 
 class PointsInfo extends React.Component {
     constructor(props) {
@@ -52,8 +67,9 @@ class PointsInfo extends React.Component {
     render() {
         return (
             <Container>
+                {/* https://docs.nativebase.io/popover */}
                 <Text>
-                    You have { this.state.user.points } honeypots!
+                    You have { this.state.user.points } honeypots! {InfoButton}
                 </Text>
                 <Text>
                     { this.findNextClosestPoints() }
