@@ -63,14 +63,16 @@ const ServiceRequestView = ({navigation, route}) => {
         }, [])
     );
 
-const [service_name, setServiceName] = useState('');
+const { provider,service_id,user,available,service_name_prefilled } = route.params;
+
+const [service_name, setServiceName] = useState(route.params.service_name);
 const [task_date, setTaskDate]= useState('');
 const [task_price, setTaskPrice]  = useState('');
 const [errorMessageDate, setErrorMessageDate] = useState('')
 const [errorMessagePrice, setErrorMessagePrice] = useState('')
 
 const handleServiceName = (e) => {
-    setServiceName(e)
+    setServiceName(e)    
 }
 const handleTaskDate = (e) => {
     if (validator.isDate(e)) {
@@ -89,7 +91,9 @@ const handleTaskPrice = (e) => {
     }
 }
 
-const { provider,service_id,user,available } = route.params;
+
+
+
 
 const newTask = async () => {
     if (!validator.isDate(task_date)) {
@@ -147,7 +151,10 @@ const newTask = async () => {
                         onChangeText={handleServiceName}
                         placeholder="Task Name"
                         w="100%"
-                    />
+                    >
+                        { service_name }
+
+                    </Input>
                     <Text>Date</Text>
                     <Input
                         type="date"
