@@ -22,3 +22,4 @@ expo init my-app --template expo-template-native-base
 - https://reactjs.org/docs/hooks-effect.html
 - https://stackoverflow.com/a/70110510
 - https://docs.nativebase.io/popover
+- https://stackoverflow.com/a/12795812
