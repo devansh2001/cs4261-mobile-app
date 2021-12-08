@@ -21,3 +21,4 @@ expo init my-app --template expo-template-native-base
 - https://www.npmjs.com/package/email-validator
 - https://reactjs.org/docs/hooks-effect.html
 - https://stackoverflow.com/a/70110510
+- https://docs.nativebase.io/popover

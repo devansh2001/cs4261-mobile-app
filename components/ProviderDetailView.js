@@ -64,7 +64,9 @@ const ProviderDetailView = ({navigation, route}) => {
         }, [])
     );
 
-const { provider,service,user } = route.params;
+const { provider,service,user,service_name } = route.params;
+console.log(service + " - " + service_name)
+console.log("*** in providerdetailview ***")
 const [data, setData] = useState([]);
 console.log(provider.user_id)
 const getData = async () => {
@@ -130,7 +132,13 @@ days = days.join('\n')
                             borderWidth="1"
                             shadow="2"
                             onPress={() =>
-                                navigation.navigate("ServiceRequest",{provider:provider.user_id,service_id:service,user:user,available:avail})
+                                navigation.navigate("ServiceRequest",{
+                                    provider:provider.user_id,
+                                    service_id:service,
+                                    user:user,
+                                    available:avail,
+                                    service_name:service_name,
+                                })
                             }
                         >
                             <Center>

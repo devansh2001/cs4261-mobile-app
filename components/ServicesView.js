@@ -116,7 +116,7 @@ const getData = async () => {
                                 bg="white"
                                 rounded="xs"
                                 onPress={() =>
-                                    navigation.navigate('Providers',{service:item.service_id,user_id:userId})
+                                    navigation.navigate('Providers',{service:item.service_id,user_id:userId,service_name:item.service_name})
                                 }
                             >
                                 <Text>{item.service_name}</Text>

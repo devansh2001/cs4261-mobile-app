@@ -64,7 +64,9 @@ const ProvidersView = ({navigation, route}) => {
         }, [])
     );
 
-const { service, user_id } = route.params;
+const { service, user_id, service_name } = route.params;
+console.log(service + " - " + service_name)
+console.log("*** in providersview ***")
 const [data, setData] = useState([]);
 const [day_filter_option, setDayFilterOption] = useState('');
 const [price_filter_option, setPriceFilterOption] = useState('');
@@ -282,7 +284,7 @@ const getData = async () => {
                             bg="white"
                             rounded="xs"
                             onPress={() =>
-                                navigation.navigate('ProviderDetail',{provider:item,service:service,user:user_id})
+                                navigation.navigate('ProviderDetail',{provider:item,service:service,user:user_id,service_name:service_name})
                             }
                             >
                                 <HStack w="100%">

@@ -129,6 +129,7 @@ const getData = async () => {
                         <Box h="95%" w="100%">
                             <Heading>Settings</Heading>
                             <Center>
+                                <PointsInfo user={props.route.params.userId} />
                                 <Button
                                     backgroundColor="#FFF9A1"
                                     w="90%"

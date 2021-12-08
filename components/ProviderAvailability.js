@@ -181,7 +181,7 @@ const ProviderAvailability = ({navigation, route}) => {
     }
     const handleThursdayStart = (event, selectedDate) => {
         const currentDate = selectedDate || thursdayStart;
-        setShow(Platform.OS === 'ios');
+        // setShow(Platform.OS === 'ios');
         setThursdayStart(currentDate);
         var currentTime = String(currentDate).substring(16,24);
         thursdayStartStr = currentTime;
