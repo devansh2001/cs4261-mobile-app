@@ -212,7 +212,7 @@ const SignUpView = ({navigation}) => {
                         <Input onChangeText={handleProfilePictureChange} variant='rounded' placeholder='https://link-to-profile-picture.com/image.png' />
                     </VStack>
                     
-                    <Button onPress={handleSignup} backgroundColor='#fff9a1' shadow='5' _text={{color: 'black'}}>
+                    <Button onPress={handleSignup} backgroundColor={color} shadow='5' _text={{color: 'black'}}>
                         Sign Me Up!
                     </Button>
 
