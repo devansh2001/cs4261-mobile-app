@@ -29,6 +29,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const CalendarView = (props) => {
     // https://stackoverflow.com/a/70110510
+    var color = "#fff785"
     useFocusEffect(
         useCallback(() => {
             const startTime = Date.now();
@@ -113,7 +114,7 @@ const getData = async () => {
                     />
                     <Box py={5}>
                         <Button
-                            backgroundColor="#FFF9A1"
+                            backgroundColor={color}
                             rounded="lg"
                             borderColor="#c4c4c4"
                             borderWidth="1"

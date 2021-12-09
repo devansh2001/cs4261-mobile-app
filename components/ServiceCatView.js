@@ -31,7 +31,8 @@ import { useNavigation } from "@react-navigation/native";
 const Calendar = (props) => {
 
     const navigation = useNavigation()
-    
+    var color = "#fff785"
+    var shadow = "0"
 
     // https://stackoverflow.com/a/70110510
     useFocusEffect(
@@ -75,11 +76,11 @@ const Calendar = (props) => {
                     </Center>
                     <HStack h="18%" space="2%" px={2} py={1}>
                         <Button
-                            backgroundColor="#FFF9A1"
+                            backgroundColor={color}
                             rounded="lg"
                             borderColor="#c4c4c4"
                             borderWidth="1"
-                            shadow="2"
+                            shadow={shadow}
                             w="49%"
                             h="100%"
                             onPress={() =>
@@ -92,11 +93,11 @@ const Calendar = (props) => {
                             </Center>
                         </Button>
                         <Button
-                            backgroundColor="#FFF9A1"
+                            backgroundColor={color}
                             rounded="lg"
                             borderColor="#c4c4c4"
                             borderWidth="1"
-                            shadow="2"
+                            shadow={shadow}
                             w="49%"
                             h="100%"
                             onPress={() =>
@@ -111,11 +112,11 @@ const Calendar = (props) => {
                     </HStack>
                     <HStack h="18%" space="2%" px={2} py={1}>
                         <Button
-                            backgroundColor="#FFF9A1"
+                            backgroundColor={color}
                             rounded="lg"
                             borderColor="#c4c4c4"
                             borderWidth="1"
-                            shadow="2"
+                            shadow={shadow}
                             w="49%"
                             h="100%"
                             onPress={() =>
@@ -128,11 +129,11 @@ const Calendar = (props) => {
                             </Center>
                         </Button>
                         <Button
-                            backgroundColor="#FFF9A1"
+                            backgroundColor={color}
                             rounded="lg"
                             borderColor="#c4c4c4"
                             borderWidth="1"
-                            shadow="2"
+                            shadow={shadow}
                             w="49%"
                             h="100%"
                             onPress={() =>
@@ -147,11 +148,11 @@ const Calendar = (props) => {
                     </HStack>
                     <HStack h="18%" space="2%" px={2} py={1}>
                         <Button
-                            backgroundColor="#FFF9A1"
+                            backgroundColor={color}
                             rounded="lg"
                             borderColor="#c4c4c4"
                             borderWidth="1"
-                            shadow="2"
+                            shadow={shadow}
                             w="49%"
                             h="100%"
                             onPress={() =>
@@ -164,11 +165,11 @@ const Calendar = (props) => {
                             </Center>
                         </Button>
                         <Button
-                            backgroundColor="#FFF9A1"
+                            backgroundColor={color}
                             rounded="lg"
                             borderColor="#c4c4c4"
                             borderWidth="1"
-                            shadow="2"
+                            shadow={shadow}
                             w="49%"
                             h="100%"
                             onPress={() =>
@@ -183,11 +184,11 @@ const Calendar = (props) => {
                     </HStack>
                     <HStack h="18%" space="2%" px={2} py={1}>
                         <Button
-                            backgroundColor="#FFF9A1"
+                            backgroundColor={color}
                             rounded="lg"
                             borderColor="#c4c4c4"
                             borderWidth="1"
-                            shadow="2"
+                            shadow={shadow}
                             w="49%"
                             h="100%"
                             onPress={() =>
@@ -200,11 +201,11 @@ const Calendar = (props) => {
                             </Center>
                         </Button>
                         <Button
-                            backgroundColor="#FFF9A1"
+                            backgroundColor={color}
                             rounded="lg"
                             borderColor="#c4c4c4"
                             borderWidth="1"
-                            shadow="2"
+                            shadow={shadow}
                             w="49%"
                             h="100%"
                             onPress={() =>
@@ -219,11 +220,11 @@ const Calendar = (props) => {
                     </HStack>
                     <HStack h="18%" space="2%" px={2} py={1}>
                         <Button
-                            backgroundColor="#FFF9A1"
+                            backgroundColor={color}
                             rounded="lg"
                             borderColor="#c4c4c4"
                             borderWidth="1"
-                            shadow="2"
+                            shadow={shadow}
                             w="100%"
                             h="100%"
                             onPress={() =>

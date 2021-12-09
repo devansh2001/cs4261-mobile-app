@@ -31,6 +31,7 @@ import PointsInfo from "./PointsInfo";
 
 const SettingsView = (props) => {
     // https://stackoverflow.com/a/70110510
+    var color = "#fff785"
     useFocusEffect(
         useCallback(() => {
             const startTime = Date.now();
@@ -83,11 +84,15 @@ const getData = async () => {
             <Center h="100%" w="100%">
                 <TopBar/>
                 <Box h="95%" w="100%">
-                    <Heading>Settings</Heading>
                     <Center>
+                        <Heading>Settings</Heading>
+                    </Center>
+                    <VStack>
+                        <Text>Rewards</Text>
                         <PointsInfo user={props.route.params.userId} />
+                        <Text>Options</Text>
                         <Button
-                            backgroundColor="#FFF9A1"
+                            backgroundColor={color}
                             w="90%"
                             rounded="lg"
                             borderColor="#c4c4c4"
@@ -102,7 +107,7 @@ const getData = async () => {
                             </Center>
                         </Button>
                         <Button
-                            backgroundColor="#FFF9A1"
+                            backgroundColor={color}
                             w="90%"
                             rounded="lg"
                             borderColor="#c4c4c4"
@@ -116,7 +121,7 @@ const getData = async () => {
                                 <Text>Log Out</Text>
                             </Center>
                         </Button>
-                    </Center>
+                    </VStack>
                 </Box>
             </Center>
         </VStack>
@@ -127,11 +132,19 @@ const getData = async () => {
                     <Center h="100%" w="100%">
                         <TopBar/>
                         <Box h="95%" w="100%">
-                            <Heading>Settings</Heading>
+                            <VStack space={3} px={2}>
+                            <Center>
+                                <Heading>Settings</Heading>
+                            </Center>
+
+                            <Heading>Rewards</Heading>
                             <Center>
                                 <PointsInfo user={props.route.params.userId} />
+                            </Center>
+                            <Heading>Options</Heading>
+                            <Center>
                                 <Button
-                                    backgroundColor="#FFF9A1"
+                                    backgroundColor={color}
                                     w="90%"
                                     rounded="lg"
                                     borderColor="#c4c4c4"
@@ -146,7 +159,7 @@ const getData = async () => {
                                     </Center>
                                 </Button>
                                 <Button
-                                    backgroundColor="#FFF9A1"
+                                    backgroundColor={color}
                                     w="90%"
                                     rounded="lg"
                                     borderColor="#c4c4c4"
@@ -161,7 +174,7 @@ const getData = async () => {
                                     </Center>
                                 </Button>
                                 <Button
-                                    backgroundColor="#FFF9A1"
+                                    backgroundColor={color}
                                     w="90%"
                                     rounded="lg"
                                     borderColor="#c4c4c4"
@@ -176,7 +189,7 @@ const getData = async () => {
                                     </Center>
                                 </Button>
                                 <Button
-                                    backgroundColor="#FFF9A1"
+                                    backgroundColor={color}
                                     w="90%"
                                     rounded="lg"
                                     borderColor="#c4c4c4"
@@ -191,6 +204,7 @@ const getData = async () => {
                                     </Center>
                                 </Button>
                             </Center>
+                            </VStack>
                         </Box>
                     </Center>
                 </VStack>

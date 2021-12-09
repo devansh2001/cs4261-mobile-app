@@ -32,6 +32,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 
 const ProvidersView = ({navigation, route}) => {
+    var color = "#fff785"
     // https://stackoverflow.com/a/70110510
     useFocusEffect(
         useCallback(() => {
@@ -95,6 +96,7 @@ const getData = async () => {
     console.log("Day Filter Option: " + day_filter_option)
     console.log("Start Time Filter Option: " + start_time_filter_option)
     console.log("End Filter Option: " + end_time_filter_option)
+
 
     let url = 'https://cs4261-availability-service.herokuapp.com/get-filtered-availability/' + service
     if (price_filter_option === '') {
@@ -262,7 +264,7 @@ const getData = async () => {
 
                     <Container py={3}>
                         <Button
-                            bg="#FFF9A1"
+                            bg={color}
                             rounded="lg"
                             borderColor="#c4c4c4"
                             borderWidth="1"

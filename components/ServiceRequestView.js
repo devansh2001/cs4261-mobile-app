@@ -32,6 +32,7 @@ import { ScrollView } from "react-native";
 
 const ServiceRequestView = ({navigation, route}) => {
     // https://stackoverflow.com/a/70110510
+    var color = "#fff785"
     useFocusEffect(
         useCallback(() => {
             const startTime = Date.now();
@@ -209,7 +210,7 @@ const newTask = async () => {
                         // h="20%" //FIX THIS, TEXT DOES NOT WRAP
                     />
                     <Button
-                        bg="#FFF9A1"
+                        bg={color}
                         rounded="lg"
                         borderColor="#c4c4c4"
                         borderWidth="1"

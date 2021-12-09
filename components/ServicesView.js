@@ -32,6 +32,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 const ServicesView = ({navigation, route}) => {
     // https://stackoverflow.com/a/70110510
+    var color = "#fff785"
     useFocusEffect(
         useCallback(() => {
             const startTime = Date.now();
@@ -63,24 +64,6 @@ const ServicesView = ({navigation, route}) => {
         }, [])
     );
 
-let vdata = [
-//replace this with data from database
-    {
-        service_id: "57",
-        service_name: "Dog Walking",
-        service_description: "Walk dogs"
-    },
-    {
-        service_id: "58",
-        service_name: "Cat sitting",
-        service_description: "Give cats food and water twice a day"
-    },
-    {
-        service_id: "59",
-        service_name: "Dog Sitting",
-        service_description: "Walk dogs, feed them, and let them outside"
-    },
-]
 const { category, userId } = route.params;
 
 const [data, setData] = useState([]);
@@ -126,6 +109,10 @@ const getData = async () => {
                     />
                     <Button
                         margin="20px"
+                        bg={color}
+                        borderColor="#c4c4c4"
+                        borderWidth="1"
+                        shadow="0"
                         onPress={() =>
                             navigation.navigate('ServiceCreateNew',{userId:userId})
                         }

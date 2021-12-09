@@ -23,6 +23,7 @@ import * as EmailValidator from 'email-validator';
 
 const LoginView = (props) => {
     // https://reactnavigation.org/docs/use-navigation/
+    var color = "#fff785"
     const navigation = useNavigation();
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
@@ -90,7 +91,7 @@ const LoginView = (props) => {
             <ScrollView>
                 <VStack mt="50">
                     <Center>
-                        <Heading>Login to get started!</Heading>
+                        <Heading>Login to get started using BusyBee!</Heading>
                     </Center>
                 </VStack>
             
@@ -112,7 +113,7 @@ const LoginView = (props) => {
                         <Input onChangeText={handlePasswordChange} type='password' variant='rounded' placeholder='P@$$w0rd' />
                     </VStack>
                     {/* https://docs.nativebase.io/button */}
-                    <Button backgroundColor='#fff9a1' shadow='5' _text={{color: 'black'}} onPress={handleLogin}>
+                    <Button backgroundColor={color} shadow='5' _text={{color: 'black'}} onPress={handleLogin}>
                         Log Me In!
                     </Button>
 
@@ -120,7 +121,7 @@ const LoginView = (props) => {
                     <VStack>
                         <Text>Don't have an account?</Text>
                         <Button
-                        backgroundColor='#fff9a1'
+                        backgroundColor={color}
                         shadow='5'
                         _text={{color: 'black'}}
                         onPress={() =>

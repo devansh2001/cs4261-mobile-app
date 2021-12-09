@@ -6,7 +6,7 @@ const InfoButton = (
     <Popover
         trigger={
             (props) => {
-                return <Button {...props}>?</Button>
+                return <Button {...props} px={1} py={0}>?</Button>
             }
         }
     >
@@ -15,6 +15,7 @@ const InfoButton = (
         </Popover.Content>
     </Popover>
 )
+
 
 class PointsInfo extends React.Component {
     constructor(props) {

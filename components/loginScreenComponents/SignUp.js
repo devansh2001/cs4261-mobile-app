@@ -32,6 +32,7 @@ const SignUpView = ({navigation}) => {
     const [invalidEmailAlert, setInvalidEmailAlert] = useState(false);
     const [profilePicture, setProfilePicture] = useState('');
     const [userType, setUserType] = useState('consumer');
+    var color = "#fff785"
 
     const handleFirstNameChange = (e) => {
         setFName(e);
@@ -218,7 +219,7 @@ const SignUpView = ({navigation}) => {
                     <VStack>
                         <Text>Already have an account?</Text>
                         <Button
-                            backgroundColor='#fff9a1'
+                            backgroundColor={color}
                             shadow='5'
                             _text={{color: 'black'}}
                             onPress={() =>

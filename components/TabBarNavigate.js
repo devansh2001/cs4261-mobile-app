@@ -53,7 +53,7 @@ export default function TabBarNavigate(props) {
           }
 
         },
-        tabBarActiveTintColor: 'blue',
+        tabBarActiveTintColor: 'deepskyblue',
         tabBarInactiveTintColor: 'gray',
         headerShown: false
       })}

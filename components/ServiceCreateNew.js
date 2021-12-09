@@ -29,6 +29,7 @@ import TopBar from "./sharedComponents/TopBar";
 import { ScrollView } from "react-native";
 
 const ServiceCreateNew = ({navigation, route}) => {
+    var color = "#fff785"
     // https://stackoverflow.com/a/70110510
     useFocusEffect(
         useCallback(() => {
@@ -157,7 +158,7 @@ const newService = async () => {
                     />
                     <Container py={10}>
                     <Button
-                        bg="#FFF9A1"
+                        bg={color}
                         rounded="lg"
                         borderColor="#c4c4c4"
                         borderWidth="1"

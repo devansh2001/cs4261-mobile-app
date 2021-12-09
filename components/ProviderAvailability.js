@@ -48,7 +48,7 @@ var sundayEndStr = "19:15:00"
 
 
 const ProviderAvailability = ({navigation, route}) => {
-
+    var color = "#fff785"
     // https://stackoverflow.com/a/70110510
     useFocusEffect(
         useCallback(() => {
@@ -383,8 +383,10 @@ const ProviderAvailability = ({navigation, route}) => {
             <VStack h="100%" w="100%">
                 <Center h="100%" w="100%">
                     <TopBar/>
+                    <Box h="95%" w="100%">
                     <ScrollView>
-                    <VStack h="95%" w="100%" py={2} px={2} space={3}>
+
+                    <VStack py={2} px={2} space={3}>
                         <Heading>Enter New Availability</Heading>
                         <Text>Service Name</Text>
 
@@ -420,6 +422,10 @@ const ProviderAvailability = ({navigation, route}) => {
                         <Text>Monday</Text>
                         <Button
                             w="50%"
+                            bg={color}
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="0"
                             onPress={showTimepickerMon}
                         >
                             <Text>Start Time</Text>
@@ -438,6 +444,10 @@ const ProviderAvailability = ({navigation, route}) => {
                         )}
                         <Button
                             w="50%"
+                            bg={color}
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="0"
                             onPress={showTimepickerMon}
                         >
                             <Text>End Time</Text>
@@ -457,6 +467,10 @@ const ProviderAvailability = ({navigation, route}) => {
                         <Text>Tuesday</Text>
                         <Button
                             w="50%"
+                            bg={color}
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="0"
                             onPress={showTimepickerTues}
                         >
                             <Text>Start Time</Text>
@@ -474,6 +488,10 @@ const ProviderAvailability = ({navigation, route}) => {
                         )}
                         <Button
                             w="50%"
+                            bg={color}
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="0"
                             onPress={showTimepickerTues}
                         >
                             <Text>End Time</Text>
@@ -492,6 +510,10 @@ const ProviderAvailability = ({navigation, route}) => {
                         <Text>Wednesday</Text>
                         <Button
                             w="50%"
+                            bg={color}
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="0"
                             onPress={showTimepickerWed}
                         >
                             <Text>Start Time</Text>
@@ -509,6 +531,10 @@ const ProviderAvailability = ({navigation, route}) => {
                         )}
                         <Button
                             w="50%"
+                            bg={color}
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="0"
                             onPress={showTimepickerWed}
                         >
                             <Text>End Time</Text>
@@ -527,6 +553,10 @@ const ProviderAvailability = ({navigation, route}) => {
                         <Text>Thursday</Text>
                         <Button
                             w="50%"
+                            bg={color}
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="0"
                             onPress={showTimepickerThurs}
                         >
                             <Text>Start Time</Text>
@@ -544,6 +574,10 @@ const ProviderAvailability = ({navigation, route}) => {
                         )}
                         <Button
                             w="50%"
+                            bg={color}
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="0"
                             onPress={showTimepickerThurs}
                         >
                             <Text>End Time</Text>
@@ -562,6 +596,10 @@ const ProviderAvailability = ({navigation, route}) => {
                         <Text>Friday</Text>
                         <Button
                             w="50%"
+                            bg={color}
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="0"
                             onPress={showTimepickerFri}
                         >
                             <Text>Start Time</Text>
@@ -579,6 +617,10 @@ const ProviderAvailability = ({navigation, route}) => {
                         )}
                         <Button
                             w="50%"
+                            bg={color}
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="0"
                             onPress={showTimepickerFri}
                         >
                             <Text>End Time</Text>
@@ -597,6 +639,10 @@ const ProviderAvailability = ({navigation, route}) => {
                         <Text>Saturday</Text>
                         <Button
                             w="50%"
+                            bg={color}
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="0"
                             onPress={showTimepickerSat}
                         >
                             <Text>Start Time</Text>
@@ -614,6 +660,10 @@ const ProviderAvailability = ({navigation, route}) => {
                         )}
                         <Button
                             w="50%"
+                            bg={color}
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="0"
                             onPress={showTimepickerSat}
                         >
                             <Text>End Time</Text>
@@ -632,6 +682,10 @@ const ProviderAvailability = ({navigation, route}) => {
                         <Text>Sunday</Text>
                         <Button
                             w="50%"
+                            bg={color}
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="0"
                             onPress={showTimepickerSun}
                         >
                             <Text>Start Time</Text>
@@ -649,6 +703,10 @@ const ProviderAvailability = ({navigation, route}) => {
                         )}
                         <Button
                             w="50%"
+                            bg={color}
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="0"
                             onPress={showTimepickerSun}
                         >
                             <Text>End Time</Text>
@@ -666,7 +724,7 @@ const ProviderAvailability = ({navigation, route}) => {
                         )}
                         <Container py={10}>
                             <Button
-                                bg="#FFF9A1"
+                                bg={color}
                                 rounded="lg"
                                 borderColor="#c4c4c4"
                                 borderWidth="1"
@@ -679,7 +737,9 @@ const ProviderAvailability = ({navigation, route}) => {
                             </Button>
                         </Container>
                     </VStack>
+
                     </ScrollView>
+                    </Box>
                 </Center>
             </VStack>
 

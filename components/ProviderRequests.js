@@ -31,6 +31,7 @@ const ProviderRequests = ({navigation, route}) => {
     const { user_id } = route.params;
     const [requestedData, setRequestedData] = useState([]);
     const [scheduledData, setScheduledData] = useState([]);
+    var color = "#fff785"
 
     const startTime = new Date().getMilliseconds();
     const getRequestedData = async () => {

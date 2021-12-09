@@ -82,26 +82,30 @@ const getData = async () => {
         <VStack h="100%" w="100%">
             <Center h="100%" w="100%">
                 <TopBar/>
-                <Heading>Payment History</Heading>
-                <FlatList
-                    w="100%"
-                    space={1}
-                    data={data}
-                    renderItem={({ item }) => (
-                        <Box
-                            w="100%"
-                            borderColor="#c4c4c4"
-                            borderWidth={1}
-                        >
-                            <HStack space={3} px={1}>
-                                <Text>${item.task_price}</Text>
-                                <Text>{item.service_name}</Text>
-                                <Text>Status: {item.task_status}</Text>
-                            </HStack>
-                        </Box>
-                    )}
-                    keyExtractor={(item) => item.service_id}
-                />
+                <Box h="95%" w="100%">
+                    <Center>
+                        <Heading>Payment History</Heading>
+                    </Center>
+                    <FlatList
+                        w="100%"
+                        space={1}
+                        data={data}
+                        renderItem={({ item }) => (
+                            <Box
+                                w="100%"
+                                borderColor="#c4c4c4"
+                                borderWidth={1}
+                            >
+                                <HStack space={3} px={1}>
+                                    <Text>${item.task_price}</Text>
+                                    <Text>{item.service_name}</Text>
+                                    <Text>Status: {item.task_status}</Text>
+                                </HStack>
+                            </Box>
+                        )}
+                        keyExtractor={(item) => item.service_id}
+                    />
+                </Box>
             </Center>
         </VStack>
     )

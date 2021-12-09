@@ -31,7 +31,7 @@ import { Feather } from '@expo/vector-icons';
 
 
 const ProviderDetailView = ({navigation, route}) => {
-
+    var color = "#fff785"
     // https://stackoverflow.com/a/70110510
     useFocusEffect(
         useCallback(() => {
@@ -125,7 +125,7 @@ days = days.join('\n')
                     <Center>
 
                         <Button
-                            backgroundColor="#FFF9A1"
+                            backgroundColor={color}
                             w="50%"
                             rounded="lg"
                             borderColor="#c4c4c4"
@@ -172,7 +172,7 @@ days = days.join('\n')
                     />
                     <Center py={5}>
                     <Button
-                        backgroundColor="#FFF9A1"
+                        backgroundColor={color}
                         w="50%"
                         rounded="lg"
                         borderColor="#c4c4c4"

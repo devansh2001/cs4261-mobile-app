@@ -44,6 +44,7 @@ const handleRating = (e) => {
 const { provider,service_id, user } = route.params;
 
 const newReview = async () => {
+
     const headers = new Headers();
     // https://stackoverflow.com/a/52936747
     headers.append('Access-Control-Allow-Origin', 'http://localhost')
@@ -67,7 +68,7 @@ const newReview = async () => {
     .catch(err => console.log(err))
   }
 
-
+    var color = "#fff785"
     // https://stackoverflow.com/a/70110510
     useFocusEffect(
         useCallback(() => {
@@ -122,7 +123,7 @@ const newReview = async () => {
                     />
                     <Container py={10}>
                     <Button
-                        bg="#FFF9A1"
+                        bg={color}
                         rounded="lg"
                         borderColor="#c4c4c4"
                         borderWidth="1"
