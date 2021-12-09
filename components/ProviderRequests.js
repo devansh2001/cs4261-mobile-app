@@ -23,7 +23,6 @@ import {
     Divider,
     Button, Card,
 } from "native-base";
-import BottomBar from "./sharedComponents/BottomBar";
 import TopBar from "./sharedComponents/TopBar";
 import { useNavigation } from "@react-navigation/native";
 

@@ -23,7 +23,6 @@ import {
   Divider,
   Button,
 } from "native-base";
-import BottomBar from "./sharedComponents/BottomBar";
 import TopBar from "./sharedComponents/TopBar";
 import { useNavigation } from "@react-navigation/native";
 import PointsInfo from "./PointsInfo";
@@ -129,85 +128,85 @@ const getData = async () => {
     }else{
     return(
         <VStack h="100%" w="100%">
-                    <Center h="100%" w="100%">
-                        <TopBar/>
-                        <Box h="95%" w="100%">
-                            <VStack space={3} px={2}>
-                            <Center>
-                                <Heading>Settings</Heading>
-                            </Center>
-
-                            <Heading>Rewards</Heading>
-                            <Center>
-                                <PointsInfo user={props.route.params.userId} />
-                            </Center>
-                            <Heading>Options</Heading>
-                            <Center>
-                                <Button
-                                    backgroundColor={color}
-                                    w="90%"
-                                    rounded="lg"
-                                    borderColor="#c4c4c4"
-                                    borderWidth="1"
-                                    shadow="2"
-                                    onPress={() =>
-                                        navigation.navigate("PaymentHistory",{user_id:props.route.params.userId})
-                                    }
-                                >
-                                    <Center>
-                                        <Text>Payment History</Text>
-                                    </Center>
-                                </Button>
-                                <Button
-                                    backgroundColor={color}
-                                    w="90%"
-                                    rounded="lg"
-                                    borderColor="#c4c4c4"
-                                    borderWidth="1"
-                                    shadow="2"
-                                    onPress={() =>
-                                        navigation.navigate("Availability",{user_id:props.route.params.userId})
-                                    }
-                                >
-                                    <Center>
-                                        <Text>Availability</Text>
-                                    </Center>
-                                </Button>
-                                <Button
-                                    backgroundColor={color}
-                                    w="90%"
-                                    rounded="lg"
-                                    borderColor="#c4c4c4"
-                                    borderWidth="1"
-                                    shadow="2"
-                                    onPress={() =>
-                                        navigation.navigate("RequestsView",{user_id:props.route.params.userId})
-                                    }
-                                >
-                                    <Center>
-                                        <Text>Provider Requests</Text>
-                                    </Center>
-                                </Button>
-                                <Button
-                                    backgroundColor={color}
-                                    w="90%"
-                                    rounded="lg"
-                                    borderColor="#c4c4c4"
-                                    borderWidth="1"
-                                    shadow="2"
-                                    //onPress={() =>
-                                    //log out
-                                    //}
-                                >
-                                    <Center>
-                                        <Text>Log Out</Text>
-                                    </Center>
-                                </Button>
-                            </Center>
-                            </VStack>
-                        </Box>
+            <Center h="100%" w="100%">
+                <TopBar/>
+                <Box h="95%" w="100%">
+                    <VStack space={3} px={2}>
+                    <Center>
+                        <Heading>Settings</Heading>
                     </Center>
-                </VStack>
+
+                    <Heading>Rewards</Heading>
+                    <Center>
+                        <PointsInfo user={props.route.params.userId} />
+                    </Center>
+                    <Heading>Options</Heading>
+                    <Center>
+                        <Button
+                            backgroundColor={color}
+                            w="90%"
+                            rounded="lg"
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="2"
+                            onPress={() =>
+                                navigation.navigate("PaymentHistory",{user_id:props.route.params.userId})
+                            }
+                        >
+                            <Center>
+                                <Text>Payment History</Text>
+                            </Center>
+                        </Button>
+                        <Button
+                            backgroundColor={color}
+                            w="90%"
+                            rounded="lg"
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="2"
+                            onPress={() =>
+                                navigation.navigate("Availability",{user_id:props.route.params.userId})
+                            }
+                        >
+                            <Center>
+                                <Text>Availability</Text>
+                            </Center>
+                        </Button>
+                        <Button
+                            backgroundColor={color}
+                            w="90%"
+                            rounded="lg"
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="2"
+                            onPress={() =>
+                                navigation.navigate("RequestsView",{user_id:props.route.params.userId})
+                            }
+                        >
+                            <Center>
+                                <Text>Provider Requests</Text>
+                            </Center>
+                        </Button>
+                        <Button
+                            backgroundColor={color}
+                            w="90%"
+                            rounded="lg"
+                            borderColor="#c4c4c4"
+                            borderWidth="1"
+                            shadow="2"
+                            //onPress={() =>
+                            //log out
+                            //}
+                        >
+                            <Center>
+                                <Text>Log Out</Text>
+                            </Center>
+                        </Button>
+                    </Center>
+                    </VStack>
+                </Box>
+            </Center>
+        </VStack>
     )
     }
 }

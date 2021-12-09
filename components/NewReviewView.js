@@ -22,7 +22,6 @@ import {
   FlatList,
   Button,
 } from "native-base";
-import BottomBar from "./sharedComponents/BottomBar";
 import TopBar from "./sharedComponents/TopBar";
 import { ScrollView } from "react-native";
 

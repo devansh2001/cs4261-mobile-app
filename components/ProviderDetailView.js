@@ -23,7 +23,6 @@ import {
   Divider,
   Button,
 } from "native-base";
-import BottomBar from "./sharedComponents/BottomBar";
 import TopBar from "./sharedComponents/TopBar";
 
 import { Feather } from '@expo/vector-icons';
