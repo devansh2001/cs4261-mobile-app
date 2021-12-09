@@ -75,11 +75,15 @@ const [task_price, setTaskPrice]  = useState('');
 const [errorMessageDate, setErrorMessageDate] = useState('')
 const [errorMessagePrice, setErrorMessagePrice] = useState('')
 
-prefillMinPriceForService = async () => {
-    await fetch('https://cs4261-availability-service.herokuapp.com/' + provider + '/' + service_id)
-        .then(data => data.json)
+const prefillMinPriceForService = async () => {
+    console.log(provider + " and " + service_id)
+    await fetch('https://cs4261-availability-service.herokuapp.com/get-min-price/' + provider + '/' + service_id)
+        .then(data => data.json())
         .then(data => setTaskPrice(data['min_price']))
         .catch(error => console.log(error))
+
+    console.log('executing fetch')
+    console.log(task_price)
 }
 
 prefillMinPriceForService()
