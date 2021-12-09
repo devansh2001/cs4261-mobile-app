@@ -65,11 +65,28 @@ const ServiceRequestView = ({navigation, route}) => {
 
 const { provider,service_id,user,available,service_name_prefilled } = route.params;
 
+// https://stackoverflow.com/a/12795812
+let serviceDate = new Date(Date.now() + 24 * 60 * 60 * 1000);
+// console.log(serviceDate)
+// console.log("is tomorrow");
 const [service_name, setServiceName] = useState(route.params.service_name);
-const [task_date, setTaskDate]= useState('');
+const [task_date, setTaskDate]= useState(serviceDate.getFullYear() + "-" + (serviceDate.getMonth() + 1) + '-' + serviceDate.getDate());
 const [task_price, setTaskPrice]  = useState('');
 const [errorMessageDate, setErrorMessageDate] = useState('')
 const [errorMessagePrice, setErrorMessagePrice] = useState('')
+
+const prefillMinPriceForService = async () => {
+    console.log(provider + " and " + service_id)
+    await fetch('https://cs4261-availability-service.herokuapp.com/get-min-price/' + provider + '/' + service_id)
+        .then(data => data.json())
+        .then(data => setTaskPrice(data['min_price']))
+        .catch(error => console.log(error))
+
+    console.log('executing fetch')
+    console.log(task_price)
+}
+
+prefillMinPriceForService()
 
 const handleServiceName = (e) => {
     setServiceName(e)    
@@ -153,15 +170,17 @@ const newTask = async () => {
                         w="100%"
                     >
                         { service_name }
-
                     </Input>
                     <Text>Date</Text>
                     <Input
                         type="date"
                         onChangeText={handleTaskDate}
-                        placeholder="2021-10-25"
+                        placeholder="YYYY-MM-DD"
                         w="100%"
-                    />
+                    >
+                        { task_date }
+                        
+                    </Input>
                     <Box _text={{
                         bold: true
                     }}>
@@ -173,14 +192,16 @@ const newTask = async () => {
                         onChangeText={handleTaskPrice}
                         placeholder="$20.00"
                         w="100%"
-                    />
+                    >
+                        { task_price }
+                    </Input>
                     <Box _text={{
                         bold: true
                     }}>
                         {errorMessagePrice}
                     </Box>
                     
-                    <Text>Task Details</Text>
+                    <Text>Task Details (optional specific instructions)</Text>
                     <Input
                         type="text"
                         placeholder="Walk dogs"
