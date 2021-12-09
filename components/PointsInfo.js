@@ -55,14 +55,17 @@ class PointsInfo extends React.Component {
 
     }
 
-    componentDidMount = async () => {
-
+    refreshPoints = async () => {
         await fetch('https://cs4261-users-service.herokuapp.com/get-user/' + this.props.user)
         .then(data => data.json())
         .then(data => this.setState({
             user: data['user']
         }))
         .catch(err => console.log('error getting points'))
+    }
+
+    componentDidMount = () => {
+        this.refreshPoints()
     }
 
     render() {
@@ -72,6 +75,7 @@ class PointsInfo extends React.Component {
                 <Text>
                     You have { this.state.user.points } honeypots! {InfoButton}
                 </Text>
+                <Button onPress={this.refreshPoints}>Refresh</Button>
                 <Text>
                     { this.findNextClosestPoints() }
                 </Text>
