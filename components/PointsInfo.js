@@ -1,4 +1,4 @@
-import { Container, Text, Popover, Button } from 'native-base';
+import { Container, Text, Popover, Button, HStack } from 'native-base';
 import React from 'react';
 
 // https://docs.nativebase.io/popover
@@ -72,13 +72,16 @@ class PointsInfo extends React.Component {
         return (
             <Container>
                 {/* https://docs.nativebase.io/popover */}
+                <HStack space={3}>
                 <Text>
                     You have { this.state.user.points } honeypots! {InfoButton}
                 </Text>
-                <Button onPress={this.refreshPoints}>Refresh</Button>
+                <Button px={1} py={0} onPress={this.refreshPoints}>Refresh</Button>
+                </HStack>
                 <Text>
                     { this.findNextClosestPoints() }
                 </Text>
+
             </Container>
         )
     }
