@@ -188,7 +188,9 @@ const newTask = async () => {
                         onChangeText={handleTaskPrice}
                         placeholder="$20.00"
                         w="100%"
-                    />
+                    >
+                        { task_price }
+                    </Input>
                     <Box _text={{
                         bold: true
                     }}>
