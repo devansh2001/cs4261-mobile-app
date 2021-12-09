@@ -64,6 +64,7 @@ const ServiceRequestView = ({navigation, route}) => {
     );
 
 const { provider,service_id,user,available,service_name_prefilled } = route.params;
+
 // https://stackoverflow.com/a/12795812
 let serviceDate = new Date(Date.now() + 24 * 60 * 60 * 1000);
 // console.log(serviceDate)
@@ -73,6 +74,15 @@ const [task_date, setTaskDate]= useState(serviceDate.getFullYear() + "-" + (serv
 const [task_price, setTaskPrice]  = useState('');
 const [errorMessageDate, setErrorMessageDate] = useState('')
 const [errorMessagePrice, setErrorMessagePrice] = useState('')
+
+prefillMinPriceForService = async () => {
+    await fetch('https://cs4261-availability-service.herokuapp.com/' + provider + '/' + service_id)
+        .then(data => data.json)
+        .then(data => setTaskPrice(data['min_price']))
+        .catch(error => console.log(error))
+}
+
+prefillMinPriceForService()
 
 const handleServiceName = (e) => {
     setServiceName(e)    
