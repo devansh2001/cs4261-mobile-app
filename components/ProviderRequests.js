@@ -38,7 +38,7 @@ const ProviderRequests = ({navigation, route}) => {
         try {
             const response = await fetch(url + user_id + '/REQUESTED');
             console.log(user_id)
-            console.log(url + user_id + '/REQUESTED')
+            console.log(url + user_did + '/REQUESTED')
             const json = await response.json();
             console.log(json)
             setRequestedData(json.task);

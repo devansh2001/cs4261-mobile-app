@@ -66,6 +66,9 @@ const ServiceRequestView = ({navigation, route}) => {
 const { provider,service_id,user,available,service_name_prefilled } = route.params;
 
 const [service_name, setServiceName] = useState(route.params.service_name);
+const [task_date_month, setTaskDateMonth]= useState('');
+const [task_date_day, setTaskDateDay]= useState('');
+const [task_date_year, setTaskDateYear]= useState('2021');
 const [task_date, setTaskDate]= useState('');
 const [task_price, setTaskPrice]  = useState('');
 const [errorMessageDate, setErrorMessageDate] = useState('')
@@ -74,13 +77,22 @@ const [errorMessagePrice, setErrorMessagePrice] = useState('')
 const handleServiceName = (e) => {
     setServiceName(e)    
 }
-const handleTaskDate = (e) => {
-    if (validator.isDate(e)) {
-        setTaskDate(e)
-        setErrorMessageDate('')
-    } else {
-        setErrorMessageDate('Invalid Date!')
+const handleTaskDateMonth = (e) => {
+    setTaskDateMonth(e)
+    setErrorMessageDate('')
+}
+const handleTaskDateDay = (e) => {
+    setTaskDateDay(e)
+    setErrorMessageDate('')
+}
+const handleTaskDateYear = (e) => {
+    setTaskDateYear(e)
+    let date = task_date_year + "-" + task_date_month + "-" + task_date_day
+    if (validator.isDate(date)) {
+        setTaskDate(date)
+        console.log(task_date)
     }
+    setErrorMessageDate('')
 }
 const handleTaskPrice = (e) => {
     if (validator.isCurrency(e, {require_symbol: false, allow_negatives: false, digits_after_decimal: [2]})) {
@@ -91,13 +103,9 @@ const handleTaskPrice = (e) => {
     }
 }
 
-
-
-
-
 const newTask = async () => {
     if (!validator.isDate(task_date)) {
-        alert('Invalid Date!')
+        alert('Invalid Date!' + task_date)
     } else if (!validator.isCurrency(task_price, {require_symbol: false, allow_negatives: false, digits_after_decimal: [2]})) {
         alert('Invalid Price!')
     } else {
@@ -150,18 +158,30 @@ const newTask = async () => {
                         type="text"
                         onChangeText={handleServiceName}
                         placeholder="Task Name"
-                        w="100%"
-                    >
-                        { service_name }
-
-                    </Input>
-                    <Text>Date</Text>
-                    <Input
-                        type="date"
-                        onChangeText={handleTaskDate}
-                        placeholder="2021-10-25"
+                        defaultValue={service_name}
                         w="100%"
                     />
+                    <Text>Date</Text>
+                    <div style={{"width":"50%", "display":"flex"}}>
+                        <Input
+                            type="date_month"
+                            onChangeText={handleTaskDateMonth}
+                            placeholder="10"
+                            w="100%"
+                        />
+                        <Input
+                            type="date_day"
+                            onChangeText={handleTaskDateDay}
+                            placeholder="21"
+                            w="100%"
+                        />
+                        <Input
+                            type="date_year"
+                            onChangeText={handleTaskDateYear}
+                            placeholder="2021"
+                            w="100%"
+                        />
+                    </div>
                     <Box _text={{
                         bold: true
                     }}>
