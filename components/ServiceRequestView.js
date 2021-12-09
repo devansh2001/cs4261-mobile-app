@@ -79,7 +79,7 @@ const prefillMinPriceForService = async () => {
     console.log(provider + " and " + service_id)
     await fetch('https://cs4261-availability-service.herokuapp.com/get-min-price/' + provider + '/' + service_id)
         .then(data => data.json())
-        .then(data => setTaskPrice(data['min_price']))
+        .then(data => setTaskPrice(parseInt(data['min_price']) + 5 + '.00'))
         .catch(error => console.log(error))
 
     console.log('executing fetch')

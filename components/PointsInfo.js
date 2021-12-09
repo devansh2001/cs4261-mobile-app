@@ -39,13 +39,14 @@ class PointsInfo extends React.Component {
 
         try {
             const points = parseInt(this.state.user.points);
-            if (points > 0) {
-                return 'You are only ' + (500 - points) + ' honeypots away from ' + this.rewardsThresholds[0];
+            
+            if (points > 1000) {
+                return 'You are only ' + (2500 - points) + ' honeypots away from ' + this.rewardsThresholds[2];
             }
             else if (points > 500) {
                 return 'You are only ' + (1000 - points) + ' honeypots away from ' + this.rewardsThresholds[1];
-            } else if (points > 1000) {
-                return 'You are only ' + (2500 - points) + ' honeypots away from ' + this.rewardsThresholds[2];
+            } else if (points > 0) {
+                return 'You are only ' + (500 - points) + ' honeypots away from ' + this.rewardsThresholds[0];
             }
 
         } catch (e) {
